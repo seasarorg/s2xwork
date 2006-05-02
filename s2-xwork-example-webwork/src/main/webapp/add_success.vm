@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>S2XWork Add Application Result</title>
+  </head>
+  <body>
+    result: ${result}
+    <hr />
+    <a href="index.html">S2XWork Add Application</a>
+  </body>
+</html>

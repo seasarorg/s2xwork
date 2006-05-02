@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components21.dtd">
+<components>
+  <component class="org.seasar.xwork.XWorkConfigurer">
+    <initMethod name="init" />
+  </component>
+  <component class="org.seasar.xwork.example.webwork.AddServiceImpl" />
+  <component class="org.seasar.xwork.example.webwork.AddAction" instance="prototype" />
+</components>
