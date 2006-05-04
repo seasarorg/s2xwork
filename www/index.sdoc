@@ -18,16 +18,28 @@
 			<a href="http://www.opensymphony.com/">OpenSymphony</a>
 			の 開発しているコマンドパターンフレームワーク
 			<a href="http://www.opensymphony.com/xwork/">XWork</a>
-			からSeasar2を利用するコンポーネントを提供します。<p></p>
-			<a href="http://www.opensymphony.com/webwork/wikidocs/Spring.html">Webwork Spring Integration</a>と同じように
-			WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
+			からSeasar2を利用するコンポーネントを提供します。
+			<p></p>
+			<a
+				href="http://www.opensymphony.com/webwork/wikidocs/Spring.html">
+				Webwork Spring Integration
+			</a>
+			と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
 		</section>
 		<section title="ダウンロード">
 			現在のバージョンは0.2です。
 			<ul>
-				<li><a href="s2-xwork-0.2.jar">バイナリ(Jarファイル)</a></li>
-				<li><a href="s2-xwork-0.2-sources.jar">ソース</a></li>
-				<li><a href="s2-xwork-example-webwork-0.2.war">サンプル(WebWork2.2)</a></li>
+				<li>
+					<a href="s2-xwork-0.2.jar">バイナリ(Jarファイル)</a>
+				</li>
+				<li>
+					<a href="s2-xwork-0.2-sources.jar">ソース</a>
+				</li>
+				<li>
+					<a href="s2-xwork-example-webwork-0.2.war">
+						サンプル(WebWork2.2)
+					</a>
+				</li>
 			</ul>
 		</section>
 		<section title="インストール">
@@ -121,6 +133,9 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
 					</program>
 				</tt>
 			</subsection>
+		</section>
+		<section title="連絡先">
+			<a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a>
 		</section>
 		<section title="変更履歴">
 			<ul>

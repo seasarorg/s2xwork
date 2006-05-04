@@ -210,14 +210,15 @@ function setOHPHandler() {
 <ul>
 <li> <a href="#doc1_18" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">S2XWorkとは</a>
 <li> <a href="#doc1_32" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ダウンロード</a>
-<li> <a href="#doc1_50" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">インストール</a>
-<li> <a href="#doc1_53" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
+<li> <a href="#doc1_56" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">インストール</a>
+<li> <a href="#doc1_59" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
 <ul>
-<li> <a href="#doc1_55" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
-<li> <a href="#doc1_71" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
-<li> <a href="#doc1_94" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">webwork.properties</a>
+<li> <a href="#doc1_61" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
+<li> <a href="#doc1_77" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
+<li> <a href="#doc1_100" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">webwork.properties</a>
 </ul>
-<li> <a href="#doc1_106" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_112" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
+<li> <a href="#doc1_118" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -237,18 +238,18 @@ function setOHPHandler() {
 <li> <a href="s2-xwork-example-webwork-0.2.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
 
 
-<h2 id="doc1_50">インストール</h2>
+<h2 id="doc1_56">インストール</h2>
 
 <p class="first_ja">ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
 
-<h2 id="doc1_53">設定(WebWork2.2で使用する場合)</h2>
+<h2 id="doc1_59">設定(WebWork2.2で使用する場合)</h2>
 
 
-<h3 id="doc1_55">diconファイル</h3>
+<h3 id="doc1_61">diconファイル</h3>
 
 <p class="first_ja">diconファイルにS2ObjectFactoryを設定します。</p>
 <p></p>
-<p>autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。<span class="note"><a href="#doc1_59" onmouseover="hilightSelflink(this)" onmouseout="normal(this)" title="無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。"><sup>(1)</sup></a></span><tt><pre id="doc1_64" class="program">
+<p>autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。<span class="note"><a href="#doc1_65" onmouseover="hilightSelflink(this)" onmouseout="normal(this)" title="無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。"><sup>(1)</sup></a></span><tt><pre id="doc1_70" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
@@ -262,11 +263,11 @@ function setOHPHandler() {
 
 <div class="footnote">
 <ol>
-<li id="doc1_59" value="1"> 無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。</ol>
+<li id="doc1_65" value="1"> 無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。</ol>
 </div>
 
 
-<h3 id="doc1_71">web.xml</h3>
+<h3 id="doc1_77">web.xml</h3>
 
 <p class="first_ja">web.xmlに以下のコンポーネントを設定します。</p>
 
@@ -275,7 +276,7 @@ function setOHPHandler() {
 <li> com.opensymphony.webwork.dispatcher.FilterDispatcher
 <li> org.seasar.xwork.servlet.S2ContainerInitListener</ul>
 
-<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_87" class="program">
+<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_93" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> web-app
@@ -314,15 +315,19 @@ function setOHPHandler() {
 <span class="keyword">&lt;/web</span>-app<span class="keyword">&gt;</span>
 					</pre></tt></p>
 
-<h3 id="doc1_94">webwork.properties</h3>
+<h3 id="doc1_100">webwork.properties</h3>
 
-<p class="first_ja">webwork.propertiesに以下の記述を追加します。<tt><pre id="doc1_98" class="program">
+<p class="first_ja">webwork.propertiesに以下の記述を追加します。<tt><pre id="doc1_104" class="program">
 						
 webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory
 					
 </pre></tt></p>
 
-<h2 id="doc1_106">変更履歴</h2>
+<h2 id="doc1_112">連絡先</h2>
+
+<p class="first_ja"><a href="http://d.hatena.ne.jp/matobat/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">でべろっぱだいあり</a></p>
+
+<h2 id="doc1_118">変更履歴</h2>
 
 
 <ul>
