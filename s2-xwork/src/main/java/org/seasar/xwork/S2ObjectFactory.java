@@ -11,7 +11,7 @@ import com.opensymphony.xwork.ObjectFactory;
 public class S2ObjectFactory extends ObjectFactory {
 	protected final S2Container container;
 
-	/** オブジェクトが存在しない場合自動登録する */
+	/** オブジェクトがコンテナに登録されていない場合自動登録する */
 	private boolean autoRegist;
 
 	protected S2ObjectFactory(S2Container container) {
