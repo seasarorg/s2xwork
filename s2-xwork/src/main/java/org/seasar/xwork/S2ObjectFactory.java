@@ -14,7 +14,7 @@ public class S2ObjectFactory extends ObjectFactory {
 	/** オブジェクトがコンテナに登録されていない場合自動登録する */
 	private boolean autoRegist;
 
-	protected S2ObjectFactory(S2Container container) {
+	public S2ObjectFactory(S2Container container) {
 		this.container = container;
 	}
 
@@ -34,6 +34,10 @@ public class S2ObjectFactory extends ObjectFactory {
 			throws Exception {
 		Class clazz = getClassInstance(className);
 		return buildBean(clazz, extraContext);
+	}
+
+	public boolean isNoArgConstructorRequired() {
+		return false;
 	}
 
 	public boolean isAutoRegist() {
