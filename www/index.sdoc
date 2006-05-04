@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc xml:lang="ja">
+	<head>
+		<title>S2XWork</title>
+		<header></header>
+
+		<footer>
+			<hr />
+			<div align="right">
+				Copyright The Seasar Foundation and the others
+				2004-2005, all rights reserved.
+			</div>
+		</footer>
+	</head>
+	<body>
+		<section title="S2XWorkとは">
+			S2XWorkは
+			<a href="http://www.opensymphony.com/">OpenSymphony</a>
+			の 開発しているコマンドパターンフレームワーク
+			<a href="http://www.opensymphony.com/xwork/">XWork</a>
+			からSeasar2を利用するコンポーネントを提供します。<p></p>
+			<a href="http://www.opensymphony.com/webwork/wikidocs/Spring.html">Webwork Spring Integration</a>と同じように
+			WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
+		</section>
+		<section title="ダウンロード">
+			現在のバージョンは0.2です。
+			<ul>
+				<li><a href="s2-xwork-0.2.jar">バイナリ(Jarファイル)</a></li>
+				<li><a href="s2-xwork-0.2-sources.jar">ソース</a></li>
+				<li><a href="s2-xwork-example-webwork-0.2.war">サンプル(WebWork2.2)</a></li>
+			</ul>
+		</section>
+		<section title="インストール">
+			ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。
+		</section>
+		<section title="設定(WebWork2.2で使用する場合)">
+			<subsection title="diconファイル">
+				diconファイルにS2ObjectFactoryを設定します。
+				<p />
+				autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。
+				<note>
+					無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。
+				</note>
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <component class="org.seasar.xwork.S2ObjectFactory">
+    <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
+    <property name="autoRegist">false</property>
+  </component>
+</components>]]>
+					</program>
+				</tt>
+			</subsection>
+			<subsection title="web.xml">
+				web.xmlに以下のコンポーネントを設定します。
+				<ul>
+					<li>
+						org.seasar.framework.container.filter.S2ContainerFilter
+					</li>
+					<li>
+						com.opensymphony.webwork.dispatcher.FilterDispatcher
+					</li>
+					<li>
+						org.seasar.xwork.servlet.S2ContainerInitListener
+					</li>
+				</ul>
+				S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE web-app
+      PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+      "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>configPath</param-name>
+		<param-value>app.dicon</param-value>
+	</context-param>
+	<filter>
+		<filter-name>s2filter</filter-name>
+		<filter-class>
+			org.seasar.framework.container.filter.S2ContainerFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>webwork</filter-name>
+		<filter-class>
+			com.opensymphony.webwork.dispatcher.FilterDispatcher
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>s2filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>webwork</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>
+			org.seasar.xwork.servlet.S2ContainerInitListener
+		</listener-class>
+	</listener>
+</web-app>]]>
+					</program>
+				</tt>
+			</subsection>
+			<subsection title="webwork.properties">
+				webwork.propertiesに以下の記述を追加します。
+				<tt>
+					<program>
+						<![CDATA[
+webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
+					</program>
+				</tt>
+			</subsection>
+		</section>
+		<section title="変更履歴">
+			<ul>
+				<li>2006/5/5(金) 0.2リリース</li>
+			</ul>
+		</section>
+	</body>
+</doc>

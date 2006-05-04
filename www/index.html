@@ -1,23 +1,339 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/REC-html401/loose.dtd">
+<html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Language" content="ja" />
-<title>Welcome to the "s2xwork" project.</title>
+<meta http-equiv="Content-Type" content="text/html;charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="generator" content="SmartDoc 1.1">
+<title>S2XWork</title>
+<link rel="stylesheet" type="text/css" href="sdoc.css">
+<script type="text/javascript">
+<!--
+/*
+ * HTML4JavaScript.js
+ *
+ * @since   Nov. 17, 1998
+ * @version Feb. 18, 2002
+ * @author  ASAMI, Tomoharu (asami@XMLSmartDoc.org)
+ */
+var backupColor=null;
+var backupBGColor=null;
+var backupFontStyle=null;
+var backupIDColor=null;
+var backupIDBGColor=null;
+var backupIDFontStyle=null;
+var backupIDBorderStyle=null;
+
+var backupOnKeyDown=null;
+
+function normal(element) {
+  if (document.all) {
+    if (backupColor != null) {
+      element.style.color=backupColor;
+      backupColor=null;
+    }
+    if (backupBGColor != null) {
+      element.style.background=backupBGColor;
+      backupBGColor=null;
+    }
+    if (backupFontStyle != null) {
+      element.style.fontStyle=backupFontStyle;
+      backupFontStyle=null;
+    }
+    var id = null;
+    if (element.href != null) {
+      id = element.href;
+      id = id.substring(id.indexOf("#") + 1);
+    }
+    if (id != null) {
+      var target = document.all.item(id, 0);
+      if (backupIDColor != null) {
+        target.style.color=backupIDColor;
+        backupIDColor=null;
+      }
+      if (backupIDBGColor != null) {
+        target.style.background=backupIDBGColor;
+        backupIDBGColor=null;
+      }
+      if (backupIDFontStyle != null) {
+        target.style.fontStyle=backupIDFontStyle;
+        backupIDFontStyle=null;
+      }
+      if (backupIDBorderStyle != null) {
+        target.style.borderStyle=backupIDBorderStyle;
+        backupIDBorderStyle=null;
+      }
+    }
+  }
+}
+
+function hilight(element) {
+  if (document.all) {
+    backupBGColor=element.style.background;
+    element.style.background="gold";
+  }
+}
+
+function hilightString(element, color) {
+  if (color == null) {
+    color="darkolivegreen";
+  }
+  if (document.all) {
+    backupColor=element.style.color;
+    backupFontStyle=element.style.fontStyle;
+    element.style.color=color;
+  }
+}
+
+function hilightSelflink(element, color) {
+  if (color == null) {
+    color="darkolivegreen";
+  }
+  if (document.all) {
+    backupColor=element.style.color;
+    backupBGColor=element.style.background;
+    backupFontStyle=element.style.fontStyle;
+    element.style.color=color;
+    var id = null;
+    if (element.href != null) {
+      id = element.href;
+      id = id.substring(id.indexOf("#") + 1);
+    }
+    if (id != null) {
+      var target = document.all.item(id, 0);
+      backupIDColor=target.style.color;
+//      backupIDBGColor=target.style.background;
+//      backupIDFontStyle=target.style.fontStyle;
+      backupIDBorderStyle=target.style.borderStyle;
+      target.style.color="red";
+      target.style.borderStyle="outset";
+    }
+  }
+}
+
+function hilightHyperlink(element, color) {
+  if (color == null) {
+    color="darkorange";
+  }
+  if (document.all) {
+    backupColor=element.style.color;
+    backupBGColor=element.style.background;
+    backupFontStyle=element.style.fontStyle;
+    element.style.color=color;
+  }
+}
+
+function hilightExternallink(element, color) {
+  if (color == null) {
+    color="purple";
+  }
+  if (document.all) {
+    backupColor=element.style.color;
+    backupBGColor=element.style.background;
+    backupFontStyle=element.style.fontStyle;
+    element.style.color=color;
+  }
+}
+
+function toggleChildren(node) {
+  if (document.all) {
+    for (i = 0;i < node.children.length;i++) {
+      var child = node.children[i];
+      if (child.className == "dynamic") {
+        if (child.style.display == "") {
+            child.style.display = "none";
+        } else {
+            child.style.display = "";
+        }
+      }
+    }
+  }
+}
+
+function toggleDynamic(node) {
+  if (document.all) {
+    if (node.tagName == "LI") {
+      toggleChildren(node);
+    }
+  }
+}
+
+function isMsie4orGreater() { 
+  var ua = window.navigator.userAgent; var msie = ua.indexOf ("MSIE");
+  if (msie > 0) {
+    return (parseInt (ua.substring (msie+5, ua.indexOf (".", msie))) >= 4)   
+      && (ua.indexOf ("MSIE 4.0b") <0);
+  } else {
+    return false;
+  }
+}
+
+function keyEventHandler() {
+  if (document.all) {
+    if (event.keyCode == 13) {
+      var child = document.all.item("doc_next_page_", 0);
+      if (child != null) {
+        location.href = child.href;
+      }
+    } else if (event.keyCode == 39) {
+      var child = document.all.item("doc_next_page_", 0);
+      if (child != null) {
+        location.href = child.href;
+      }
+    } else if (event.keyCode = 37) {
+      var child = document.all.item("doc_prev_page_", 0);
+      if (child != null) {
+        location.href = child.href;
+      }
+    } else {
+      backupOnKeyDown();
+    }
+  }
+}
+
+function setOHPHandler() {
+  backupOnKeyDown=document.onkeydown;
+  document.onkeydown=keyEventHandler;
+}
+// -->
+</script>
 </head>
-
 <body>
+<div class="header"></div>
 
-<h1>Welcome to the "s2xwork" project.</h1>
+<h1 class="title">S2XWork</h1>
 
-<p>This page is generated by admin-scripts.<br />
-This page is managed in SVN repository, URL is<br />
-<a href="https://www.seasar.org/svn/sandbox/s2xwork/trunk/www/index.html">https://www.seasar.org/svn/sandbox/s2xwork/trunk/www/index.html</a></p>
+<h2>目次</h2>
 
-<p>Copyright &copy; 2006 The Seasar Foundation. All rights reserved.</p>
+<div class="toc">
+<ul>
+<li> <a href="#doc1_18" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">S2XWorkとは</a>
+<li> <a href="#doc1_32" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ダウンロード</a>
+<li> <a href="#doc1_50" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">インストール</a>
+<li> <a href="#doc1_53" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
+<ul>
+<li> <a href="#doc1_55" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
+<li> <a href="#doc1_71" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
+<li> <a href="#doc1_94" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">webwork.properties</a>
+</ul>
+<li> <a href="#doc1_106" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+</ul>
+</div>
 
+<h2 id="doc1_18">S2XWorkとは</h2>
+
+<p class="first_ja">S2XWorkは<a href="http://www.opensymphony.com/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">OpenSymphony</a>の開発しているコマンドパターンフレームワーク<a href="http://www.opensymphony.com/xwork/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">XWork</a>からSeasar2を利用するコンポーネントを提供します。</p>
+<p></p>
+<p><a href="http://www.opensymphony.com/webwork/wikidocs/Spring.html" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">Webwork Spring Integration</a>と同じようにWebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。</p>
+
+<h2 id="doc1_32">ダウンロード</h2>
+
+<p class="first_ja">現在のバージョンは0.2です。</p>
+
+<ul>
+<li> <a href="s2-xwork-0.2.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a>
+<li> <a href="s2-xwork-0.2-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>
+<li> <a href="s2-xwork-example-webwork-0.2.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
+
+
+<h2 id="doc1_50">インストール</h2>
+
+<p class="first_ja">ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
+
+<h2 id="doc1_53">設定(WebWork2.2で使用する場合)</h2>
+
+
+<h3 id="doc1_55">diconファイル</h3>
+
+<p class="first_ja">diconファイルにS2ObjectFactoryを設定します。</p>
+<p></p>
+<p>autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。<span class="note"><a href="#doc1_59" onmouseover="hilightSelflink(this)" onmouseout="normal(this)" title="無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。"><sup>(1)</sup></a></span><tt><pre id="doc1_64" class="program">
+						
+<span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+&lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;components</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;component</span> <span class="primitive">class=</span><span class="quote">&quot;org.seasar.xwork.S2ObjectFactory&quot;</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;initMethod</span><span class="keyword">&gt;</span>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)<span class="keyword">&lt;/initMethod</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;property</span> <span class="primitive">name=</span><span class="quote">&quot;autoRegist&quot;</span><span class="keyword">&gt;</span>false<span class="keyword">&lt;/property</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;/component</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;/components</span><span class="keyword">&gt;</span>
+					</pre></tt></p>
+
+<div class="footnote">
+<ol>
+<li id="doc1_59" value="1"> 無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。</ol>
+</div>
+
+
+<h3 id="doc1_71">web.xml</h3>
+
+<p class="first_ja">web.xmlに以下のコンポーネントを設定します。</p>
+
+<ul>
+<li> org.seasar.framework.container.filter.S2ContainerFilter
+<li> com.opensymphony.webwork.dispatcher.FilterDispatcher
+<li> org.seasar.xwork.servlet.S2ContainerInitListener</ul>
+
+<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_87" class="program">
+						
+<span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+&lt;<span class="keyword">!DOCTYPE</span> web-app
+      PUBLIC <span class="quote">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+      <span class="quote">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;web</span>-app<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;context</span>-param<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;param</span>-name<span class="keyword">&gt;</span>configPath<span class="keyword">&lt;/param</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;param</span>-value<span class="keyword">&gt;</span>app.dicon<span class="keyword">&lt;/param</span>-value<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/context</span>-param<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;filter</span><span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-name<span class="keyword">&gt;</span>s2filter<span class="keyword">&lt;/filter</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-class<span class="keyword">&gt;</span>
+			org.seasar.framework.container.filter.S2ContainerFilter
+		<span class="keyword">&lt;/filter</span>-class<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/filter</span><span class="keyword">&gt;</span>
+	<span class="keyword">&lt;filter</span><span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-name<span class="keyword">&gt;</span>webwork<span class="keyword">&lt;/filter</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-class<span class="keyword">&gt;</span>
+			com.opensymphony.webwork.dispatcher.FilterDispatcher
+		<span class="keyword">&lt;/filter</span>-class<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/filter</span><span class="keyword">&gt;</span>
+	<span class="keyword">&lt;filter</span>-mapping<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-name<span class="keyword">&gt;</span>s2filter<span class="keyword">&lt;/filter</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;url</span>-pattern<span class="keyword">&gt;</span>/*<span class="keyword">&lt;/url</span>-pattern<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/filter</span>-mapping<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;filter</span>-mapping<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;filter</span>-name<span class="keyword">&gt;</span>webwork<span class="keyword">&lt;/filter</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;url</span>-pattern<span class="keyword">&gt;</span>/*<span class="keyword">&lt;/url</span>-pattern<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/filter</span>-mapping<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;listener</span><span class="keyword">&gt;</span>
+		<span class="keyword">&lt;listener</span>-class<span class="keyword">&gt;</span>
+			org.seasar.xwork.servlet.S2ContainerInitListener
+		<span class="keyword">&lt;/listener</span>-class<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/listener</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;/web</span>-app<span class="keyword">&gt;</span>
+					</pre></tt></p>
+
+<h3 id="doc1_94">webwork.properties</h3>
+
+<p class="first_ja">webwork.propertiesに以下の記述を追加します。<tt><pre id="doc1_98" class="program">
+						
+webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory
+					
+</pre></tt></p>
+
+<h2 id="doc1_106">変更履歴</h2>
+
+
+<ul>
+<li> 2006/5/5(金) 0.2リリース</ul>
+
+<div class="footer">
+			<hr></hr>
+			
+<div><p>Copyright The Seasar Foundation and the others 2004-2005, all rights reserved.</p>
+</div>
+
+		</div>
 </body>
 </html>
-
