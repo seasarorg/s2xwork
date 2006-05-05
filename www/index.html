@@ -217,8 +217,12 @@ function setOHPHandler() {
 <li> <a href="#doc1_77" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
 <li> <a href="#doc1_100" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">webwork.properties</a>
 </ul>
-<li> <a href="#doc1_112" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
-<li> <a href="#doc1_118" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_112" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
+<ul>
+<li> <a href="#doc1_114" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でS2のコンポーネントにアクセスする</a>
+</ul>
+<li> <a href="#doc1_144" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
+<li> <a href="#doc1_150" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -230,12 +234,12 @@ function setOHPHandler() {
 
 <h2 id="doc1_32">ダウンロード</h2>
 
-<p class="first_ja">現在のバージョンは0.2です。</p>
+<p class="first_ja">現在のバージョンは0.3です。</p>
 
 <ul>
-<li> <a href="s2-xwork-0.2.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a>
-<li> <a href="s2-xwork-0.2-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>
-<li> <a href="s2-xwork-example-webwork-0.2.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
+<li> <a href="s2-xwork-0.3.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a>
+<li> <a href="s2-xwork-0.3-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>
+<li> <a href="s2-xwork-example-webwork-0.3.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
 
 
 <h2 id="doc1_56">インストール</h2>
@@ -323,15 +327,85 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory
 					
 </pre></tt></p>
 
-<h2 id="doc1_112">連絡先</h2>
+<h2 id="doc1_112">その他の機能</h2>
+
+
+<h3 id="doc1_114">ValueStack経由でS2のコンポーネントにアクセスする</h3>
+
+<p class="first_ja">S2CompontntInterceptorを使えば、ValueStack経由でS2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接S2内のDtoにセットしたり、画面などのResultからS2コンポーネントにアクセス出来るようになります。</p>
+
+<div id="doc1_116" class="caption">設定(diconファイル)</div>
+<div><p>S2CompontntInterceptorをコンポーネントに追加します。</p>
+<p></p>
+<p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_122" class="program">
+							
+&lt;component class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;
+						
+</pre></tt></p>
+</div>
+
+<div id="doc1_129" class="caption">設定(xwork.xml)</div>
+<div><p>interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、interceptor-ref要素でアクションに設定します。</p>
+<p></p>
+<p>以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。<tt><pre id="doc1_135" class="program">
+							
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE xwork PUBLIC &quot;-//OpenSymphony Group//XWork 1.1//EN&quot; \
+    &quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;&gt;
+&lt;xwork&gt;
+	&lt;include file=&quot;webwork-default.xml&quot; /&gt;
+	&lt;package name=&quot;default&quot; extends=&quot;webwork-default&quot;&gt;
+		&lt;interceptors&gt;
+			&lt;interceptor name=&quot;s2component&quot;
+				class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;
+			&lt;interceptor-stack name=&quot;s2componentStack&quot;&gt;
+				&lt;interceptor-ref name=&quot;exception&quot; /&gt;
+				&lt;interceptor-ref name=&quot;alias&quot; /&gt;
+				&lt;interceptor-ref name=&quot;servlet-config&quot; /&gt;
+				&lt;interceptor-ref name=&quot;prepare&quot; /&gt;
+				&lt;interceptor-ref name=&quot;i18n&quot; /&gt;
+				&lt;interceptor-ref name=&quot;chain&quot; /&gt;
+				&lt;interceptor-ref name=&quot;s2component&quot; /&gt;
+				&lt;interceptor-ref name=&quot;model-driven&quot; /&gt;
+				&lt;interceptor-ref name=&quot;fileUpload&quot; /&gt;
+				&lt;interceptor-ref name=&quot;static-params&quot; /&gt;
+				&lt;interceptor-ref name=&quot;params&quot; /&gt;
+				&lt;interceptor-ref name=&quot;conversionError&quot; /&gt;
+				&lt;interceptor-ref name=&quot;validation&quot;&gt;
+					&lt;param name=&quot;excludeMethods&quot;&gt;
+						input,back,cancel,browse
+					&lt;/param&gt;
+				&lt;/interceptor-ref&gt;
+				&lt;interceptor-ref name=&quot;workflow&quot;&gt;
+					&lt;param name=&quot;excludeMethods&quot;&gt;
+						input,back,cancel,browse
+					&lt;/param&gt;
+				&lt;/interceptor-ref&gt;
+			&lt;/interceptor-stack&gt;
+		&lt;/interceptors&gt;
+		&lt;action name=&quot;add&quot;
+			class=&quot;org.seasar.xwork.example.webwork.AddAction&quot;&gt;
+			&lt;interceptor-ref name=&quot;s2componentStack&quot; /&gt;
+			&lt;result name=&quot;success&quot; type=&quot;velocity&quot;&gt;add_success.vm&lt;/result&gt;
+		&lt;/action&gt;
+	&lt;/package&gt;
+&lt;/xwork&gt;
+						
+</pre></tt></p>
+</div>
+
+<h2 id="doc1_144">連絡先</h2>
 
 <p class="first_ja"><a href="http://d.hatena.ne.jp/matobat/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">でべろっぱだいあり</a></p>
 
-<h2 id="doc1_118">変更履歴</h2>
+<h2 id="doc1_150">変更履歴</h2>
 
 
-<ul>
-<li> 2006/5/5(金) 0.2リリース</ul>
+<dl>
+<dt>2006/5/5(金) 0.3リリース
+<dd>S2ComponentInterceptorの追加
+<dt>2006/5/5(金) 0.2リリース
+<dd>WebWork2.2対応</dl>
 
 <div class="footer">
 			<hr></hr>

@@ -27,16 +27,16 @@
 			と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
 		</section>
 		<section title="ダウンロード">
-			現在のバージョンは0.2です。
+			現在のバージョンは0.3です。
 			<ul>
 				<li>
-					<a href="s2-xwork-0.2.jar">バイナリ(Jarファイル)</a>
+					<a href="s2-xwork-0.3.jar">バイナリ(Jarファイル)</a>
 				</li>
 				<li>
-					<a href="s2-xwork-0.2-sources.jar">ソース</a>
+					<a href="s2-xwork-0.3-sources.jar">ソース</a>
 				</li>
 				<li>
-					<a href="s2-xwork-example-webwork-0.2.war">
+					<a href="s2-xwork-example-webwork-0.3.war">
 						サンプル(WebWork2.2)
 					</a>
 				</li>
@@ -134,13 +134,83 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
 				</tt>
 			</subsection>
 		</section>
+		<section title="その他の機能">
+			<subsection title="ValueStack経由でS2のコンポーネントにアクセスする">
+				S2CompontntInterceptorを使えば、ValueStack経由でS2のコンポーネントにアクセス出来るようになります。
+				これによりリクエストパラメータを直接S2内のDtoにセットしたり、画面などのResultからS2コンポーネントにアクセス出来るようになります。
+				<div title="設定(diconファイル)">
+					S2CompontntInterceptorをコンポーネントに追加します。
+					<p></p>
+					ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。
+					<tt>
+						<program>
+							<![CDATA[
+<component class="org.seasar.xwork.component.S2ComponentInterceptor" />]]>
+						</program>
+					</tt>
+				</div>
+				<div title="設定(xwork.xml)">
+					interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、
+					interceptor-ref要素でアクションに設定します。<p></p>
+					以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。
+					<tt>
+						<program>
+							<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<include file="webwork-default.xml" />
+	<package name="default" extends="webwork-default">
+		<interceptors>
+			<interceptor name="s2component"
+				class="org.seasar.xwork.component.S2ComponentInterceptor" />
+			<interceptor-stack name="s2componentStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="s2component" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="add"
+			class="org.seasar.xwork.example.webwork.AddAction">
+			<interceptor-ref name="s2componentStack" />
+			<result name="success" type="velocity">add_success.vm</result>
+		</action>
+	</package>
+</xwork>]]>
+						</program>
+					</tt>
+				</div>
+			</subsection>
+		</section>
 		<section title="連絡先">
 			<a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a>
 		</section>
 		<section title="変更履歴">
-			<ul>
-				<li>2006/5/5(金) 0.2リリース</li>
-			</ul>
+			<dl>
+				<dt>2006/5/5(金) 0.3リリース</dt>
+				<dd>S2ComponentInterceptorの追加</dd>
+				<dt>2006/5/5(金) 0.2リリース</dt>
+				<dd>WebWork2.2対応</dd>
+			</dl>
 		</section>
 	</body>
 </doc>
