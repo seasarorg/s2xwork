@@ -5,7 +5,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2</version>
+	<version>0.3</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<developers>
@@ -37,7 +37,8 @@
 		<url>
 			http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork%2F
 		</url>
-	</scm>	<organization>
+	</scm>
+	<organization>
 		<name>The Seasar Foundation</name>
 		<url>http://www.seasar.org/</url>
 	</organization>
@@ -67,32 +68,32 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-    <plugins>
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>javadoc-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>source-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>javadoc-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 	<dependencies>
 		<dependency>
