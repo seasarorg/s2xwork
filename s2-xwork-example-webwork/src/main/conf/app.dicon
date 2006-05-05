@@ -5,6 +5,8 @@
     <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
     <property name="autoRegist">false</property>
   </component>
+  <component class="org.seasar.xwork.component.S2ComponentInterceptor" />
   <component class="org.seasar.xwork.example.webwork.AddServiceImpl" />
   <component class="org.seasar.xwork.example.webwork.AddAction" instance="prototype" />
+  <component name="addDto" class="org.seasar.xwork.example.webwork.AddDto" instance="request" />
 </components>

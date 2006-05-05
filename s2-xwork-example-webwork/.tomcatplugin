@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcatProjectProperties>
-    <rootDir>/target/s2-xwork-example-webwork-1.0-RC1-SNAPSHOT</rootDir>
+    <rootDir>/target/s2-xwork-example-webwork-0.3</rootDir>
     <exportSource>false</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>/s2-xwork-example-webwork.xml</webPath>
+    <webPath>/s2-xwork-example-webwork</webPath>
 </tomcatProjectProperties>

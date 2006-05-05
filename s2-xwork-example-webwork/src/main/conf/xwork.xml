@@ -3,12 +3,40 @@
 <xwork>
 	<include file="webwork-default.xml" />
 	<package name="default" extends="webwork-default">
+		<interceptors>
+			<interceptor name="s2component"
+				class="org.seasar.xwork.component.S2ComponentInterceptor" />
+			<interceptor-stack name="s2componentStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="s2component" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
 		<action name="add"
 			class="org.seasar.xwork.example.webwork.AddAction">
+			<interceptor-ref name="s2componentStack" />
 			<result name="success" type="velocity">
 				add_success.vm
 			</result>
-			<interceptor-ref name="defaultStack" />
 		</action>
 	</package>
 </xwork>
