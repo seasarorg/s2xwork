@@ -5,7 +5,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
 	<packaging>jar</packaging>
-	<version>0.3</version>
+	<version>0.4</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<developers>
@@ -44,6 +44,14 @@
 	</organization>
 	<build>
 		<defaultGoal>validate</defaultGoal>
+		<resources>
+			<resource>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

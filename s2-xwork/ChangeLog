@@ -1,4 +1,10 @@
+2006-05-06 matobat <matobat@gmail.com>
+	* 0.4リリース:
+	-DelegateObjectFactoryの削除
+
 2006-05-05 matobat <matobat@gmail.com>
+	* 0.3リリース:
+	-S2ComponentInterceptorの追加
 
 	* 0.2リリース: 
 	-WebWork2.2対応

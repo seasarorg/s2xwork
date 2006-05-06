@@ -9,18 +9,14 @@ import org.seasar.framework.container.deployer.InstanceDefFactory;
 import org.seasar.framework.container.impl.ComponentDefImpl;
 import org.seasar.framework.container.impl.PropertyDefImpl;
 import org.seasar.framework.container.impl.S2ContainerImpl;
-import org.seasar.xwork.S2ObjectFactory;
 
 import com.opensymphony.xwork.util.OgnlValueStack;
 
 public class S2ComponentMapTest extends TestCase {
 	private S2Container container;
 
-	private S2ObjectFactory objectFactory;
-
 	protected void setUp() throws Exception {
 		container = new S2ContainerImpl();
-		objectFactory = new S2ObjectFactory(container);
 	}
 
 	public void testFindValue() throws Exception {
