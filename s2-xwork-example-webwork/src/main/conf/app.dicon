@@ -5,6 +5,12 @@
     <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
     <property name="autoRegist">false</property>
   </component>
+  <component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
+    <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+  </component>
+  <component class="org.seasar.xwork.annotation.AnnotaionConfigurationProvider">
+    <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+  </component>
   <component class="org.seasar.xwork.component.S2ComponentInterceptor" />
   <component class="org.seasar.xwork.example.webwork.AddServiceImpl" />
   <component class="org.seasar.xwork.example.webwork.AddAction" instance="prototype" />

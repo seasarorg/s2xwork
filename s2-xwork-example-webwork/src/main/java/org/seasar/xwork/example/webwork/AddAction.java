@@ -1,7 +1,12 @@
 package org.seasar.xwork.example.webwork;
 
+import org.seasar.xwork.annotation.Param;
+import org.seasar.xwork.annotation.Result;
+import org.seasar.xwork.annotation.XWorkAction;
+
 import com.opensymphony.xwork.ActionSupport;
 
+@XWorkAction(name = "test", interceptorRef = "", result = @Result(type = "velocity", param = @Param(name = "location", value = "add_success.vm")))
 public class AddAction extends ActionSupport {
 	private AddService addService;
 

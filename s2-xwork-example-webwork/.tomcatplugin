@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcatProjectProperties>
-    <rootDir>/target/s2-xwork-example-webwork-0.3</rootDir>
+    <rootDir>/target/s2-xwork-example-webwork-0.4</rootDir>
     <exportSource>false</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
