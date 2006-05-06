@@ -210,19 +210,19 @@ function setOHPHandler() {
 <ul>
 <li> <a href="#doc1_18" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">S2XWorkとは</a>
 <li> <a href="#doc1_32" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ダウンロード</a>
-<li> <a href="#doc1_56" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">インストール</a>
-<li> <a href="#doc1_59" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
+<li> <a href="#doc1_62" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">インストール</a>
+<li> <a href="#doc1_65" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
 <ul>
-<li> <a href="#doc1_61" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
-<li> <a href="#doc1_77" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
-<li> <a href="#doc1_100" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">webwork.properties</a>
+<li> <a href="#doc1_67" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
+<li> <a href="#doc1_83" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
 </ul>
-<li> <a href="#doc1_112" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
+<li> <a href="#doc1_107" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
 <ul>
-<li> <a href="#doc1_114" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でS2のコンポーネントにアクセスする</a>
+<li> <a href="#doc1_109" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でS2のコンポーネントにアクセスする</a>
+<li> <a href="#doc1_138" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
 </ul>
-<li> <a href="#doc1_144" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
-<li> <a href="#doc1_150" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_267" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
+<li> <a href="#doc1_273" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -237,23 +237,23 @@ function setOHPHandler() {
 <p class="first_ja">現在のバージョンは0.3です。</p>
 
 <ul>
-<li> <a href="s2-xwork-0.3.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a>
-<li> <a href="s2-xwork-0.3-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>
-<li> <a href="s2-xwork-example-webwork-0.3.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
+<li> S2XWork 0.4 [<a href="s2-xwork-0.4.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-0.4-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
+<li> S2XWorkTiger 0.4 [<a href="s2-xwork-tiger-0.4.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-tiger-0.4-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
+<li> <a href="s2-xwork-example-webwork-0.4.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
 
 
-<h2 id="doc1_56">インストール</h2>
+<h2 id="doc1_62">インストール</h2>
 
 <p class="first_ja">ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
 
-<h2 id="doc1_59">設定(WebWork2.2で使用する場合)</h2>
+<h2 id="doc1_65">設定(WebWork2.2で使用する場合)</h2>
 
 
-<h3 id="doc1_61">diconファイル</h3>
+<h3 id="doc1_67">diconファイル</h3>
 
 <p class="first_ja">diconファイルにS2ObjectFactoryを設定します。</p>
 <p></p>
-<p>autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。<span class="note"><a href="#doc1_65" onmouseover="hilightSelflink(this)" onmouseout="normal(this)" title="無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。"><sup>(1)</sup></a></span><tt><pre id="doc1_70" class="program">
+<p>autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。<span class="note"><a href="#doc1_71" onmouseover="hilightSelflink(this)" onmouseout="normal(this)" title="無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。"><sup>(1)</sup></a></span><tt><pre id="doc1_76" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
@@ -267,11 +267,11 @@ function setOHPHandler() {
 
 <div class="footnote">
 <ol>
-<li id="doc1_65" value="1"> 無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。</ol>
+<li id="doc1_71" value="1"> 無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。</ol>
 </div>
 
 
-<h3 id="doc1_77">web.xml</h3>
+<h3 id="doc1_83">web.xml</h3>
 
 <p class="first_ja">web.xmlに以下のコンポーネントを設定します。</p>
 
@@ -280,7 +280,7 @@ function setOHPHandler() {
 <li> com.opensymphony.webwork.dispatcher.FilterDispatcher
 <li> org.seasar.xwork.servlet.S2ContainerInitListener</ul>
 
-<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_93" class="program">
+<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_99" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> web-app
@@ -319,35 +319,27 @@ function setOHPHandler() {
 <span class="keyword">&lt;/web</span>-app<span class="keyword">&gt;</span>
 					</pre></tt></p>
 
-<h3 id="doc1_100">webwork.properties</h3>
-
-<p class="first_ja">webwork.propertiesに以下の記述を追加します。<tt><pre id="doc1_104" class="program">
-						
-webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory
-					
-</pre></tt></p>
-
-<h2 id="doc1_112">その他の機能</h2>
+<h2 id="doc1_107">その他の機能</h2>
 
 
-<h3 id="doc1_114">ValueStack経由でS2のコンポーネントにアクセスする</h3>
+<h3 id="doc1_109">ValueStack経由でS2のコンポーネントにアクセスする</h3>
 
 <p class="first_ja">S2CompontntInterceptorを使えば、ValueStack経由でS2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接S2内のDtoにセットしたり、画面などのResultからS2コンポーネントにアクセス出来るようになります。</p>
 
-<div id="doc1_116" class="caption">設定(diconファイル)</div>
+<div id="doc1_111" class="caption">設定(diconファイル)</div>
 <div><p>S2CompontntInterceptorをコンポーネントに追加します。</p>
 <p></p>
-<p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_122" class="program">
+<p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_117" class="program">
 							
 &lt;component class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;
 						
 </pre></tt></p>
 </div>
 
-<div id="doc1_129" class="caption">設定(xwork.xml)</div>
+<div id="doc1_124" class="caption">設定(xwork.xml)</div>
 <div><p>interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、interceptor-ref要素でアクションに設定します。</p>
 <p></p>
-<p>以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。<tt><pre id="doc1_135" class="program">
+<p>以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。<tt><pre id="doc1_130" class="program">
 							
 &lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE xwork PUBLIC &quot;-//OpenSymphony Group//XWork 1.1//EN&quot; \
@@ -394,17 +386,109 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory
 </pre></tt></p>
 </div>
 
-<h2 id="doc1_144">連絡先</h2>
+<h3 id="doc1_138">アノテーションを使用する</h3>
+
+<p class="first_ja">S2XWorkTigerを使用すれば、xwork.xmlに定義していたActionの定義をActionクラスの中に書くことが出来るようになります。</p>
+
+<div id="doc1_140" class="caption">インストール</div>
+<div><p>ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
+</div>
+
+<div id="doc1_143" class="caption">設定方法</div>
+<div><p>以下の内容をdiconファイルに追加します。<tt><pre id="doc1_147" class="program">
+							
+&lt;component \
+    class=&quot;com.opensymphony.xwork.config.providers.XmlConfigurationProvider&quot;&gt;
+&lt;initMethod&gt;@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)&lt;/initMethod&gt;
+&lt;/component&gt;
+&lt;component \
+    class=&quot;org.seasar.xwork.annotation.AnnotaionConfigurationProvider&quot;&gt;
+&lt;initMethod&gt;@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)&lt;/initMethod&gt;
+&lt;/component&gt;
+
+						
+</pre></tt>AnnotaionConfigurationProviderには以下のプロパティがあります。</p>
+<p></p>
+<p>現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスは探しません。</p>
+
+<div class="table">
+<table id="doc1_155" class="data" rules="groups">
+<colgroup span="3">
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="even">
+<th align="center">プロパティ名</th>
+<th align="center">内容</th>
+<th align="center">デフォルト値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td>packageName</td>
+<td>アクションを追加するxwork.xml内のパッケージ名(package要素のname属性で設定)</td>
+<td>default</td>
+</tr>
+<tr class="odd">
+<td>classPackage</td>
+<td><p>アノテーションを探す対象のパッケージ</p>
+<p></p>
+<p>このパッケージ以下のパッケージを探索します</p></td>
+<td>.*Action</td>
+</tr>
+<tr class="even">
+<td>classPattern</td>
+<td>アノテーションを探す対象のクラス名パターン(正規表現)</td>
+<td>空文字</td>
+</tr>
+<tr class="odd">
+<td>resource</td>
+<td>クラスを探索するディレクトリのルートにあるファイル名</td>
+<td>xwork.xml</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div id="doc1_227" class="caption">使い方</div>
+<div><p>アノテーションを以下のようにアクションクラス名のクラス定義の上に書きます。<tt><pre id="doc1_231" class="program">
+							
+@XWorkAction(name=&quot;test&quot;)
+public class TestAction extends ActionSupport{
+}
+
+						
+</pre></tt></p>
+
+<dl>
+<dt>例:通常のAction定義(nameは必須)
+<dd>@XWorkAction(name=&quot;test&quot;)
+<dt>例:複数のAction定義
+<dd>@XWorkActions(actions = {@XWorkAction(name=&quot;test1&quot;),@XWorkAction(name=&quot;test2&quot;)})
+<dt>例:メソッド指定
+<dd>@XWorkAction(name=&quot;test&quot;, method=&quot;add&quot;)
+<dt>例:Resultありの場合(@Resultのnameを省略した場合はsuccess)
+<dd>@XWorkAction(name=&quot;test&quot;,result=@Result(type=&quot;velocity&quot;,param=@Param(name=&quot;location&quot;,value=&quot;index.vm&quot;)))</dl>
+
+</div>
+
+<h2 id="doc1_267">連絡先</h2>
 
 <p class="first_ja"><a href="http://d.hatena.ne.jp/matobat/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">でべろっぱだいあり</a></p>
 
-<h2 id="doc1_150">変更履歴</h2>
+<h2 id="doc1_273">変更履歴</h2>
 
 
 <dl>
-<dt>2006/5/5(金) 0.3リリース
+<dt>2006/5/6(土) S2XWork 0.4,S2XWorkTiger 0.4リリース
+<dd>DelegateObjectFactoryの削除、アノテーションの追加
+<dt>2006/5/5(金) S2XWork 0.3リリース
 <dd>S2ComponentInterceptorの追加
-<dt>2006/5/5(金) 0.2リリース
+<dt>2006/5/5(金) S2XWork 0.2リリース
 <dd>WebWork2.2対応</dl>
 
 <div class="footer">

@@ -30,13 +30,21 @@
 			現在のバージョンは0.3です。
 			<ul>
 				<li>
-					<a href="s2-xwork-0.3.jar">バイナリ(Jarファイル)</a>
+					S2XWork 0.4 [
+					<a href="s2-xwork-0.4.jar">バイナリ(Jarファイル)</a>
+					[
+					<a href="s2-xwork-0.4-sources.jar">ソース</a>
+					]
 				</li>
 				<li>
-					<a href="s2-xwork-0.3-sources.jar">ソース</a>
+					S2XWorkTiger 0.4 [
+					<a href="s2-xwork-tiger-0.4.jar">バイナリ(Jarファイル)</a>
+					[
+					<a href="s2-xwork-tiger-0.4-sources.jar">ソース</a>
+					]
 				</li>
 				<li>
-					<a href="s2-xwork-example-webwork-0.3.war">
+					<a href="s2-xwork-example-webwork-0.4.war">
 						サンプル(WebWork2.2)
 					</a>
 				</li>
@@ -124,15 +132,6 @@
 					</program>
 				</tt>
 			</subsection>
-			<subsection title="webwork.properties">
-				webwork.propertiesに以下の記述を追加します。
-				<tt>
-					<program>
-						<![CDATA[
-webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
-					</program>
-				</tt>
-			</subsection>
 		</section>
 		<section title="その他の機能">
 			<subsection title="ValueStack経由でS2のコンポーネントにアクセスする">
@@ -151,7 +150,8 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
 				</div>
 				<div title="設定(xwork.xml)">
 					interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、
-					interceptor-ref要素でアクションに設定します。<p></p>
+					interceptor-ref要素でアクションに設定します。
+					<p></p>
 					以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。
 					<tt>
 						<program>
@@ -200,15 +200,105 @@ webwork.objectFactory=org.seasar.xwork.DelegateObjectFactory]]>
 					</tt>
 				</div>
 			</subsection>
+			<subsection title="アノテーションを使用する">
+				S2XWorkTigerを使用すれば、xwork.xmlに定義していたActionの定義をActionクラスの中に書くことが出来るようになります。
+				<div title="インストール">
+					ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。
+				</div>
+				<div title="設定方法">
+					以下の内容をdiconファイルに追加します。
+					<tt>
+						<program>
+							<![CDATA[
+<component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
+ <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+</component>
+<component class="org.seasar.xwork.annotation.AnnotaionConfigurationProvider">
+  <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+</component>
+]]>
+						</program>
+					</tt>
+					AnnotaionConfigurationProviderには以下のプロパティがあります。
+					<p></p>
+					現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスは探しません。
+					<table>
+						<thead>
+							<tr>
+								<th>プロパティ名</th>
+								<th>内容</th>
+								<th>デフォルト値</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>packageName</td>
+								<td>
+									アクションを追加するxwork.xml内のパッケージ名(package要素のname属性で設定)
+								</td>
+								<td>default</td>
+							</tr>
+							<tr>
+								<td>classPackage</td>
+								<td>
+									アノテーションを探す対象のパッケージ
+									<p></p>
+									このパッケージ以下のパッケージを探索します
+								</td>
+								<td>.*Action</td>
+							</tr>
+							<tr>
+								<td>classPattern</td>
+								<td>アノテーションを探す対象のクラス名パターン(正規表現)</td>
+								<td>空文字</td>
+							</tr>
+							<tr>
+								<td>resource</td>
+								<td>クラスを探索するディレクトリのルートにあるファイル名</td>
+								<td>xwork.xml</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div title="使い方">
+					アノテーションを以下のようにアクションクラス名のクラス定義の上に書きます。
+					<tt>
+						<program>
+							<![CDATA[
+@XWorkAction(name="test")
+public class TestAction extends ActionSupport{
+}
+]]>
+						</program>
+					</tt>
+
+					<dl>
+						<dt>例:通常のAction定義(nameは必須)</dt>
+						<dd>@XWorkAction(name="test")</dd>
+						<dt>例:複数のAction定義</dt>
+						<dd>@XWorkActions(actions = {@XWorkAction(name="test1"),@XWorkAction(name="test2")})</dd>
+						<dt>例:メソッド指定</dt>
+						<dd>@XWorkAction(name="test", method="add")</dd>
+						<dt>
+							例:Resultありの場合(@Resultのnameを省略した場合はsuccess)
+						</dt>
+						<dd>
+							@XWorkAction(name="test",result=@Result(type="velocity",param=@Param(name="location",value="index.vm")))
+						</dd>
+					</dl>
+				</div>
+			</subsection>
 		</section>
 		<section title="連絡先">
 			<a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a>
 		</section>
 		<section title="変更履歴">
 			<dl>
-				<dt>2006/5/5(金) 0.3リリース</dt>
+				<dt>2006/5/6(土) S2XWork 0.4,S2XWorkTiger 0.4リリース</dt>
+				<dd>DelegateObjectFactoryの削除、アノテーションの追加</dd>
+				<dt>2006/5/5(金) S2XWork 0.3リリース</dt>
 				<dd>S2ComponentInterceptorの追加</dd>
-				<dt>2006/5/5(金) 0.2リリース</dt>
+				<dt>2006/5/5(金) S2XWork 0.2リリース</dt>
 				<dd>WebWork2.2対応</dd>
 			</dl>
 		</section>
