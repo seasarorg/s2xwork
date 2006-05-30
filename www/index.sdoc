@@ -27,7 +27,7 @@
 			と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
 		</section>
 		<section title="ダウンロード">
-			現在のバージョンは0.3です。
+			現在のバージョンは0.4です。
 			<ul>
 				<li>
 					S2XWork 0.4 [
@@ -51,7 +51,7 @@
 			</ul>
 		</section>
 		<section title="インストール">
-			ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。
+			ダウンロードしたバイナリ(Jarファイル)とSeasar2,XWorkのライブラリにクラスパスを通してください。
 		</section>
 		<section title="設定(WebWork2.2で使用する場合)">
 			<subsection title="diconファイル">
@@ -245,12 +245,12 @@
 									<p></p>
 									このパッケージ以下のパッケージを探索します
 								</td>
-								<td>.*Action</td>
+								<td>空文字</td>
 							</tr>
 							<tr>
 								<td>classPattern</td>
 								<td>アノテーションを探す対象のクラス名パターン(正規表現)</td>
-								<td>空文字</td>
+								<td>.*Action</td>
 							</tr>
 							<tr>
 								<td>resource</td>
@@ -290,7 +290,10 @@ public class TestAction extends ActionSupport{
 			</subsection>
 		</section>
 		<section title="連絡先">
-			<a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a>
+			<ul>
+				<li><a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a></li>
+				<li><a href="https://www.seasar.org/issues/browse/XWORK">バグトラッキング</a></li>
+			</ul>
 		</section>
 		<section title="変更履歴">
 			<dl>

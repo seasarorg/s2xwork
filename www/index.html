@@ -222,7 +222,7 @@ function setOHPHandler() {
 <li> <a href="#doc1_138" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
 </ul>
 <li> <a href="#doc1_267" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
-<li> <a href="#doc1_273" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_281" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -234,7 +234,7 @@ function setOHPHandler() {
 
 <h2 id="doc1_32">ダウンロード</h2>
 
-<p class="first_ja">現在のバージョンは0.3です。</p>
+<p class="first_ja">現在のバージョンは0.4です。</p>
 
 <ul>
 <li> S2XWork 0.4 [<a href="s2-xwork-0.4.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-0.4-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
@@ -244,7 +244,7 @@ function setOHPHandler() {
 
 <h2 id="doc1_62">インストール</h2>
 
-<p class="first_ja">ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
+<p class="first_ja">ダウンロードしたバイナリ(Jarファイル)とSeasar2,XWorkのライブラリにクラスパスを通してください。</p>
 
 <h2 id="doc1_65">設定(WebWork2.2で使用する場合)</h2>
 
@@ -436,12 +436,12 @@ function setOHPHandler() {
 <td><p>アノテーションを探す対象のパッケージ</p>
 <p></p>
 <p>このパッケージ以下のパッケージを探索します</p></td>
-<td>.*Action</td>
+<td>空文字</td>
 </tr>
 <tr class="even">
 <td>classPattern</td>
 <td>アノテーションを探す対象のクラス名パターン(正規表現)</td>
-<td>空文字</td>
+<td>.*Action</td>
 </tr>
 <tr class="odd">
 <td>resource</td>
@@ -478,9 +478,13 @@ public class TestAction extends ActionSupport{
 
 <h2 id="doc1_267">連絡先</h2>
 
-<p class="first_ja"><a href="http://d.hatena.ne.jp/matobat/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">でべろっぱだいあり</a></p>
 
-<h2 id="doc1_273">変更履歴</h2>
+<ul>
+<li> <a href="http://d.hatena.ne.jp/matobat/" target="_top" onmouseover="hilightExternallink(this)" onmouseout="normal(this)">でべろっぱだいあり</a>
+<li> <a href="https://www.seasar.org/issues/browse/XWORK" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バグトラッキング</a></ul>
+
+
+<h2 id="doc1_281">変更履歴</h2>
 
 
 <dl>
