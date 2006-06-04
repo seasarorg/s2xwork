@@ -218,7 +218,7 @@ function setOHPHandler() {
 </ul>
 <li> <a href="#doc1_107" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
 <ul>
-<li> <a href="#doc1_109" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でS2のコンポーネントにアクセスする</a>
+<li> <a href="#doc1_109" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でSeasar2のコンポーネントにアクセスする</a>
 <li> <a href="#doc1_138" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
 </ul>
 <li> <a href="#doc1_267" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
@@ -322,12 +322,12 @@ function setOHPHandler() {
 <h2 id="doc1_107">その他の機能</h2>
 
 
-<h3 id="doc1_109">ValueStack経由でS2のコンポーネントにアクセスする</h3>
+<h3 id="doc1_109">ValueStack経由でSeasar2のコンポーネントにアクセスする</h3>
 
-<p class="first_ja">S2CompontntInterceptorを使えば、ValueStack経由でS2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接S2内のDtoにセットしたり、画面などのResultからS2コンポーネントにアクセス出来るようになります。</p>
+<p class="first_ja">S2CompontntInterceptorを使えば、ValueStack経由でSeasar2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接Seasar2内のDtoにセットしたり、画面などのResultからSeasar2の2コンポーネントにアクセス出来るようになります。</p>
 
 <div id="doc1_111" class="caption">設定(diconファイル)</div>
-<div><p>S2CompontntInterceptorをコンポーネントに追加します。</p>
+<div><p>S2CompontntInterceptorをdiconファイルに追加します。</p>
 <p></p>
 <p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_117" class="program">
 							
@@ -388,7 +388,7 @@ function setOHPHandler() {
 
 <h3 id="doc1_138">アノテーションを使用する</h3>
 
-<p class="first_ja">S2XWorkTigerを使用すれば、xwork.xmlに定義していたActionの定義をActionクラスの中に書くことが出来るようになります。</p>
+<p class="first_ja">S2XWorkTigerを使用すれば、xwork.xmlに記述していたActionの定義をActionクラスの中に書くことが出来るようになります。</p>
 
 <div id="doc1_140" class="caption">インストール</div>
 <div><p>ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
@@ -409,7 +409,7 @@ function setOHPHandler() {
 						
 </pre></tt>AnnotaionConfigurationProviderには以下のプロパティがあります。</p>
 <p></p>
-<p>現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスは探しません。</p>
+<p>現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。</p>
 
 <div class="table">
 <table id="doc1_155" class="data" rules="groups">
@@ -455,7 +455,7 @@ function setOHPHandler() {
 </div>
 
 <div id="doc1_227" class="caption">使い方</div>
-<div><p>アノテーションを以下のようにアクションクラス名のクラス定義の上に書きます。<tt><pre id="doc1_231" class="program">
+<div><p>アノテーションをアクションクラス名のクラス定義の上に書きます。<tt><pre id="doc1_231" class="program">
 							
 @XWorkAction(name=&quot;test&quot;)
 public class TestAction extends ActionSupport{
