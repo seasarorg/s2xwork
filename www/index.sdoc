@@ -213,13 +213,13 @@
 <component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
  <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
 </component>
-<component class="org.seasar.xwork.annotation.AnnotaionConfigurationProvider">
+<component class="org.seasar.xwork.annotation.AnnotationConfigurationProvider">
   <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
 </component>
 ]]>
 						</program>
 					</tt>
-					AnnotaionConfigurationProviderには以下のプロパティがあります。
+					AnnotationConfigurationProviderには以下のプロパティがあります。
 					<p></p>
 					現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。
 					<table>
