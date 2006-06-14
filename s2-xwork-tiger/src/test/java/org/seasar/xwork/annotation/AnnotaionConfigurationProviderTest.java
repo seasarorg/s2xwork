@@ -16,7 +16,7 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 		ConfigurationManager
 				.addConfigurationProvider(new XmlConfigurationProvider());
 		ConfigurationManager
-				.addConfigurationProvider(new AnnotaionConfigurationProvider());
+				.addConfigurationProvider(new AnnotationConfigurationProvider());
 		ConfigurationManager.getConfiguration();
 
 		ActionProxy proxy = ActionProxyFactory.getFactory().createActionProxy(

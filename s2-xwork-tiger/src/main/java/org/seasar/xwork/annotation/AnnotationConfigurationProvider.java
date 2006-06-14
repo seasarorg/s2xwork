@@ -19,11 +19,12 @@ import com.opensymphony.xwork.config.entities.ActionConfig;
 import com.opensymphony.xwork.config.entities.PackageConfig;
 import com.opensymphony.xwork.config.entities.ResultConfig;
 import com.opensymphony.xwork.config.entities.ResultTypeConfig;
+import com.sun.org.apache.bcel.internal.util.ClassLoader;
 
 /**
  * 既存のXWorkのConfigurationにアノテーションの設定を追加する
  */
-public class AnnotaionConfigurationProvider implements ConfigurationProvider {
+public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	/** xwork.xmlのペースとなるパッケージ */
 	private String packageName = "default";
 
@@ -51,7 +52,7 @@ public class AnnotaionConfigurationProvider implements ConfigurationProvider {
 	}
 
 	public void searchAnnotation() throws ClassNotFoundException {
-		File root = AnnotaionConfigurationProvider.getRootPath(resource);
+		File root = AnnotationConfigurationProvider.getRootPath(resource);
 		Collection files = FileUtils.listFiles(new File(root.getAbsolutePath()
 				+ File.separator + classPackage.replace(".", File.separator)),
 				new SuffixFileFilter("class"), TrueFileFilter.INSTANCE);
@@ -66,7 +67,8 @@ public class AnnotaionConfigurationProvider implements ConfigurationProvider {
 						(int) file.getAbsolutePath().length()
 								- ".class".length()).replace(File.separator,
 						".");
-				setAction(packageConfig, Class.forName(className));
+				setAction(packageConfig, Thread.currentThread()
+						.getContextClassLoader().loadClass(className));
 			}
 		}
 	}
