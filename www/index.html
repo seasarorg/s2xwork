@@ -222,7 +222,7 @@ function setOHPHandler() {
 <li> <a href="#doc1_138" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
 </ul>
 <li> <a href="#doc1_267" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
-<li> <a href="#doc1_281" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_285" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -234,12 +234,12 @@ function setOHPHandler() {
 
 <h2 id="doc1_32">ダウンロード</h2>
 
-<p class="first_ja">現在のバージョンは0.4です。</p>
+<p class="first_ja">現在のバージョンは0.5です。</p>
 
 <ul>
-<li> S2XWork 0.4 [<a href="s2-xwork-0.4.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-0.4-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
-<li> S2XWorkTiger 0.4 [<a href="s2-xwork-tiger-0.4.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-tiger-0.4-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
-<li> <a href="s2-xwork-example-webwork-0.4.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
+<li> S2XWork 0.5 [<a href="s2-xwork-0.5.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-0.5-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
+<li> S2XWorkTiger 0.5 [<a href="s2-xwork-tiger-0.5.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バイナリ(Jarファイル)</a> [<a href="s2-xwork-tiger-0.5-sources.jar" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">ソース</a>]
+<li> <a href="s2-xwork-example-webwork-0.5.war" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">サンプル(WebWork2.2)</a></ul>
 
 
 <h2 id="doc1_62">インストール</h2>
@@ -278,9 +278,9 @@ function setOHPHandler() {
 <ul>
 <li> org.seasar.framework.container.filter.S2ContainerFilter
 <li> com.opensymphony.webwork.dispatcher.FilterDispatcher
-<li> org.seasar.xwork.servlet.S2ContainerInitListener</ul>
+<li> org.seasar.framework.container.servlet.S2ContainerServlet</ul>
 
-<p>S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。<tt><pre id="doc1_99" class="program">
+<p><tt><pre id="doc1_99" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> web-app
@@ -311,11 +311,23 @@ function setOHPHandler() {
 		<span class="keyword">&lt;filter</span>-name<span class="keyword">&gt;</span>webwork<span class="keyword">&lt;/filter</span>-name<span class="keyword">&gt;</span>
 		<span class="keyword">&lt;url</span>-pattern<span class="keyword">&gt;</span>/*<span class="keyword">&lt;/url</span>-pattern<span class="keyword">&gt;</span>
 	<span class="keyword">&lt;/filter</span>-mapping<span class="keyword">&gt;</span>
-	<span class="keyword">&lt;listener</span><span class="keyword">&gt;</span>
-		<span class="keyword">&lt;listener</span>-class<span class="keyword">&gt;</span>
-			org.seasar.xwork.servlet.S2ContainerInitListener
-		<span class="keyword">&lt;/listener</span>-class<span class="keyword">&gt;</span>
-	<span class="keyword">&lt;/listener</span><span class="keyword">&gt;</span>
+	<span class="keyword">&lt;servlet</span><span class="keyword">&gt;</span>
+		<span class="keyword">&lt;servlet</span>-name<span class="keyword">&gt;</span>s2servlet<span class="keyword">&lt;/servlet</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;servlet</span>-class<span class="keyword">&gt;</span>org.seasar.framework.container.servlet.S2ContainerServlet<span class="keyword">&lt;/servlet</span>-class<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;init</span>-param<span class="keyword">&gt;</span>
+			<span class="keyword">&lt;param</span>-name<span class="keyword">&gt;</span>configPath<span class="keyword">&lt;/param</span>-name<span class="keyword">&gt;</span>
+			<span class="keyword">&lt;param</span>-value<span class="keyword">&gt;</span>app.dicon<span class="keyword">&lt;/param</span>-value<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;/init</span>-param<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;init</span>-param<span class="keyword">&gt;</span>
+			<span class="keyword">&lt;param</span>-name<span class="keyword">&gt;</span>debug<span class="keyword">&lt;/param</span>-name<span class="keyword">&gt;</span>
+			<span class="keyword">&lt;param</span>-value<span class="keyword">&gt;</span>false<span class="keyword">&lt;/param</span>-value<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;/init</span>-param<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;load</span>-on-startup<span class="keyword">&gt;</span>1<span class="keyword">&lt;/load</span>-on-startup<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/servlet</span><span class="keyword">&gt;</span>
+	<span class="keyword">&lt;servlet</span>-mapping<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;servlet</span>-name<span class="keyword">&gt;</span>s2servlet<span class="keyword">&lt;/servlet</span>-name<span class="keyword">&gt;</span>
+		<span class="keyword">&lt;url</span>-pattern<span class="keyword">&gt;</span>/s2servlet<span class="keyword">&lt;/url</span>-pattern<span class="keyword">&gt;</span>
+	<span class="keyword">&lt;/servlet</span>-mapping<span class="keyword">&gt;</span>
 <span class="keyword">&lt;/web</span>-app<span class="keyword">&gt;</span>
 					</pre></tt></p>
 
@@ -484,7 +496,7 @@ public class TestAction extends ActionSupport{
 <li> <a href="https://www.seasar.org/issues/browse/XWORK" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バグトラッキング</a></ul>
 
 
-<h2 id="doc1_281">変更履歴</h2>
+<h2 id="doc1_285">変更履歴</h2>
 
 
 <dl>

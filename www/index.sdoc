@@ -27,24 +27,24 @@
 			と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
 		</section>
 		<section title="ダウンロード">
-			現在のバージョンは0.4です。
+			現在のバージョンは0.5です。
 			<ul>
 				<li>
-					S2XWork 0.4 [
-					<a href="s2-xwork-0.4.jar">バイナリ(Jarファイル)</a>
+					S2XWork 0.5 [
+					<a href="s2-xwork-0.5.jar">バイナリ(Jarファイル)</a>
 					[
-					<a href="s2-xwork-0.4-sources.jar">ソース</a>
+					<a href="s2-xwork-0.5-sources.jar">ソース</a>
 					]
 				</li>
 				<li>
-					S2XWorkTiger 0.4 [
-					<a href="s2-xwork-tiger-0.4.jar">バイナリ(Jarファイル)</a>
+					S2XWorkTiger 0.5 [
+					<a href="s2-xwork-tiger-0.5.jar">バイナリ(Jarファイル)</a>
 					[
-					<a href="s2-xwork-tiger-0.4-sources.jar">ソース</a>
+					<a href="s2-xwork-tiger-0.5-sources.jar">ソース</a>
 					]
 				</li>
 				<li>
-					<a href="s2-xwork-example-webwork-0.4.war">
+					<a href="s2-xwork-example-webwork-0.5.war">
 						サンプル(WebWork2.2)
 					</a>
 				</li>
@@ -86,10 +86,9 @@
 						com.opensymphony.webwork.dispatcher.FilterDispatcher
 					</li>
 					<li>
-						org.seasar.xwork.servlet.S2ContainerInitListener
+						org.seasar.framework.container.servlet.S2ContainerServlet
 					</li>
 				</ul>
-				S2ContainerInitListenerはS2ContainerServletの代わりに使うもので、context-paramのconfigPathでdiconファイルを指定できます。
 				<tt>
 					<program normalizer="xmlsrc"
 						xmlSyntaxHilight="true">
@@ -123,11 +122,23 @@
 		<filter-name>webwork</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<listener>
-		<listener-class>
-			org.seasar.xwork.servlet.S2ContainerInitListener
-		</listener-class>
-	</listener>
+	<servlet>
+		<servlet-name>s2servlet</servlet-name>
+		<servlet-class>org.seasar.framework.container.servlet.S2ContainerServlet</servlet-class>
+		<init-param>
+			<param-name>configPath</param-name>
+			<param-value>app.dicon</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>s2servlet</servlet-name>
+		<url-pattern>/s2servlet</url-pattern>
+	</servlet-mapping>
 </web-app>]]>
 					</program>
 				</tt>
@@ -276,7 +287,10 @@ public class TestAction extends ActionSupport{
 						<dt>例:通常のAction定義(nameは必須)</dt>
 						<dd>@XWorkAction(name="test")</dd>
 						<dt>例:複数のAction定義</dt>
-						<dd>@XWorkActions(actions = {@XWorkAction(name="test1"),@XWorkAction(name="test2")})</dd>
+						<dd>
+							@XWorkActions(actions =
+							{@XWorkAction(name="test1"),@XWorkAction(name="test2")})
+						</dd>
 						<dt>例:メソッド指定</dt>
 						<dd>@XWorkAction(name="test", method="add")</dd>
 						<dt>
@@ -291,8 +305,17 @@ public class TestAction extends ActionSupport{
 		</section>
 		<section title="連絡先">
 			<ul>
-				<li><a href="http://d.hatena.ne.jp/matobat/">でべろっぱだいあり</a></li>
-				<li><a href="https://www.seasar.org/issues/browse/XWORK">バグトラッキング</a></li>
+				<li>
+					<a href="http://d.hatena.ne.jp/matobat/">
+						でべろっぱだいあり
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.seasar.org/issues/browse/XWORK">
+						バグトラッキング
+					</a>
+				</li>
 			</ul>
 		</section>
 		<section title="変更履歴">
