@@ -3,10 +3,6 @@
       PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
       "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-	<context-param>
-		<param-name>configPath</param-name>
-		<param-value>app.dicon</param-value>
-	</context-param>
 	<filter>
 		<filter-name>s2filter</filter-name>
 		<filter-class>
@@ -27,9 +23,21 @@
 		<filter-name>webwork</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<listener>
-		<listener-class>
-			org.seasar.xwork.servlet.S2ContainerInitListener
-		</listener-class>
-	</listener>
+	<servlet>
+		<servlet-name>s2servlet</servlet-name>
+		<servlet-class>
+			org.seasar.framework.container.servlet.S2ContainerServlet
+		</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>s2servlet</servlet-name>
+		<url-pattern>/s2servlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>

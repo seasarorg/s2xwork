@@ -8,7 +8,7 @@
   <component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
     <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
   </component>
-  <component class="org.seasar.xwork.annotation.AnnotaionConfigurationProvider">
+  <component class="org.seasar.xwork.annotation.AnnotationConfigurationProvider">
     <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
   </component>
   <component class="org.seasar.xwork.component.S2ComponentInterceptor" />

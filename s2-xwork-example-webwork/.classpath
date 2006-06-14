@@ -6,7 +6,7 @@
   <classpathentry kind="var" path="M2_REPO/velocity/velocity-dep/1.4/velocity-dep-1.4.jar"/>
   <classpathentry kind="var" path="M2_REPO/ognl/ognl/2.6.5/ognl-2.6.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/freemarker/freemarker/2.3.4/freemarker-2.3.4.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/seasar/xwork/s2-xwork-tiger/0.4/s2-xwork-tiger-0.4.jar" sourcepath="M2_REPO/org/seasar/xwork/s2-xwork-tiger/0.4/s2-xwork-tiger-0.4-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/seasar/xwork/s2-xwork-tiger/0.5/s2-xwork-tiger-0.5.jar" sourcepath="M2_REPO/org/seasar/xwork/s2-xwork-tiger/0.5/s2-xwork-tiger-0.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/rifers/rife-continuations/0.0.2/rife-continuations-0.0.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.4-20040521/servlet-api-2.4-20040521.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/seasar/container/s2-framework/2.3.8/s2-framework-2.3.8.jar" sourcepath="M2_REPO/org/seasar/container/s2-framework/2.3.8/s2-framework-2.3.8-sources.jar"/>
