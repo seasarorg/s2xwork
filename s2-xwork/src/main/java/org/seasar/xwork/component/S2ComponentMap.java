@@ -6,6 +6,9 @@ import java.util.Set;
 
 import org.seasar.framework.container.S2Container;
 
+/**
+ * S2ContainerにアクセスするMap実装です。
+ */
 public class S2ComponentMap implements Map {
 	private S2Container container;
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="Maven">
+	<bannerLeft>
+		<name>Maven</name>
+		<src>
+			http://www.seasar.org/images/seasar_logo_blue.gif
+		</src>
+		<href>http://www.seasar.org/</href>
+	</bannerLeft>
+
+	<body>
+		<links>
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="S2XWork" href="http://s2xwork.sandbox.seasar.org/" />
+		</links>
+
+		<menu name="S2XWork">
+			<item name="概要" href="overview.html" />
+			<item name="ダウンロード" href="download.html" />
+			<item name="使い方" href="usage.html" />
+		</menu>
+		
+		${reports}
+	</body>
+</project>

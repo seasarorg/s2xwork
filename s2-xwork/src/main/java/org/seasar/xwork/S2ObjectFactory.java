@@ -9,28 +9,27 @@ import org.seasar.framework.container.impl.ComponentDefImpl;
 import com.opensymphony.xwork.ObjectFactory;
 
 /**
- * S2Container‚©‚çƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾‚·‚éObjectFactory
- */
-/**
- * @author matoba
- * 
+ * S2Containerã‹ã‚‰ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹ObjectFactory
  */
 public class S2ObjectFactory extends ObjectFactory {
 	/** S2Container */
 	protected final S2Container container;
 
-	/** ƒIƒuƒWƒFƒNƒg‚ªƒRƒ“ƒeƒi‚É“o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡©“®“o˜^‚·‚é */
+	/** ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚³ãƒ³ãƒ†ãƒŠã«ç™»éŒ²ã•ã‚Œã¦ã„ãªã„å ´åˆè‡ªå‹•ç™»éŒ²ã™ã‚‹ */
 	private boolean autoRegist;
 
 	/**
-	 * g—p‚·‚éS2Container‚ğó‚¯æ‚é
+	 * ä½¿ç”¨ã™ã‚‹S2Containerã‚’å—ã‘å–ã‚‹ã€‚
+	 * 
+	 * @param container
+	 *            S2Container
 	 */
 	public S2ObjectFactory(S2Container container) {
 		this.container = container.getRoot();
 	}
 
 	/**
-	 * ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ¶¬‚·‚éB
+	 * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
 	 * 
 	 * @see com.opensymphony.xwork.ObjectFactory#buildBean(java.lang.Class,
 	 *      java.util.Map)
@@ -48,7 +47,7 @@ public class S2ObjectFactory extends ObjectFactory {
 	}
 
 	/**
-	 * ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ¶¬‚·‚éB
+	 * ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
 	 * 
 	 * @see com.opensymphony.xwork.ObjectFactory#buildBean(java.lang.String,
 	 *      java.util.Map)
@@ -66,10 +65,21 @@ public class S2ObjectFactory extends ObjectFactory {
 		return false;
 	}
 
+	/**
+	 * è‡ªå‹•ç™»éŒ²ã™ã‚‹ã‹ã©ã†ã‹
+	 * 
+	 * @return trueã®å ´åˆè‡ªå‹•ç™»éŒ²ã™ã‚‹ã€falseã®å ´åˆè‡ªå‹•ç™»éŒ²ã—ãªã„
+	 */
 	public boolean isAutoRegist() {
 		return autoRegist;
 	}
 
+	/**
+	 * è‡ªå‹•ç™»éŒ²ã™ã‚‹ã‹ã©ã†ã‹
+	 * 
+	 * @param autoRegist
+	 *            trueã®å ´åˆè‡ªå‹•ç™»éŒ²ã™ã‚‹ã€falseã®å ´åˆè‡ªå‹•ç™»éŒ²ã—ãªã„
+	 */
 	public void setAutoRegist(boolean autoRegist) {
 		this.autoRegist = autoRegist;
 	}
