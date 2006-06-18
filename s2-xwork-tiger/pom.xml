@@ -44,7 +44,14 @@
 	</organization>
 	<build>
 		<defaultGoal>validate</defaultGoal>
-		
+		<resources>
+			<resource>
+				<directory>src/conf</directory>
+				<includes>
+					<include>**/*.dicon</include>
+				</includes>
+			</resource>
+		</resources>
 		<testResources>
 			<testResource>
 				<directory>src/test/java</directory>
