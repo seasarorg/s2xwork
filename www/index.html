@@ -214,15 +214,15 @@ function setOHPHandler() {
 <li> <a href="#doc1_65" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">設定(WebWork2.2で使用する場合)</a>
 <ul>
 <li> <a href="#doc1_67" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">diconファイル</a>
-<li> <a href="#doc1_83" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
+<li> <a href="#doc1_91" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">web.xml</a>
 </ul>
-<li> <a href="#doc1_107" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
+<li> <a href="#doc1_115" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">その他の機能</a>
 <ul>
-<li> <a href="#doc1_109" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でSeasar2のコンポーネントにアクセスする</a>
-<li> <a href="#doc1_138" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
+<li> <a href="#doc1_117" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">ValueStack経由でSeasar2のコンポーネントにアクセスする</a>
+<li> <a href="#doc1_154" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">アノテーションを使用する</a>
 </ul>
-<li> <a href="#doc1_267" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
-<li> <a href="#doc1_285" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
+<li> <a href="#doc1_291" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">連絡先</a>
+<li> <a href="#doc1_309" onmouseover="hilightSelflink(this)" onmouseout="normal(this)">変更履歴</a>
 </ul>
 </div>
 
@@ -263,6 +263,13 @@ function setOHPHandler() {
     <span class="keyword">&lt;property</span> <span class="primitive">name=</span><span class="quote">&quot;autoRegist&quot;</span><span class="keyword">&gt;</span>false<span class="keyword">&lt;/property</span><span class="keyword">&gt;</span>
   <span class="keyword">&lt;/component</span><span class="keyword">&gt;</span>
 <span class="keyword">&lt;/components</span><span class="keyword">&gt;</span>
+					</pre></tt>バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。<tt><pre id="doc1_84" class="program">
+						
+<span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+&lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;components</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;include</span> <span class="primitive">path=</span><span class="quote">&quot;s2xwork.dicon&quot;</span> /<span class="keyword">&gt;</span>
+<span class="keyword">&lt;/components</span><span class="keyword">&gt;</span>
 					</pre></tt></p>
 
 <div class="footnote">
@@ -271,7 +278,7 @@ function setOHPHandler() {
 </div>
 
 
-<h3 id="doc1_83">web.xml</h3>
+<h3 id="doc1_91">web.xml</h3>
 
 <p class="first_ja">web.xmlに以下のコンポーネントを設定します。</p>
 
@@ -280,7 +287,7 @@ function setOHPHandler() {
 <li> com.opensymphony.webwork.dispatcher.FilterDispatcher
 <li> org.seasar.framework.container.servlet.S2ContainerServlet</ul>
 
-<p><tt><pre id="doc1_99" class="program">
+<p><tt><pre id="doc1_107" class="program">
 						
 <span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 &lt;<span class="keyword">!DOCTYPE</span> web-app
@@ -331,27 +338,34 @@ function setOHPHandler() {
 <span class="keyword">&lt;/web</span>-app<span class="keyword">&gt;</span>
 					</pre></tt></p>
 
-<h2 id="doc1_107">その他の機能</h2>
+<h2 id="doc1_115">その他の機能</h2>
 
 
-<h3 id="doc1_109">ValueStack経由でSeasar2のコンポーネントにアクセスする</h3>
+<h3 id="doc1_117">ValueStack経由でSeasar2のコンポーネントにアクセスする</h3>
 
 <p class="first_ja">S2CompontntInterceptorを使えば、ValueStack経由でSeasar2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接Seasar2内のDtoにセットしたり、画面などのResultからSeasar2の2コンポーネントにアクセス出来るようになります。</p>
 
-<div id="doc1_111" class="caption">設定(diconファイル)</div>
+<div id="doc1_119" class="caption">設定(diconファイル)</div>
 <div><p>S2CompontntInterceptorをdiconファイルに追加します。</p>
 <p></p>
-<p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_117" class="program">
+<p>ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。<tt><pre id="doc1_125" class="program">
 							
 &lt;component class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;
 						
-</pre></tt></p>
+</pre></tt>バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。<tt><pre id="doc1_133" class="program">
+							
+<span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+&lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;components</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;include</span> <span class="primitive">path=</span><span class="quote">&quot;s2xwork.dicon&quot;</span> /<span class="keyword">&gt;</span>
+<span class="keyword">&lt;/components</span><span class="keyword">&gt;</span>
+						</pre></tt></p>
 </div>
 
-<div id="doc1_124" class="caption">設定(xwork.xml)</div>
+<div id="doc1_140" class="caption">設定(xwork.xml)</div>
 <div><p>interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、interceptor-ref要素でアクションに設定します。</p>
 <p></p>
-<p>以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。<tt><pre id="doc1_130" class="program">
+<p>以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。<tt><pre id="doc1_146" class="program">
 							
 &lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE xwork PUBLIC &quot;-//OpenSymphony Group//XWork 1.1//EN&quot; \
@@ -398,16 +412,16 @@ function setOHPHandler() {
 </pre></tt></p>
 </div>
 
-<h3 id="doc1_138">アノテーションを使用する</h3>
+<h3 id="doc1_154">アノテーションを使用する</h3>
 
 <p class="first_ja">S2XWorkTigerを使用すれば、xwork.xmlに記述していたActionの定義をActionクラスの中に書くことが出来るようになります。</p>
 
-<div id="doc1_140" class="caption">インストール</div>
+<div id="doc1_156" class="caption">インストール</div>
 <div><p>ダウンロードしたバイナリ(Jarファイル)にクラスパスを通してください。</p>
 </div>
 
-<div id="doc1_143" class="caption">設定方法</div>
-<div><p>以下の内容をdiconファイルに追加します。<tt><pre id="doc1_147" class="program">
+<div id="doc1_159" class="caption">設定方法</div>
+<div><p>以下の内容をdiconファイルに追加します。<tt><pre id="doc1_163" class="program">
 							
 &lt;component \
     class=&quot;com.opensymphony.xwork.config.providers.XmlConfigurationProvider&quot;&gt;
@@ -419,12 +433,19 @@ function setOHPHandler() {
 &lt;/component&gt;
 
 						
-</pre></tt>AnnotationConfigurationProviderには以下のプロパティがあります。</p>
+</pre></tt>バージョン0.5からは上記の内容がs2xwork-tiger.dicnoに書かれているため、以下のような記述でも大丈夫です。<tt><pre id="doc1_171" class="program">
+							
+<span class="primitive">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+&lt;<span class="keyword">!DOCTYPE</span> components PUBLIC <span class="quote">&quot;-//SEASAR2.1//DTD S2Container//EN&quot;</span> <span class="quote">&quot;http://www.seasar.org/dtd/components23.dtd&quot;</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;components</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;include</span> <span class="primitive">path=</span><span class="quote">&quot;s2xwork-tiger.dicon&quot;</span> /<span class="keyword">&gt;</span>
+<span class="keyword">&lt;/components</span><span class="keyword">&gt;</span>
+						</pre></tt>AnnotationConfigurationProviderには以下のプロパティがあります。</p>
 <p></p>
 <p>現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。</p>
 
 <div class="table">
-<table id="doc1_155" class="data" rules="groups">
+<table id="doc1_179" class="data" rules="groups">
 <colgroup span="3">
 <col>
 <col>
@@ -466,8 +487,8 @@ function setOHPHandler() {
 
 </div>
 
-<div id="doc1_227" class="caption">使い方</div>
-<div><p>アノテーションをアクションクラス名のクラス定義の上に書きます。<tt><pre id="doc1_231" class="program">
+<div id="doc1_251" class="caption">使い方</div>
+<div><p>アノテーションをアクションクラス名のクラス定義の上に書きます。<tt><pre id="doc1_255" class="program">
 							
 @XWorkAction(name=&quot;test&quot;)
 public class TestAction extends ActionSupport{
@@ -488,7 +509,7 @@ public class TestAction extends ActionSupport{
 
 </div>
 
-<h2 id="doc1_267">連絡先</h2>
+<h2 id="doc1_291">連絡先</h2>
 
 
 <ul>
@@ -496,10 +517,12 @@ public class TestAction extends ActionSupport{
 <li> <a href="https://www.seasar.org/issues/browse/XWORK" onmouseover="hilightHyperlink(this)" onmouseout="normal(this)">バグトラッキング</a></ul>
 
 
-<h2 id="doc1_285">変更履歴</h2>
+<h2 id="doc1_309">変更履歴</h2>
 
 
 <dl>
+<dt>2006/5/18(日) S2XWork 0.5,S2XWorkTiger 0.5リリース
+<dd>S2ContainerInitListenerの削除、AnnotationConfigurationProviderの名前間違い修正、s2xwork.dicon,s2xwork-tiger.diconの追加
 <dt>2006/5/6(土) S2XWork 0.4,S2XWorkTiger 0.4リリース
 <dd>DelegateObjectFactoryの削除、アノテーションの追加
 <dt>2006/5/5(金) S2XWork 0.3リリース

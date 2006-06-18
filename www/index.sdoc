@@ -3,7 +3,6 @@
 	<head>
 		<title>S2XWork</title>
 		<header></header>
-
 		<footer>
 			<hr />
 			<div align="right">
@@ -72,6 +71,18 @@
     <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
     <property name="autoRegist">false</property>
   </component>
+</components>]]>
+					</program>
+				</tt>
+				バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork.dicon" />
 </components>]]>
 					</program>
 				</tt>
@@ -158,6 +169,18 @@
 <component class="org.seasar.xwork.component.S2ComponentInterceptor" />]]>
 						</program>
 					</tt>
+					バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。
+					<tt>
+						<program normalizer="xmlsrc"
+							xmlSyntaxHilight="true">
+							<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork.dicon" />
+</components>]]>
+						</program>
+					</tt>
 				</div>
 				<div title="設定(xwork.xml)">
 					interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、
@@ -228,6 +251,18 @@
   <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
 </component>
 ]]>
+						</program>
+					</tt>
+					バージョン0.5からは上記の内容がs2xwork-tiger.dicnoに書かれているため、以下のような記述でも大丈夫です。
+					<tt>
+						<program normalizer="xmlsrc"
+							xmlSyntaxHilight="true">
+							<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork-tiger.dicon" />
+</components>]]>
 						</program>
 					</tt>
 					AnnotationConfigurationProviderには以下のプロパティがあります。
@@ -320,6 +355,10 @@ public class TestAction extends ActionSupport{
 		</section>
 		<section title="変更履歴">
 			<dl>
+				<dt>2006/5/18(日) S2XWork 0.5,S2XWorkTiger 0.5リリース</dt>
+				<dd>
+					S2ContainerInitListenerの削除、AnnotationConfigurationProviderの名前間違い修正、s2xwork.dicon,s2xwork-tiger.diconの追加
+				</dd>
 				<dt>2006/5/6(土) S2XWork 0.4,S2XWorkTiger 0.4リリース</dt>
 				<dd>DelegateObjectFactoryの削除、アノテーションの追加</dd>
 				<dt>2006/5/5(金) S2XWork 0.3リリース</dt>
