@@ -1,17 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
 <components>
-  <component class="org.seasar.xwork.S2ObjectFactory">
-    <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
-    <property name="autoRegist">false</property>
-  </component>
-  <component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
-    <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
-  </component>
-  <component class="org.seasar.xwork.annotation.AnnotationConfigurationProvider">
-    <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
-  </component>
-  <component class="org.seasar.xwork.component.S2ComponentInterceptor" />
+  <include path="s2xwork.dicon" />
+  <include path="s2xwork-tiger.dicon" />
   <component class="org.seasar.xwork.example.webwork.AddServiceImpl" />
   <component class="org.seasar.xwork.example.webwork.AddAction" instance="prototype" />
   <component name="addDto" class="org.seasar.xwork.example.webwork.AddDto" instance="request" />

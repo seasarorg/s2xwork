@@ -81,7 +81,7 @@
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork</artifactId>
-			<version>0.4</version>
+			<version>0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>

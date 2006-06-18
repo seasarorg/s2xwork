@@ -31,12 +31,6 @@
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-		<action name="add"
-			class="org.seasar.xwork.example.webwork.AddAction">
-			<interceptor-ref name="s2componentStack" />
-			<result name="success" type="velocity">
-				add_success.vm
-			</result>
-		</action>
+		<default-interceptor-ref name="s2componentStack" />
 	</package>
 </xwork>
