@@ -26,7 +26,7 @@ public class S2ObjectFactory extends ObjectFactory {
 	 * Žg—p‚·‚éS2Container‚ðŽó‚¯Žæ‚é
 	 */
 	public S2ObjectFactory(S2Container container) {
-		this.container = container;
+		this.container = container.getRoot();
 	}
 
 	/**

@@ -2,6 +2,7 @@
 
 	* 0.5リリース: 
 	-S2ContinerInitListenerを削除
+	-s2xwork.diconを追加
 	
 2006-05-06 matobat <matobat@gmail.com>
 	* 0.4リリース:

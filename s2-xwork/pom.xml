@@ -46,12 +46,21 @@
 		<defaultGoal>validate</defaultGoal>
 		<resources>
 			<resource>
+				<directory>src/conf</directory>
+				<includes>
+					<include>**/*.dicon</include>
+				</includes>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
 				<directory>src/test/java</directory>
 				<includes>
 					<include>**/*.xml</include>
 				</includes>
-			</resource>
-		</resources>
+			</testResource>
+		</testResources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

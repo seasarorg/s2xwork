@@ -15,7 +15,7 @@ public class S2ComponentInterceptor extends AroundInterceptor {
 	private S2Container container;
 
 	protected void before(ActionInvocation arg0) throws Exception {
-		Map map = new S2ComponentMap(container);
+		Map map = new S2ComponentMap(container.getRoot());
 		ActionContext.getContext().getValueStack().getRoot().add(map);
 	}
 

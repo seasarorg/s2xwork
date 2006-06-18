@@ -15,15 +15,14 @@ import org.seasar.xwork.S2ObjectFactory;
 import com.opensymphony.xwork.ActionProxy;
 import com.opensymphony.xwork.ActionProxyFactory;
 import com.opensymphony.xwork.ActionSupport;
+import com.opensymphony.xwork.ObjectFactory;
 
 public class S2ComponentInterceptorTest extends TestCase {
 	private S2Container container;
 
-	private S2ObjectFactory objectFactory;
-
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception { 
 		container = new S2ContainerImpl();
-		objectFactory = new S2ObjectFactory(container);
+		ObjectFactory.setObjectFactory(new S2ObjectFactory(container));
 	}
 
 	public void testInterceptor() throws Exception {
