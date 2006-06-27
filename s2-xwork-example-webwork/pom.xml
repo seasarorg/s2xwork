@@ -86,7 +86,7 @@
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork-tiger</artifactId>
-			<version>0.5</version>
+			<version>0.6</version>
 		</dependency>
 		<dependency>
 			<groupId>velocity</groupId>
