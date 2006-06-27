@@ -36,6 +36,8 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 
 	private String resource = "xwork.xml";
 
+	private boolean reload;
+
 	/**
 	 * XWorkActionアノテーションが設定されているクラスを登録します
 	 * 
@@ -157,7 +159,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	}
 
 	public boolean needsReload() {
-		return true;
+		return reload;
 	}
 
 	public static File getRootPath(String resource) {
@@ -167,5 +169,13 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 					resource);
 		}
 		return new File(url.getFile()).getParentFile();
+	}
+
+	public boolean isReload() {
+		return reload;
+	}
+
+	public void setReload(boolean reload) {
+		this.reload = reload;
 	}
 }
