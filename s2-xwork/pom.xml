@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Shift_JIS"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -10,7 +10,7 @@
 	<name>S2XWork</name>
 <!-- 
 	<description>
-		S2XWorkはXWorkからSeasar2を使用しやすくするライブラリを提供します
+		S2XWork縺ｯXWork縺九ｉSeasar2繧剃ｽｿ逕ｨ縺励ｄ縺吶￥縺吶ｋ繝ｩ繧､繝悶Λ繝ｪ繧呈署萓帙＠縺ｾ縺�
 	</description>
  -->
  	<url>http://s2xwork.sandbox.seasar2.org/</url>
