@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -7,7 +8,14 @@
 	<packaging>jar</packaging>
 	<version>0.6</version>
 	<name>S2XWorkTiger</name>
+<!--
+	<description>S2XWorkTigerはxwork向けのアノテーションを提供します。</description>
+-->
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>https://www.seasar.org/issues/browse/XWORK</url>
+	</issueManagement>
 	<developers>
 		<developer>
 			<id>matobat</id>
@@ -18,15 +26,13 @@
 			<timezone>+9</timezone>
 		</developer>
 	</developers>
-	<!-- 
-		<licenses>
+	<licenses>
 		<license>
-		<name>The Apache Software License, Version 2.0</name>
-		<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-		<distribution>repo</distribution>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
 		</license>
-		</licenses>
-	-->
+	</licenses>
 	<scm>
 		<connection>
 			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
@@ -44,22 +50,6 @@
 	</organization>
 	<build>
 		<defaultGoal>validate</defaultGoal>
-		<resources>
-			<resource>
-				<directory>src/conf</directory>
-				<includes>
-					<include>**/*.dicon</include>
-				</includes>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</testResource>
-		</testResources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
