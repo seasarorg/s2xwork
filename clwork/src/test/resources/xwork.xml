@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+    <!-- バッチ用の設定 -->
+    <package name="clwork">
+        <result-types>
+            <result-type class="org.seasar.xwork.clwork.test.CommandLineDispatcherTest$CommandLineMockResult" name="command"/>
+        </result-types>
+        <interceptors>
+			<interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
+            <interceptor-stack name="defaultStack">
+              <interceptor-ref name="params"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultStack"/>
+        
+        <action name="test" class="org.seasar.xwork.clwork.test.CommandLineDispatcherTest$TestAction">
+            <result name="success" type="command">
+                <param name="resultCode">0</param>
+            </result>
+            <result name="error" type="command">
+                <param name="resultCode">1</param>
+            </result>
+        </action>
+    </package>
+</xwork>
