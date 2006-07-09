@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork.dicon" />
+  <include path="s2xwork-tiger.dicon" />
+  <component class="org.seasar.xwork.example.webwork.AddServiceImpl" />
+  <component class="org.seasar.xwork.example.webwork.AddAction" instance="prototype" />
+  <component name="addDto" class="org.seasar.xwork.example.webwork.AddDto" instance="prototype" />
+</components>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+    <package name="default">
+        <result-types>
+            <result-type class="org.seasar.xwork.clwork.result.CommandLineResult" name="command"/>
+        </result-types>
+        <interceptors>
+			<interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
+			<interceptor name="model-driven" class="com.opensymphony.xwork.interceptor.ModelDrivenInterceptor" /> 
+            <interceptor-stack name="defaultStack">
+              <interceptor-ref name="model-driven"/>
+              <interceptor-ref name="params"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="defaultStack"/>
+    </package>
+</xwork>
