@@ -1,4 +1,3 @@
-S2XWorkとは
+clworkとは
 
-  S2XWorkは{{{http://www.opensymphony.com/}OpenSymphony}}の開発しているコマンドパターンフレームワーク{{{http://www.opensymphony.com/xwork/}XWork}}からSeasar2を利用するコンポーネントを提供します。
-  {{{http://www.opensymphony.com/webwork/wikidocs/Spring.html}Webwork Spring Integration}}と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
+  clworkは{{{http://www.opensymphony.com/xwork/}XWork}}をベースにしたコマンドラインアプリ向けのフレームワークです。

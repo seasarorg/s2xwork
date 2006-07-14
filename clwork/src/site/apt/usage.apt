@@ -1,165 +1,38 @@
 使い方
 
-*設定
+* CommandLineDispatcher
 
-**diconファイル
+	CommandLineDispatcherはmainメソッドから使用されることを想定しています。 
+	dispatchメソッドの第1引数は実行するActionの名前で、第2引数はコマンドラインパラメータになります。 
+	パラメータは「-name value」の形式で指定するとActionまたはModelDrivenのプロパティにセットされます。 
+	public static void main(String[] args) throws Exception {
+	    CommandLineDispatcher dispatcher = new CommandLineDispatcher();
+	    dispatcher.dispatch(args[0], args);
+	}
+	Actionなどでコマンドラインパラメータをそのまま使いたい場合は以下のようにして取り出せます。 
+	String[] args = (String[])ActionContext.getContext().get(CommandLineDispatcher.CMD);
 
-	diconファイルにS2ObjectFactoryを設定します。
-	autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)
-	
-----------------------------------------
-<?xml version="1.0"?>
-<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
-	"http://www.seasar.org/dtd/components23.dtd">
-<components>
-  <component class="org.seasar.xwork.S2ObjectFactory">
-    <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
-    <property name="autoRegist">false</property>
-  </component>
-</components>
-----------------------------------------
-	
-	バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。
-
-----------------------------------------						
-<?xml version="1.0"?>
-<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
-	"http://www.seasar.org/dtd/components23.dtd">
-<components>
-  <include path="s2xwork.dicon" />
-</components>
-----------------------------------------
-
-**web.xml
-
-	web.xmlに以下のコンポーネントを設定します。
-
-	* org.seasar.framework.container.filter.S2ContainerFilter 
-	
-	* com.opensymphony.webwork.dispatcher.FilterDispatcher 
-	
-	* org.seasar.framework.container.servlet.S2ContainerServlet
-
-----------------------------------------
-<?xml version="1.0"?>
-<!DOCTYPE web-app
-      PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-      "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
-	<context-param>
-		<param-name>configPath</param-name>
-		<param-value>app.dicon</param-value>
-	</context-param>
-	<filter>
-		<filter-name>s2filter</filter-name>
-		<filter-class>
-			org.seasar.framework.container.filter.S2ContainerFilter
-		</filter-class>
-	</filter>
-	<filter>
-		<filter-name>webwork</filter-name>
-		<filter-class>
-			com.opensymphony.webwork.dispatcher.FilterDispatcher
-		</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>s2filter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>webwork</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<servlet>
-		<servlet-name>s2servlet</servlet-name>
-		<servlet-class>org.seasar.framework.container.servlet.S2ContainerServlet</servlet-class>
-		<init-param>
-			<param-name>configPath</param-name>
-			<param-value>app.dicon</param-value>
-		</init-param>
-		<init-param>
-			<param-name>debug</param-name>
-			<param-value>false</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>s2servlet</servlet-name>
-		<url-pattern>/s2servlet</url-pattern>
-	</servlet-mapping>
-</web-app>
-----------------------------------------
-		
-その他の機能
-
-*ValueStack経由でSeasar2のコンポーネントにアクセスする
-
-	S2CompontntInterceptorを使えば、ValueStack経由でSeasar2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接Seasar2内のDtoにセットしたり、画面などのResultからSeasar2の2コンポーネントにアクセス出来るようになります。
-
-**diconファイル
-
-	S2CompontntInterceptorをdiconファイルに追加します。
-
-----------------------------------------
-<component class="org.seasar.xwork.component.S2ComponentInterceptor" />
-----------------------------------------
-						
-	バージョン0.5からは上記の内容がs2xwork.diconに書かれているため、以下のような記述でも大丈夫です。
-
-----------------------------------------
-<?xml version="1.0"?>
-<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
-	"http://www.seasar.org/dtd/components23.dtd">
-<components>
-  <include path="s2xwork.dicon" />
-</components>
-----------------------------------------
-						
-**xwork.xml
-
-	interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、interceptor-ref要素でアクションに設定します。
-	以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。
-	
-----------------------------------------
-<?xml version="1.0"?>
-<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1//EN" 
-    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
-<xwork>
-	<include file="webwork-default.xml" />
-	<package name="default" extends="webwork-default">
-		<interceptors>
-			<interceptor name="s2component"
-				class="org.seasar.xwork.component.S2ComponentInterceptor" />
-			<interceptor-stack name="s2componentStack">
-				<interceptor-ref name="exception" />
-				<interceptor-ref name="alias" />
-				<interceptor-ref name="servlet-config" />
-				<interceptor-ref name="prepare" />
-				<interceptor-ref name="i18n" />
-				<interceptor-ref name="chain" />
-				<interceptor-ref name="s2component" />
-				<interceptor-ref name="model-driven" />
-				<interceptor-ref name="fileUpload" />
-				<interceptor-ref name="static-params" />
-				<interceptor-ref name="params" />
-				<interceptor-ref name="conversionError" />
-				<interceptor-ref name="validation">
-					<param name="excludeMethods">
-						input,back,cancel,browse
-					</param>
-				</interceptor-ref>
-				<interceptor-ref name="workflow">
-					<param name="excludeMethods">
-						input,back,cancel,browse
-					</param>
-				</interceptor-ref>
-			</interceptor-stack>
-		</interceptors>
-		<action name="add"
-			class="org.seasar.xwork.example.webwork.AddAction">
-			<interceptor-ref name="s2componentStack" />
-			<result name="success" type="velocity">add_success.vm</result>
-		</action>
+* CommandLineResult
+	System.exitして終了するCommandLineResultの定義を追加します。 
+	CommandLineResultのresultCodeパラメータで終了コードを指定します。 
+	<package name="command">
+	    <result-types>
+	        <result-type class="jp.sourceforge.clwork.result.CommandLineResult" name="command"/>
+	    </result-types>
+	    <interceptors>
+	        <interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
+	        <interceptor-stack name="defaultStack">
+	            <interceptor-ref name="params"/>
+	        </interceptor-stack>
+	    </interceptors>
+	    <default-interceptor-ref name="defaultStack"/>
+	        
+	    <action name="add" class="jp.sourceforge.clwork.sample.AddAction">
+	        <result name="success" type="command">
+	            <param name="resultCode">0</param>
+	        </result>
+	        <result name="error" type="command">
+	            <param name="resultCode">1</param>
+	        </result>
+	    </action>
 	</package>
-</xwork>
-----------------------------------------
