@@ -6,7 +6,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork-example-webwork</artifactId>
 	<packaging>war</packaging>
-	<version>0.5</version>
+	<version>1.0RC1</version>
 	<name>S2XWork Exaple for WebWork2</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<developers>
@@ -74,7 +74,7 @@
 			<version>2.3.8</version>
 		</dependency>
 		<dependency>
-			<groupId>servletapi</groupId>
+			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.4-20040521</version>
 			<scope>provided</scope>
@@ -82,12 +82,12 @@
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork</artifactId>
-			<version>0.5</version>
+			<version>1.0RC1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork-tiger</artifactId>
-			<version>0.6</version>
+			<version>1.0RC1</version>
 		</dependency>
 		<dependency>
 			<groupId>velocity</groupId>
@@ -101,23 +101,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/conf</directory>
-				<includes>
-					<include>**/*.dicon</include>
-					<include>**/*.xml</include>
-					<include>**/*.properties</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.java</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -136,4 +119,12 @@
 			<url>http://maven.seasar.org/maven2</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2</url>
+		</repository>
+	</distributionManagement>
 </project>
