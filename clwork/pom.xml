@@ -8,9 +8,6 @@
 	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>clwork</name>
-	<description>
-		clworkはXWorkをベースにしたコマンドラインアプリ向けのフレームワークです。
-	</description>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>
 		<system>JIRA</system>
@@ -161,4 +158,12 @@
 			<url>http://maven.seasar.org/maven2</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/</url>
+		</repository>
+	</distributionManagement>
 </project>
