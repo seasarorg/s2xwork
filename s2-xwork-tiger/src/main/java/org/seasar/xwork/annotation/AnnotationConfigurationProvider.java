@@ -22,10 +22,10 @@ import com.opensymphony.xwork.config.entities.ResultTypeConfig;
 import com.sun.org.apache.bcel.internal.util.ClassLoader;
 
 /**
- * Šù‘¶‚ÌXWork‚ÌConfiguration‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ’Ç‰Á‚·‚é
+ * æ—¢å­˜ã®XWorkã®Configurationã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’è¿½åŠ ã™ã‚‹
  */
 public class AnnotationConfigurationProvider implements ConfigurationProvider {
-	/** xwork.xml‚Ìƒy[ƒX‚Æ‚È‚éƒpƒbƒP[ƒW */
+	/** xwork.xmlã®ãƒšãƒ¼ã‚¹ã¨ãªã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ */
 	private String packageName = "default";
 
 	private PackageConfig packageConfig;
@@ -39,10 +39,10 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	private boolean reload;
 
 	/**
-	 * XWorkActionƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ğ“o˜^‚µ‚Ü‚·
+	 * XWorkActionã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ç™»éŒ²ã—ã¾ã™
 	 * 
 	 * @param configuration
-	 *            İ’è
+	 *            è¨­å®š
 	 */
 	public void init(Configuration configuration) throws ConfigurationException {
 		packageConfig = configuration.getPackageConfig(packageName);
@@ -94,10 +94,10 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	}
 
 	/**
-	 * XWorkActionƒAƒmƒe[ƒVƒ‡ƒ“‚©‚çActionConfig‚ğì¬‚µ‚Ü‚·
+	 * XWorkActionã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰ActionConfigã‚’ä½œæˆã—ã¾ã™
 	 * 
 	 * @param action
-	 *            XWorkActionƒAƒmƒe[ƒVƒ‡ƒ“
+	 *            XWorkActionã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 	 * @param packageConfig
 	 *            PackageConfig
 	 * @return ActionConfig
@@ -114,13 +114,13 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	}
 
 	/**
-	 * ResultƒAƒmƒe[ƒVƒ‡ƒ“‚©‚çResultConfig‚ÌMap‚ğì¬‚µ‚Ü‚·
+	 * Resultã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰ResultConfigã®Mapã‚’ä½œæˆã—ã¾ã™
 	 * 
 	 * @param results
-	 *            ResultƒAƒmƒe[ƒVƒ‡ƒ“
+	 *            Resultã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 	 * @param packageConfig
 	 *            PackageConfig
-	 * @return ResultConfig‚ÌMap
+	 * @return ResultConfigã®Map
 	 */
 	static Map buildResults(Result[] results, PackageConfig packageConfig) {
 		Map<String, ResultConfig> resultMap = new HashMap<String, ResultConfig>();
@@ -137,11 +137,11 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	}
 
 	/**
-	 * ParamƒAƒmƒe[ƒVƒ‡ƒ“‚©‚çparam‚ÌMap‚ğì¬‚µ‚Ü‚·
+	 * Paramã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰paramã®Mapã‚’ä½œæˆã—ã¾ã™
 	 * 
 	 * @param params
-	 *            ParamƒAƒmƒe[ƒVƒ‡ƒ“
-	 * @return param‚ÌMap
+	 *            Paramã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
+	 * @return paramã®Map
 	 */
 	static Map buildParam(Param[] params) {
 		Map<String, String> paramMap = new HashMap<String, String>();
