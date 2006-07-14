@@ -2,7 +2,6 @@ package org.seasar.xwork.example.webwork;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.seasar.xwork.annotation.Param;
 import org.seasar.xwork.annotation.Result;
 import org.seasar.xwork.annotation.XWorkAction;
 
