@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="S2XWorkTiger">
+	<bannerLeft>
+		<name>Seasar.org</name>
+		<src>http://www.seasar.org/images/seasar_logo_blue.gif</src>
+		<href>http://www.seasar.org/</href>
+	</bannerLeft>
+
+	<body>
+		<links>
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="TOP" href="/" />
+		</links>
+
+		<menu name="S2XWorkTiger">
+			<item name="概要" href="index.html" />
+			<item name="ダウンロード" href="../download.html" />
+			<item name="使い方" href="usage.html" />
+		</menu>
+
+		${reports}
+	</body>
+</project>
