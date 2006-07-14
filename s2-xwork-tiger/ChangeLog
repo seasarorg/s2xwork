@@ -1,15 +1,12 @@
 2006-07-16 matobat <matobat@gmail.com>
-
 	* 1.0RC1リリース: 
 	AnnotationConfigurationProviderにreloadプロパティを追加
 
 2006-06-14 matobat <matobat@gmail.com>
-
 	* 0.5リリース: 
 	-AnnotationConfigurationProviderの名前間違いを修正
 	-s2xwork-tiger.diconを追加
 
 2006-05-05 matobat <matobat@gmail.com>
-
 	* 0.4リリース: 
 	-初回リリース
