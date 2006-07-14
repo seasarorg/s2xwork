@@ -1,16 +1,16 @@
 2006-06-14 matobat <matobat@gmail.com>
-	* 0.5ƒŠƒŠ[ƒX: 
-	-S2ContinerInitListener‚ğíœ
-	-s2xwork.dicon‚ğ’Ç‰Á
+	* 0.5ãƒªãƒªãƒ¼ã‚¹: 
+	-S2ContinerInitListenerã‚’å‰Šé™¤
+	-s2xwork.diconã‚’è¿½åŠ 
 	
 2006-05-06 matobat <matobat@gmail.com>
-	* 0.4ƒŠƒŠ[ƒX:
-	-DelegateObjectFactory‚Ìíœ
+	* 0.4ãƒªãƒªãƒ¼ã‚¹:
+	-DelegateObjectFactoryã®å‰Šé™¤
 
 2006-05-05 matobat <matobat@gmail.com>
-	* 0.3ƒŠƒŠ[ƒX:
-	-S2ComponentInterceptor‚Ì’Ç‰Á
+	* 0.3ãƒªãƒªãƒ¼ã‚¹:
+	-S2ComponentInterceptorã®è¿½åŠ 
 
-	* 0.2ƒŠƒŠ[ƒX: 
-	-WebWork2.2‘Î‰
-	-seasar.org‚Å‚Ì‰ƒŠƒŠ[ƒX
+	* 0.2ãƒªãƒªãƒ¼ã‚¹: 
+	-WebWork2.2å¯¾å¿œ
+	-seasar.orgã§ã®åˆãƒªãƒªãƒ¼ã‚¹

@@ -9,17 +9,12 @@
 	<body>
 		<links>
 			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="S2XWork"
-				href="http://s2xwork.sandbox.seasar.org/" />
-			<item name="S2XWorkTiger"
-				href="http://s2xwork.sandbox.seasar.org/S2XWorkTiger/" />
-			<item name="clwork"
-				href="http://s2xwork.sandbox.seasar.org/clwork/" />
+			<item name="TOP" href="/" />
 		</links>
 
 		<menu name="S2XWork">
-			<item name="概要" href="overview.html" />
-			<item name="ダウンロード" href="download.html" />
+			<item name="概要" href="index.html" />
+			<item name="ダウンロード" href="../download.html" />
 			<item name="使い方" href="usage.html" />
 		</menu>
 

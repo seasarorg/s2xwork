@@ -6,14 +6,9 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
 	<packaging>jar</packaging>
-	<version>0.5</version>
+	<version>1.0RC</version>
 	<name>S2XWork</name>
-<!-- 
-	<description>
-		S2XWorkはXWorkからSeasar2を使用しやすくするライブラリを提供します
-	</description>
- -->
- 	<url>http://s2xwork.sandbox.seasar2.org/</url>
+	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>
 		<system>JIRA</system>
 		<url>https://www.seasar.org/issues/browse/XWORK</url>
@@ -88,17 +83,13 @@
 				</executions>
 				<configuration>
 					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<reporting>
 		<plugins>
-			<plugin>
-				<artifactId>
-					maven-project-info-reports-plugin
-				</artifactId>
-			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>surefire-report-maven-plugin</artifactId>
@@ -109,6 +100,7 @@
 					<locales>ja</locales>
 					<outputEncoding>UTF-8</outputEncoding>
 					<inputEncoding>UTF-8</inputEncoding>
+					<stagingDirectory>../s2-xwork-www/</stagingDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -116,7 +108,25 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>scm</report>
+							<report>dependencies</report>
+							<report>project-team</report>
+							<report>issue-tracking</report>
+							<report>license</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
@@ -151,4 +161,12 @@
 			<url>http://maven.seasar.org/maven2</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2</url>
+		</repository>
+	</distributionManagement>
 </project>
