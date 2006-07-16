@@ -1,0 +1,22 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.seasar.xwork</groupId>
+	<artifactId>s2-xwork-www</artifactId>
+	<name></name>
+	<packaging>pom</packaging>
+	<version>1.0</version>
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<locales>ja</locales>
+					<outputEncoding>UTF-8</outputEncoding>
+					<inputEncoding>UTF-8</inputEncoding>
+					<stagingDirectory>.</stagingDirectory>
+					<generateReports>false</generateReports>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

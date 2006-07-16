@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc xml:lang="ja">
+	<head>
+		<title>clwork</title>
+	</head>
+	<body>
+		<section title="clworkとは">
+			clworkはXWorkをベースにしたコマンドラインアプリ向けのフレームワークです。
+		</section>
+		<section title="インストール">
+			ダウンロードしたバイナリ(Jarファイル)とXWorkのライブラリにクラスパスを通してください。
+		</section>
+		<section title="使い方">
+			<subsection title="CommandLineDispatcher">
+				<ul>
+					<li>
+						CommandLineDispatcherはmainメソッドから使用されることを想定しています。
+					</li>
+					<li>
+						dispatchメソッドの第1引数は実行するActionの名前で、第2引数はコマンドラインパラメータになります。
+					</li>
+					<li>
+						パラメータは「-name
+						value」の形式で指定するとActionまたはModelDrivenのプロパティにセットされます。
+					</li>
+				</ul>
+				<tt>
+					<program>
+						<![CDATA[
+public static void main(String[] args) throws Exception {
+    CommandLineDispatcher dispatcher = new CommandLineDispatcher();
+    dispatcher.dispatch(args[0], args);
+}
+							]]>
+					</program>
+				</tt>
+				setParserメソッドでコマンドラインパラメータの解析を行うクラスを変更することが出来ます。デフォルトではorg.apache.commons.cli.GnuParserになっています。
+				<tt>
+					<program>
+						<![CDATA[
+dispatcher.setParser(new BasicParser());]]>
+					</program>
+				</tt>
+
+				Actionなどでコマンドラインパラメータをそのまま使いたい場合は以下のようにして取り出せます。
+				<tt>
+					<program>
+						<![CDATA[
+String[] args = (String[])ActionContext.getContext().get(CommandLineDispatcher.CMD);
+							]]>
+					</program>
+				</tt>
+			</subsection>
+			<subsection title="設定(xwork.xml)">
+				<ul>
+					<li>
+						System.exitして終了するCommandLineResultの定義を追加します。
+					</li>
+					<li>
+						CommandLineResultのresultCodeパラメータで終了コードを指定します。
+					</li>
+				</ul>
+				<tt>
+					<program>
+						<![CDATA[
+<package name="default">
+    <result-types>
+        <result-type class="org.seasar.xwork.clwork.result.CommandLineResult" name="command"/>
+    </result-types>
+    <interceptors>
+        <interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
+        <interceptor-stack name="defaultStack">
+            <interceptor-ref name="params"/>
+        </interceptor-stack>
+    </interceptors>
+    <default-interceptor-ref name="defaultStack"/>
+        
+    <action name="add" class="org.seasar.xwork.example.webwork.AddAction">
+        <result name="success" type="command">
+            <param name="resultCode">0</param>
+        </result>
+        <result name="error" type="command">
+            <param name="resultCode">1</param>
+        </result>
+    </action>
+</package>]]>
+					</program>
+				</tt>
+			</subsection>
+		</section>
+	</body>
+</doc>

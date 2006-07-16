@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc xml:lang="ja">
+	<head>
+		<title>S2XWork</title>
+	</head>
+	<body>
+		<section title="S2XWorkとは">
+			S2XWorkは
+			<a href="http://www.opensymphony.com/">OpenSymphony</a>
+			の 開発しているコマンドパターンフレームワーク
+			<a href="http://www.opensymphony.com/xwork/">XWork</a>
+			からSeasar2を利用するコンポーネントを提供します。
+			<p></p>
+			<a
+				href="http://www.opensymphony.com/webwork/wikidocs/Spring.html">
+				Webwork Spring Integration
+			</a>
+			と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
+		</section>
+		<section title="インストール">
+			ダウンロードしたバイナリ(Jarファイル)とSeasar2,XWorkのライブラリにクラスパスを通してください。
+		</section>
+		<section title="設定(WebWork2.2で使用する場合)">
+			<subsection title="diconファイル">
+				diconファイルにS2ObjectFactoryを設定します。
+				<p />
+				autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)。
+				<note>
+					無駄なコンポーネントが登録される恐れがあるため、falseが推奨です。コンポーネントの登録にはSeasar2.3以降のコンポーネント自動登録を使うのがおすすめです。
+				</note>
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <component class="org.seasar.xwork.S2ObjectFactory">
+    <initMethod>@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)</initMethod>
+    <property name="autoRegist">false</property>
+  </component>
+</components>]]>
+					</program>
+				</tt>
+				バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork.dicon" />
+</components>]]>
+					</program>
+				</tt>
+			</subsection>
+			<subsection title="web.xml">
+				web.xmlに以下のコンポーネントを設定します。
+				<ul>
+					<li>
+						org.seasar.framework.container.filter.S2ContainerFilter
+					</li>
+					<li>
+						com.opensymphony.webwork.dispatcher.FilterDispatcher
+					</li>
+					<li>
+						org.seasar.framework.container.servlet.S2ContainerServlet
+					</li>
+				</ul>
+				<tt>
+					<program normalizer="xmlsrc"
+						xmlSyntaxHilight="true">
+						<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE web-app
+      PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+      "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>configPath</param-name>
+		<param-value>app.dicon</param-value>
+	</context-param>
+	<filter>
+		<filter-name>s2filter</filter-name>
+		<filter-class>
+			org.seasar.framework.container.filter.S2ContainerFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>webwork</filter-name>
+		<filter-class>
+			com.opensymphony.webwork.dispatcher.FilterDispatcher
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>s2filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>webwork</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>s2servlet</servlet-name>
+		<servlet-class>org.seasar.framework.container.servlet.S2ContainerServlet</servlet-class>
+		<init-param>
+			<param-name>configPath</param-name>
+			<param-value>app.dicon</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>s2servlet</servlet-name>
+		<url-pattern>/s2servlet</url-pattern>
+	</servlet-mapping>
+</web-app>]]>
+					</program>
+				</tt>
+			</subsection>
+		</section>
+		<section title="その他の機能">
+			<subsection title="ValueStack経由でSeasar2のコンポーネントにアクセスする">
+				S2CompontntInterceptorを使えば、ValueStack経由でSeasar2のコンポーネントにアクセス出来るようになります。
+				これによりリクエストパラメータを直接Seasar2内のDtoにセットしたり、画面などのResultからSeasar2の2コンポーネントにアクセス出来るようになります。
+				<div title="設定(diconファイル)">
+					S2CompontntInterceptorをdiconファイルに追加します。
+					<p></p>
+					ValueStackから利用したいコンポーネントはこのdiconファイル以下に登録されている必要があります。
+					<tt>
+						<program>
+							<![CDATA[
+<component class="org.seasar.xwork.component.S2ComponentInterceptor" />]]>
+						</program>
+					</tt>
+					バージョン0.5からは上記の内容がs2xowkr.diconに書かれているため、以下のような記述でも大丈夫です。
+					<tt>
+						<program normalizer="xmlsrc"
+							xmlSyntaxHilight="true">
+							<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork.dicon" />
+</components>]]>
+						</program>
+					</tt>
+				</div>
+				<div title="設定(xwork.xml)">
+					interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、
+					interceptor-ref要素でアクションに設定します。
+					<p></p>
+					以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。
+					<tt>
+						<program>
+							<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<include file="webwork-default.xml" />
+	<package name="default" extends="webwork-default">
+		<interceptors>
+			<interceptor name="s2component"
+				class="org.seasar.xwork.component.S2ComponentInterceptor" />
+			<interceptor-stack name="s2componentStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="s2component" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">
+						input,back,cancel,browse
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="add"
+			class="org.seasar.xwork.example.webwork.AddAction">
+			<interceptor-ref name="s2componentStack" />
+			<result name="success" type="velocity">add_success.vm</result>
+		</action>
+	</package>
+</xwork>]]>
+						</program>
+					</tt>
+				</div>
+			</subsection>
+		</section>
+	</body>
+</doc>

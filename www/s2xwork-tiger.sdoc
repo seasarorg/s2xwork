@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc xml:lang="ja">
+	<head>
+		<title>S2XWorkTiger</title>
+	</head>
+	<body>
+		<section title="S2XWorkTigerとは">
+			S2XWorkTigerを使用すれば、xwork.xmlに記述していたActionの定義をActionクラスの中に書くことが出来るようになります。
+		</section>
+		<section title="インストール">
+			ダウンロードしたバイナリ(Jarファイル)とXWorkのライブラリにクラスパスを通してください。
+		</section>
+		<section title="設定方法">
+			以下の内容をdiconファイルに追加します。
+			<tt>
+				<program>
+					<![CDATA[
+<component class="com.opensymphony.xwork.config.providers.XmlConfigurationProvider">
+ <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+</component>
+<component class="org.seasar.xwork.annotation.AnnotationConfigurationProvider">
+  <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+</component>
+]]>
+				</program>
+			</tt>
+			バージョン0.5からは上記の内容がs2xwork-tiger.dicnoに書かれているため、以下のような記述でも大丈夫です。
+			<tt>
+				<program normalizer="xmlsrc" xmlSyntaxHilight="true">
+					<![CDATA[
+<?xml version="1.0"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components23.dtd">
+<components>
+  <include path="s2xwork-tiger.dicon" />
+</components>]]>
+				</program>
+			</tt>
+			AnnotationConfigurationProviderには以下のプロパティがあります。
+			<p></p>
+			現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。
+			<table>
+				<thead>
+					<tr>
+						<th>プロパティ名</th>
+						<th>内容</th>
+						<th>デフォルト値</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>packageName</td>
+						<td>
+							アクションを追加するxwork.xml内のパッケージ名(package要素のname属性で設定)
+						</td>
+						<td>default</td>
+					</tr>
+					<tr>
+						<td>classPackage</td>
+						<td>
+							アノテーションを探す対象のパッケージ
+							<p></p>
+							このパッケージ以下のパッケージを探索します
+						</td>
+						<td>空文字</td>
+					</tr>
+					<tr>
+						<td>classPattern</td>
+						<td>アノテーションを探す対象のクラス名パターン(正規表現)</td>
+						<td>.*Action</td>
+					</tr>
+					<tr>
+						<td>resource</td>
+						<td>クラスを探索するディレクトリのルートにあるファイル名</td>
+						<td>xwork.xml</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section title="使い方">
+			アノテーションをアクションクラス名のクラス定義の上に書きます。
+			<tt>
+				<program>
+					<![CDATA[
+@XWorkAction(name="test")
+public class TestAction extends ActionSupport{
+}
+]]>
+				</program>
+			</tt>
+
+			<dl>
+				<dt>例:通常のAction定義(nameは必須)</dt>
+				<dd>@XWorkAction(name="test")</dd>
+				<dt>例:複数のAction定義</dt>
+				<dd>
+					@XWorkActions(actions =
+					{@XWorkAction(name="test1"),@XWorkAction(name="test2")})
+				</dd>
+				<dt>例:メソッド指定</dt>
+				<dd>@XWorkAction(name="test", method="add")</dd>
+				<dt>例:Resultありの場合(@Resultのnameを省略した場合はsuccess)</dt>
+				<dd>
+					@XWorkAction(name="test",result=@Result(type="velocity",param=@Param(name="location",value="index.vm")))
+				</dd>
+			</dl>
+		</section>
+	</body>
+</doc>

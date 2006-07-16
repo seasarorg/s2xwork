@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="s2xwork-www">
+	<bannerLeft>
+		<name>Seasar</name>
+		<src>http://www.seasar.org/images/seasar_logo_blue.gif</src>
+		<href>http://www.seasar.org/</href>
+	</bannerLeft>
+
+	<body>
+		<links>
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="S2XWork" href="S2XWork/index.html" />
+			<item name="S2XWorkTiger" href="S2XWorkTiger/index.html" />
+			<item name="clwork" href="clwork/index.html" />
+		</links>
+
+		<menu name="目次">
+			<item name="TOP" href="index.html" />
+			<item name="ダウンロード" href="download.html" />
+		</menu>
+		<menu name="プロダクト">
+			<item name="S2XWork" href="S2XWork/index.html" />
+			<item name="S2XWorkTiger" href="S2XWorkTiger/index.html" />
+			<item name="clwork" href="clwork/index.html" />
+		</menu>
+	</body>
+</project>
