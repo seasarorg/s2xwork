@@ -105,7 +105,7 @@
 					1.0 リリース
 				</dt>
 				<dd>
-					S2ContainerInitListenerの削除、AnnotationConfigurationProviderの名前間違い修正、s2xwork.dicon,s2xwork-tiger.diconの追加
+					AnnotationConfigurationProviderにreloadプロパティを追加
 				</dd>
 				<dt>2006/6/18(日) S2XWork 0.5,S2XWorkTiger 0.5リリース</dt>
 				<dd>
