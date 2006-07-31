@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 
+import com.opensymphony.util.FileManager;
 import com.opensymphony.xwork.config.Configuration;
 import com.opensymphony.xwork.config.ConfigurationException;
 import com.opensymphony.xwork.config.ConfigurationProvider;
@@ -171,11 +172,10 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		return new File(url.getFile()).getParentFile();
 	}
 
-	public boolean isReload() {
-		return reload;
-	}
-
 	public void setReload(boolean reload) {
 		this.reload = reload;
+		if(reload){
+			FileManager.setReloadingConfigs(true);
+		}
 	}
 }

@@ -6,5 +6,6 @@
   </component>
   <component class="org.seasar.xwork.annotation.AnnotationConfigurationProvider">
     <initMethod>@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)</initMethod>
+    <property name="reload">false</property>
   </component>
 </components>
