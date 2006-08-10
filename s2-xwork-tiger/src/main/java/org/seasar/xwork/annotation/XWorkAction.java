@@ -18,7 +18,7 @@ public @interface XWorkAction {
 
     Param[] param() default {};
 
-    String[] interceptorRef() default {};
+    InterceptorRef[] interceptorRef() default {};
 
     String[] externalRef() default {};
 }

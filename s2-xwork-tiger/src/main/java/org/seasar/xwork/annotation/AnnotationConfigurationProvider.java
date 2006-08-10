@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -20,6 +21,7 @@ import com.opensymphony.xwork.config.entities.ActionConfig;
 import com.opensymphony.xwork.config.entities.PackageConfig;
 import com.opensymphony.xwork.config.entities.ResultConfig;
 import com.opensymphony.xwork.config.entities.ResultTypeConfig;
+import com.opensymphony.xwork.config.providers.InterceptorBuilder;
 import com.sun.org.apache.bcel.internal.util.ClassLoader;
 
 /**
@@ -110,8 +112,19 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		actionConfig.setMethodName(action.method());
 		actionConfig.setResults(buildResults(action.result(), packageConfig));
 		actionConfig.setParams(buildParam(action.param()));
+		for (InterceptorRef interceptorRef : action.interceptorRef()) {
+			actionConfig.addInterceptors(buildInterceptor(interceptorRef,
+					packageConfig));
+		}
 
 		return actionConfig;
+	}
+
+	private static List buildInterceptor(InterceptorRef interceptorRef,
+			PackageConfig packageConfig) {
+
+		return InterceptorBuilder.constructInterceptorReference(packageConfig,
+				interceptorRef.name(), buildParam(interceptorRef.param()));
 	}
 
 	/**
@@ -174,7 +187,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 
 	public void setReload(boolean reload) {
 		this.reload = reload;
-		if(reload){
+		if (reload) {
 			FileManager.setReloadingConfigs(true);
 		}
 	}

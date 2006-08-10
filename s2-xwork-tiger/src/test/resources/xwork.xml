@@ -3,5 +3,8 @@
 	"http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
 <xwork>
 	<package name="default">
+		<interceptors>
+			<interceptor name="log" class="com.opensymphony.xwork.interceptor.LoggingInterceptor"></interceptor>
+		</interceptors>
 	</package>
 </xwork>
