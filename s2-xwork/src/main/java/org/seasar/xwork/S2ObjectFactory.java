@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.seasar.framework.container.ComponentDef;
 import org.seasar.framework.container.S2Container;
+import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 import org.seasar.framework.container.impl.ComponentDefImpl;
 
 import com.opensymphony.xwork.ObjectFactory;
@@ -17,6 +18,16 @@ public class S2ObjectFactory extends ObjectFactory {
 
 	/** オブジェクトがコンテナに登録されていない場合自動登録する */
 	private boolean autoRegist;
+	
+	/**
+	 * 使用するS2Containerを受け取る。
+	 * 
+	 * @param container
+	 *            S2Container
+	 */
+	public S2ObjectFactory() {
+		this.container = SingletonS2ContainerFactory.getContainer();
+	}
 
 	/**
 	 * 使用するS2Containerを受け取る。
