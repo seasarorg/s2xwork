@@ -13,8 +13,11 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.opensymphony.util.FileManager;
+import com.opensymphony.util.TextUtils;
 import com.opensymphony.xwork.config.Configuration;
 import com.opensymphony.xwork.config.ConfigurationException;
 import com.opensymphony.xwork.config.ConfigurationProvider;
@@ -31,6 +34,9 @@ import com.sun.org.apache.bcel.internal.util.ClassLoader;
  * 既存のXWorkのConfigurationにアノテーションの設定を追加する
  */
 public class AnnotationConfigurationProvider implements ConfigurationProvider {
+	private static final Log LOG = LogFactory
+			.getLog(AnnotationConfigurationProvider.class);
+
 	/** xwork.xmlのペースとなるパッケージ */
 	private String packageName = "default";
 
@@ -91,7 +97,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 								- ".class".length()).replace(File.separator,
 						".");
 				if (!ignorePattern.matcher(className).matches()) {
-					setAction(packageConfig, Thread.currentThread()
+					addAction(packageConfig, Thread.currentThread()
 							.getContextClassLoader().loadClass(className));
 				}
 			}
@@ -106,21 +112,47 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	 * @param clazz
 	 *            アノテーションが付いているActionクラス
 	 */
-	public static void setAction(PackageConfig packageConfig, Class clazz) {
+	protected void addAction(PackageConfig packageConfig, Class clazz) {
 		XWorkAction action = (XWorkAction) clazz
 				.getAnnotation(XWorkAction.class);
 		if (action != null) {
-			packageConfig.addActionConfig(action.name(), buildAction(clazz
-					.getName(), action, packageConfig));
+			addAction(packageConfig, clazz, action);
 		}
 		XWorkActions actions = (XWorkActions) clazz
 				.getAnnotation(XWorkActions.class);
 		if (actions != null) {
 			for (int i = 0; i < actions.actions().length; i++) {
-				packageConfig.addActionConfig(actions.actions()[i].name(),
-						buildAction(clazz.getName(), actions.actions()[i],
-								packageConfig));
+				addAction(packageConfig, clazz, actions.actions()[i]);
 			}
+		}
+	}
+
+	protected void addAction(PackageConfig packageConfig, Class clazz,
+			XWorkAction action) {
+		Map actionConfigs = packageConfig.getActionConfigs();
+		ActionConfig actionConfig = buildAction(clazz.getName(), action,
+				packageConfig);
+
+		packageConfig.addActionConfig(action.name(), actionConfig);
+		if (LOG.isDebugEnabled()) {
+			LOG
+					.debug("Loaded "
+							+ (TextUtils
+									.stringSet(packageConfig.getNamespace()) ? (packageConfig
+									.getNamespace() + "/")
+									: "") + action.name() + " in '"
+							+ packageConfig.getName() + "' package:"
+							+ actionConfig);
+		}
+		if (actionConfigs.containsKey(action.name())) {
+			LOG
+					.warn("Duplicated action name "
+							+ (TextUtils
+									.stringSet(packageConfig.getNamespace()) ? (packageConfig
+									.getNamespace() + "/")
+									: "") + action.name() + " in '"
+							+ packageConfig.getName() + "' package:"
+							+ actionConfig);
 		}
 	}
 
@@ -135,7 +167,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	 *            PackageConfig
 	 * @return ActionConfig
 	 */
-	static ActionConfig buildAction(String className, XWorkAction action,
+	protected ActionConfig buildAction(String className, XWorkAction action,
 			PackageConfig packageConfig) {
 		ActionConfig actionConfig = new ActionConfig();
 		actionConfig.setClassName(className);
@@ -158,7 +190,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		return actionConfig;
 	}
 
-	private static ExceptionMappingConfig buildExceptionMapping(
+	protected ExceptionMappingConfig buildExceptionMapping(
 			ExceptionMapping exceptionMapping, PackageConfig packageConfig) {
 		ExceptionMappingConfig config = new ExceptionMappingConfig();
 		config.setExceptionClassName(exceptionMapping.exception());
@@ -173,7 +205,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		return config;
 	}
 
-	private static ExternalReference buildExternalRef(ExternalRef externalRef,
+	protected ExternalReference buildExternalRef(ExternalRef externalRef,
 			PackageConfig packageConfig) {
 		ExternalReference externalReference = new ExternalReference();
 		externalReference.setName(externalRef.name());
@@ -182,7 +214,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		return externalReference;
 	}
 
-	private static List buildInterceptor(InterceptorRef interceptorRef,
+	protected List buildInterceptor(InterceptorRef interceptorRef,
 			PackageConfig packageConfig) {
 
 		return InterceptorBuilder.constructInterceptorReference(packageConfig,
@@ -198,7 +230,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	 *            PackageConfig
 	 * @return ResultConfigのMap
 	 */
-	static Map buildResults(Result[] results, PackageConfig packageConfig) {
+	protected Map buildResults(Result[] results, PackageConfig packageConfig) {
 		Map<String, ResultConfig> resultMap = new HashMap<String, ResultConfig>();
 		Map resultTypeConfigs = packageConfig.getAllResultTypeConfigs();
 		for (int i = 0; i < results.length; i++) {
@@ -219,7 +251,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 	 *            Paramアノテーション
 	 * @return paramのMap
 	 */
-	static Map buildParam(Param[] params) {
+	protected Map buildParam(Param[] params) {
 		Map<String, String> paramMap = new HashMap<String, String>();
 		for (int i = 0; i < params.length; i++) {
 			paramMap.put(params[i].name(), params[i].value());

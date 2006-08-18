@@ -42,7 +42,9 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 	 * アノテーション読み込み用のテストクラスです。
 	 * 
 	 */
-	@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") })
+	@XWorkActions(actions = {
+			@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }),
+			@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }) })
 	public static class TestAction extends ActionSupport {
 		public String execute() {
 			return SUCCESS;
