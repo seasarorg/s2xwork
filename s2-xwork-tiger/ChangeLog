@@ -5,6 +5,9 @@
 	-AnnotationConfigurationProviderにclassPattern, classPackageのsetterを追加
 	-AnnotationConfigurationProviderにignoreClassPackageを追加
 	-JavaDocを整理
+	-action名重複時のwarningメッセージを追加
+	-actionロード時のdebugメッセージも追加
+	-XWorkAction,XWorkActionsアノテーションをメソッドにも定義可能に変更
 
 2006-07-16 matobat <matobat@gmail.com>
 	* 1.0RC1リリース: 

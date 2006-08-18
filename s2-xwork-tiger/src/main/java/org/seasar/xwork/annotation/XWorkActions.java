@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * 複数のAction設定
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target( { ElementType.TYPE, ElementType.METHOD })
 @Documented
 public @interface XWorkActions {
 	/**

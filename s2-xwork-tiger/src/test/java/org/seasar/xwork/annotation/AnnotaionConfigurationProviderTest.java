@@ -36,6 +36,12 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 		InterceptorMapping interceptorMapping = (InterceptorMapping) proxy
 				.getConfig().getInterceptors().get(0);
 		assertTrue(interceptorMapping.getInterceptor() instanceof LoggingInterceptor);
+
+		proxy = ActionProxyFactory.getFactory().createActionProxy("default",
+				"annotation_test_m", null);
+		assertTrue(proxy.getAction() instanceof Test2Action);
+		assertEquals("test", proxy.getMethod());
+
 	}
 
 	/**
@@ -47,6 +53,13 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 			@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }) })
 	public static class TestAction extends ActionSupport {
 		public String execute() {
+			return SUCCESS;
+		}
+	}
+
+	public static class Test2Action extends ActionSupport {
+		@XWorkAction(name = "annotation_test_m", interceptorRef = { @InterceptorRef(name = "log") })
+		public String test() {
 			return SUCCESS;
 		}
 	}

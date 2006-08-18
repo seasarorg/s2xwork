@@ -1,6 +1,7 @@
 package org.seasar.xwork.annotation;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
@@ -116,24 +117,48 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 		XWorkAction action = (XWorkAction) clazz
 				.getAnnotation(XWorkAction.class);
 		if (action != null) {
-			addAction(packageConfig, clazz, action);
+			ActionConfig actionConfig = buildAction(clazz.getName(), action,
+					packageConfig);
+			addAction(packageConfig, clazz, action, actionConfig);
 		}
 		XWorkActions actions = (XWorkActions) clazz
 				.getAnnotation(XWorkActions.class);
 		if (actions != null) {
 			for (int i = 0; i < actions.actions().length; i++) {
-				addAction(packageConfig, clazz, actions.actions()[i]);
+				action = actions.actions()[i];
+				ActionConfig actionConfig = buildAction(clazz.getName(),
+						action, packageConfig);
+				addAction(packageConfig, clazz, action, actionConfig);
+			}
+		}
+		clazz.getAnnotations();
+		Method[] method = clazz.getMethods();
+		for (int i = 0; i < method.length; i++) {
+			action = (XWorkAction) method[i].getAnnotation(XWorkAction.class);
+			if (action != null) {
+				ActionConfig actionConfig = buildAction(clazz.getName(),
+						action, packageConfig);
+				actionConfig.setMethodName(method[i].getName());
+				addAction(packageConfig, clazz, action, actionConfig);
+			}
+			actions = (XWorkActions) method[i]
+					.getAnnotation(XWorkActions.class);
+			if (actions != null) {
+				for (int j = 0; j < actions.actions().length; j++) {
+					action = actions.actions()[j];
+					ActionConfig actionConfig = buildAction(clazz.getName(),
+							action, packageConfig);
+					actionConfig.setMethodName(method[i].getName());
+					addAction(packageConfig, clazz, actions.actions()[i],
+							actionConfig);
+				}
 			}
 		}
 	}
 
 	protected void addAction(PackageConfig packageConfig, Class clazz,
-			XWorkAction action) {
+			XWorkAction action, ActionConfig actionConfig) {
 		Map actionConfigs = packageConfig.getActionConfigs();
-		ActionConfig actionConfig = buildAction(clazz.getName(), action,
-				packageConfig);
-
-		packageConfig.addActionConfig(action.name(), actionConfig);
 		if (LOG.isDebugEnabled()) {
 			LOG
 					.debug("Loaded "
@@ -154,6 +179,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 							+ packageConfig.getName() + "' package:"
 							+ actionConfig);
 		}
+		packageConfig.addActionConfig(action.name(), actionConfig);
 	}
 
 	/**
