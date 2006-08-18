@@ -10,10 +10,18 @@ import com.opensymphony.xwork.config.entities.InterceptorMapping;
 import com.opensymphony.xwork.config.providers.XmlConfigurationProvider;
 import com.opensymphony.xwork.interceptor.LoggingInterceptor;
 
+/**
+ * AnnotaionConfigurationProviderのテストクラス
+ */
 public class AnnotaionConfigurationProviderTest extends TestCase {
 	protected void setUp() throws Exception {
 	}
 
+	/**
+	 * アノテーションが読み込まれているか確認します
+	 * 
+	 * @throws Exception
+	 */
 	public void testAnnotation() throws Exception {
 		ConfigurationManager
 				.addConfigurationProvider(new XmlConfigurationProvider());
@@ -24,11 +32,17 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 		ActionProxy proxy = ActionProxyFactory.getFactory().createActionProxy(
 				"default", "annotation_test", null);
 		assertTrue(proxy.getAction() instanceof TestAction);
-		assertEquals(1,proxy.getConfig().getInterceptors().size());
-		InterceptorMapping interceptorMapping = (InterceptorMapping)proxy.getConfig().getInterceptors().get(0);
+		assertEquals(1, proxy.getConfig().getInterceptors().size());
+		InterceptorMapping interceptorMapping = (InterceptorMapping) proxy
+				.getConfig().getInterceptors().get(0);
 		assertTrue(interceptorMapping.getInterceptor() instanceof LoggingInterceptor);
 	}
-	@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name="log") })
+
+	/**
+	 * アノテーション読み込み用のテストクラスです。
+	 * 
+	 */
+	@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") })
 	public static class TestAction extends ActionSupport {
 		public String execute() {
 			return SUCCESS;

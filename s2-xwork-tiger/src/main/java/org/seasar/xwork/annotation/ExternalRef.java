@@ -7,23 +7,30 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * パラメータ設定
+ * ExternalRef設定
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-public @interface Param {
+public @interface ExternalRef {
 	/**
 	 * 名前
 	 * 
 	 * @return 名前
 	 */
-	String name();
+	String name() default "";
 
 	/**
-	 * 値
+	 * ExternalRef名
 	 * 
-	 * @return 値
+	 * @return ExternalRef名
 	 */
-	String value();
+	String externalRef();
+
+	/**
+	 * 必須かどうか
+	 * 
+	 * @return 必須かどうか
+	 */
+	boolean required() default true;
 }

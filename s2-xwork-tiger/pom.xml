@@ -6,7 +6,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork-tiger</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0RC1</version>
+	<version>1.0RC2-SNAPSHOT</version>
 	<name>S2XWorkTiger</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>

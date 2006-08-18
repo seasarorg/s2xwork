@@ -7,12 +7,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * パラメータ設定
+ * ExceptionMapping設定
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-public @interface Param {
+public @interface ExceptionMapping {
 	/**
 	 * 名前
 	 * 
@@ -21,9 +21,23 @@ public @interface Param {
 	String name();
 
 	/**
-	 * 値
+	 * 例外クラス名
 	 * 
-	 * @return 値
+	 * @return 例外クラス名
 	 */
-	String value();
+	String exception();
+
+	/**
+	 * MappingするResult名
+	 * 
+	 * @return MappingするResult名
+	 */
+	String result();
+
+	/**
+	 * パラメータ
+	 * 
+	 * @return パラメータ
+	 */
+	Param[] param() default {};
 }

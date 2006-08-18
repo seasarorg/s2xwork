@@ -1,6 +1,14 @@
+2006-08-18 matobat <matobat@gmail.com>
+	* 1.0RC2リリース: 
+	-InterceptorRefアノテーションの読み込み部分を追加
+	-ExceptionMapping,ExternalRefアノテーションを追加
+	-AnnotationConfigurationProviderにclassPattern, classPackageのsetterを追加
+	-AnnotationConfigurationProviderにignoreClassPackageを追加
+	-JavaDocを整理
+
 2006-07-16 matobat <matobat@gmail.com>
 	* 1.0RC1リリース: 
-	AnnotationConfigurationProviderにreloadプロパティを追加
+	-AnnotationConfigurationProviderにreloadプロパティを追加
 
 2006-06-14 matobat <matobat@gmail.com>
 	* 0.5リリース: 
