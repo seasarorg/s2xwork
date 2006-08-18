@@ -10,6 +10,9 @@ import org.seasar.framework.container.impl.S2ContainerImpl;
 
 import com.opensymphony.xwork.ActionSupport;
 
+/**
+ * S2ObjectFactoryのテストクラス
+ */
 public class S2ObjectFactoryTest extends TestCase {
 	private S2Container container;
 
@@ -20,6 +23,11 @@ public class S2ObjectFactoryTest extends TestCase {
 		objectFactory = new S2ObjectFactory(container);
 	}
 
+	/**
+	 * 設定したActionクラスをクラス指定で取得するテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testBuildRegisteredBeanByClass() throws Exception {
 		registerTestService();
 		registerTestAction();
@@ -27,6 +35,11 @@ public class S2ObjectFactoryTest extends TestCase {
 		assertTrue(objectFactory.buildBean(TestAction.class, null) instanceof TestAction);
 	}
 
+	/**
+	 * 自動設定で設定したActionクラスをクラス指定で取得するテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testBuildNonRegisteredBeanByClassAutoRegist() throws Exception {
 		registerTestService();
 		objectFactory.setAutoRegist(true);
@@ -35,13 +48,24 @@ public class S2ObjectFactoryTest extends TestCase {
 		assertEquals(1, container.getComponentDefSize());
 	}
 
+	/**
+	 * 設定していないActionクラスをクラス指定で取得するテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testBuildNonRegisteredBeanByClass() throws Exception {
 		registerTestService();
+		objectFactory.setAutoRegist(false);
 
 		assertTrue(objectFactory.buildBean(TestAction.class, null) instanceof TestAction);
 		assertEquals(1, container.getComponentDefSize());
 	}
 
+	/**
+	 * 設定したActionクラスを名前指定で取得するテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testBuildRegisteredBeanByClassName() throws Exception {
 		registerTestService();
 		registerTestAction();
@@ -50,6 +74,11 @@ public class S2ObjectFactoryTest extends TestCase {
 				"org.seasar.xwork.S2ObjectFactoryTest$TestAction", null) instanceof TestAction);
 	}
 
+	/**
+	 * 設定していないActionクラスを名前指定で取得するテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testBuildNonRegisteredBeanByClassName() throws Exception {
 		registerTestService();
 
@@ -68,17 +97,33 @@ public class S2ObjectFactoryTest extends TestCase {
 		container.register(componentDef);
 	}
 
+	/**
+	 * テスト用アクションクラス
+	 */
 	public static class TestAction extends ActionSupport {
+		/** TestService */
 		private TestService testService;
 
+		/**
+		 * TestService設定
+		 * 
+		 * @param testService
+		 *            TestService
+		 */
 		public void setTestService(TestService testService) {
 			this.testService = testService;
 		}
 	}
 
+	/**
+	 * テスト用サービスインターフェース
+	 */
 	public static interface TestService {
 	}
 
+	/**
+	 * テスト用サービス実装クラス
+	 */
 	public static class TestServiceImpl implements TestService {
 	}
 }

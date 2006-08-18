@@ -1,6 +1,10 @@
+2006-08-18 matobat <matobat@gmail.com>
+	* 1.0RC2リリース: 
+	-S2ObjectFactoryにデフォルトコンストラクタを追加
+
 2006-07-16 matobat <matobat@gmail.com>
 	* 1.0RC1リリース: 
-	特に変更なし
+	-特に変更なし
 	
 2006-06-14 matobat <matobat@gmail.com>
 	* 0.5リリース: 

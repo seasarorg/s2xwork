@@ -12,6 +12,9 @@ import org.seasar.framework.container.impl.S2ContainerImpl;
 
 import com.opensymphony.xwork.util.OgnlValueStack;
 
+/**
+ * S2ComponentMapのテストクラス
+ */
 public class S2ComponentMapTest extends TestCase {
 	private S2Container container;
 
@@ -19,6 +22,11 @@ public class S2ComponentMapTest extends TestCase {
 		container = new S2ContainerImpl();
 	}
 
+	/**
+	 * 値取得のテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testFindValue() throws Exception {
 		ComponentDef componentDef = new ComponentDefImpl(TestDto.class);
 		componentDef.setInstanceDef(InstanceDefFactory.PROTOTYPE);
@@ -34,13 +42,27 @@ public class S2ComponentMapTest extends TestCase {
 		assertEquals(valueStack.findString("testDto.value"), "test value");
 	}
 
+	/**
+	 * テスト用Dtoクラス
+	 */
 	public static class TestDto {
 		private String value;
 
+		/**
+		 * 値取得
+		 * 
+		 * @return 値
+		 */
 		public String getValue() {
 			return value;
 		}
 
+		/**
+		 * 値設定
+		 * 
+		 * @param value
+		 *            値
+		 */
 		public void setValue(String value) {
 			this.value = value;
 		}

@@ -20,17 +20,14 @@ public class S2ObjectFactory extends ObjectFactory {
 	private boolean autoRegist;
 	
 	/**
-	 * 使用するS2Containerを受け取る。
-	 * 
-	 * @param container
-	 *            S2Container
+	 * SingletonS2ContainerFactoryからS2Containerを取得するコンストラクタ。
 	 */
 	public S2ObjectFactory() {
 		this.container = SingletonS2ContainerFactory.getContainer();
 	}
 
 	/**
-	 * 使用するS2Containerを受け取る。
+	 * 使用するS2Containerを受け取るコンストラクタ。
 	 * 
 	 * @param container
 	 *            S2Container

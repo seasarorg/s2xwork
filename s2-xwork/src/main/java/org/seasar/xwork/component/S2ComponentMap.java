@@ -10,8 +10,15 @@ import org.seasar.framework.container.S2Container;
  * S2ContainerにアクセスするMap実装です。
  */
 public class S2ComponentMap implements Map {
+	/** S2Container */
 	private S2Container container;
 
+	/**
+	 * コンストラクタ
+	 * 
+	 * @param container
+	 *            使用するS2Container
+	 */
 	public S2ComponentMap(S2Container container) {
 		this.container = container;
 	}

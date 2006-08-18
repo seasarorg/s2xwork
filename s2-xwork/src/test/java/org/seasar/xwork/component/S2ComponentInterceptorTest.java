@@ -17,14 +17,22 @@ import com.opensymphony.xwork.ActionProxyFactory;
 import com.opensymphony.xwork.ActionSupport;
 import com.opensymphony.xwork.ObjectFactory;
 
+/**
+ * S2ComponentInterceptorのテストクラス
+ */
 public class S2ComponentInterceptorTest extends TestCase {
 	private S2Container container;
 
-	protected void setUp() throws Exception { 
+	protected void setUp() throws Exception {
 		container = new S2ContainerImpl();
 		ObjectFactory.setObjectFactory(new S2ObjectFactory(container));
 	}
 
+	/**
+	 * インターセプター設定のテスト
+	 * 
+	 * @throws Exception
+	 */
 	public void testInterceptor() throws Exception {
 		ComponentDef componentDef = new ComponentDefImpl(TestAction.class);
 		componentDef.setInstanceDef(InstanceDefFactory.PROTOTYPE);
@@ -48,6 +56,9 @@ public class S2ComponentInterceptorTest extends TestCase {
 		assertTrue(false);
 	}
 
+	/**
+	 * テスト用アクション
+	 */
 	public static class TestAction extends ActionSupport {
 		public String execute() {
 			return SUCCESS;
