@@ -104,7 +104,9 @@
 					<locales>ja</locales>
 					<outputEncoding>UTF-8</outputEncoding>
 					<inputEncoding>UTF-8</inputEncoding>
-					<stagingDirectory>../s2-xwork-www/</stagingDirectory>
+					<stagingDirectory>
+						../s2-xwork-www/
+					</stagingDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -142,6 +144,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.2</version>
@@ -164,7 +172,9 @@
 			<uniqueVersion>false</uniqueVersion>
 			<id>maven.seasar.org</id>
 			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/</url>
+			<url>
+				scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/
+			</url>
 		</repository>
 	</distributionManagement>
 </project>
