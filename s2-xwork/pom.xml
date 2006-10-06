@@ -6,7 +6,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0RC2-SNAPSHOT</version>
+	<version>1.0RC2</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>
@@ -140,7 +140,7 @@
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>xwork</artifactId>
-			<version>1.1.3</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.container</groupId>
