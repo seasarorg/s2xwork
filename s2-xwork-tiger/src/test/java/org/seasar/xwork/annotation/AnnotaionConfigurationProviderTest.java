@@ -27,7 +27,7 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 				.addConfigurationProvider(new XmlConfigurationProvider());
 		ConfigurationManager
 				.addConfigurationProvider(new AnnotationConfigurationProvider());
-		ConfigurationManager.getConfiguration();
+		// ConfigurationManager.getConfiguration();
 
 		ActionProxy proxy = ActionProxyFactory.getFactory().createActionProxy(
 				"default", "annotation_test", null);
@@ -48,9 +48,7 @@ public class AnnotaionConfigurationProviderTest extends TestCase {
 	 * アノテーション読み込み用のテストクラスです。
 	 * 
 	 */
-	@XWorkActions(actions = {
-			@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }),
-			@XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }) })
+	@XWorkActions(actions = { @XWorkAction(name = "annotation_test", interceptorRef = { @InterceptorRef(name = "log") }) })
 	public static class TestAction extends ActionSupport {
 		public String execute() {
 			return SUCCESS;

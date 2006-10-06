@@ -128,6 +128,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 				action = actions.actions()[i];
 				ActionConfig actionConfig = buildAction(clazz.getName(),
 						action, packageConfig);
+				actionConfig.setPackageName(packageConfig.getName());
 				addAction(packageConfig, clazz, action, actionConfig);
 			}
 		}
@@ -138,6 +139,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 			if (action != null) {
 				ActionConfig actionConfig = buildAction(clazz.getName(),
 						action, packageConfig);
+				actionConfig.setPackageName(packageConfig.getName());
 				actionConfig.setMethodName(method[i].getName());
 				addAction(packageConfig, clazz, action, actionConfig);
 			}
@@ -148,6 +150,7 @@ public class AnnotationConfigurationProvider implements ConfigurationProvider {
 					action = actions.actions()[j];
 					ActionConfig actionConfig = buildAction(clazz.getName(),
 							action, packageConfig);
+					actionConfig.setPackageName(packageConfig.getName());
 					actionConfig.setMethodName(method[i].getName());
 					addAction(packageConfig, clazz, actions.actions()[i],
 							actionConfig);
