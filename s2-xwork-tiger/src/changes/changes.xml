@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+	<properties>
+		<title>変更履歴</title>
+	</properties>
+	<body>
+		<release version="1.0.0" date="2006-11-19" description="変更なし">
+			<action type="update" by="matobat">
+				InterceptorRefアノテーションの読み込み部分を追加
+			</action>
+			<action type="update" by="matobat">
+				ExceptionMapping,ExternalRefアノテーションを追加
+			</action>
+			<action type="update" by="matobat">
+				AnnotationConfigurationProviderにclassPattern,
+				classPackageのsetterを追加
+			</action>
+			<action type="update" by="matobat">
+				AnnotationConfigurationProviderにignoreClassPackageを追加
+			</action>
+			<action type="update" by="matobat">action名重複時のwarningメッセージを追加</action>
+			<action type="update" by="matobat">actionロード時のdebugメッセージを追加</action>
+			<action type="update" by="matobat">
+				XWorkAction,XWorkActionsアノテーションをメソッドにも定義可能に変更
+			</action>
+			<action type="update" by="matobat">
+				XWork1.2.1(WebWork2.2.4に同梱)に対応
+			</action>
+		</release>
+		<release version="1.0RC1" date="2006-07-16">
+			<action type="update" by="matobat">
+				AnnotationConfigurationProviderにreloadプロパティを追加
+			</action>
+		</release>
+		<release version="0.5" date="2006-06-14">
+			<action type="fix" by="matobat">
+				AnnotationConfigurationProviderの名前間違いを修正
+			</action>
+			<action type="add" by="matobat">s2xwork-tiger.diconを追加</action>
+		</release>
+		<release version="0.4" date="2006-05-05" description="初回リリース">
+		</release>
+	</body>
+</document>
