@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
@@ -20,15 +18,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/
-		</connection>
-		<developerConnection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
-		</developerConnection>
-		<url>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/
-		</url>
+		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/</connection>
+		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/</developerConnection>
+		<url>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/</url>
 	</scm>
 	<organization>
 		<name>The Seasar Foundation</name>
