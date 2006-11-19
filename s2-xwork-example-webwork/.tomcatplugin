@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcatProjectProperties>
-    <rootDir>/target/s2-xwork-example-webwork-0.4</rootDir>
+    <rootDir>/src/main/webapp</rootDir>
     <exportSource>false</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
@@ -8,4 +8,8 @@
     <warLocation></warLocation>
     <extraInfo></extraInfo>
     <webPath>/s2-xwork-example-webwork</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/s2-xwork-example-webwork/target/classes</webClassPathEntry>
+        <webClassPathEntry>org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER</webClassPathEntry>
+    </webClassPathEntries>
 </tomcatProjectProperties>
