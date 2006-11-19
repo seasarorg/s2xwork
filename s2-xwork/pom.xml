@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
