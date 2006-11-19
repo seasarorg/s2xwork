@@ -9,10 +9,12 @@
 	<body>
 		<links>
 			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="TOP" href="/" />
+			<item name="S2XWork" href="../s2-xwork/index.html" />
+			<item name="S2XWorkTiger" href="../s2-xwork-tiger/index.html" />
+			<item name="clwork" href="../clwork/index.html" />
 		</links>
 
-		<menu name="S2XWorkTiger">
+		<menu name="clwork">
 			<item name="概要" href="index.html" />
 			<item name="ダウンロード" href="../download.html" />
 			<item name="使い方" href="usage.html" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Shift_JIS"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -6,8 +6,9 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>clwork</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>clwork</name>
+	<description>clworkはXWorkをベースにしたコマンドラインアプリ向けのフレームワークです。</description>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>
 		<system>JIRA</system>
@@ -95,14 +96,15 @@
 				<artifactId>surefire-report-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
 				<configuration>
 					<locales>ja</locales>
 					<outputEncoding>UTF-8</outputEncoding>
 					<inputEncoding>UTF-8</inputEncoding>
-					<stagingDirectory>
-						../s2-xwork-www/
-					</stagingDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -121,6 +123,8 @@
 				<reportSets>
 					<reportSet>
 						<reports>
+							<report>changes-report</report>
+							<report>jira-report</report>
 							<report>scm</report>
 							<report>dependencies</report>
 							<report>project-team</report>
@@ -163,7 +167,15 @@
 			<uniqueVersion>false</uniqueVersion>
 			<id>maven.seasar.org</id>
 			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/</url>
+			<url>
+				scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/
+			</url>
 		</repository>
+		<site>
+			<id>matobat.sakura.ne.jp</id>
+			<url>
+				scp://matobat.sakura.ne.jp/home/matobat/www/test/clwork/
+			</url>
+		</site>
 	</distributionManagement>
 </project>
