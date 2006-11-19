@@ -3,7 +3,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<issueManagement>
@@ -28,9 +28,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-1.0.0</connection>
-		<developerConnection>scm:svn:scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-1.0.0</developerConnection>
-		<url>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-1.0.0</url>
+		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/</connection>
+		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/</developerConnection>
+		<url>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/</url>
 	</scm>
 	<organization>
 		<name>The Seasar Foundation</name>
@@ -82,7 +82,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
 					<tagBase>
-						scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/
+						https://www.seasar.org/svn/sandbox/s2xwork/tags/
 					</tagBase>
 				</configuration>
 			</plugin>
