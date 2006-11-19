@@ -1,21 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork-example-webwork</artifactId>
 	<packaging>war</packaging>
-	<version>1.0RC1</version>
+	<version>1.0.0</version>
 	<name>S2XWork Exaple for WebWork2</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<developers>
 		<developer>
 			<id>matobat</id>
 			<name>Matoba Tatsunori</name>
-			<email></email>
+			<email />
 			<url>http://d.hatena.ne.jp/matobat/</url>
-			<organization></organization>
+			<organization />
 			<timezone>+9</timezone>
 		</developer>
 	</developers>
@@ -27,15 +24,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork-example-webwork/
-		</connection>
-		<developerConnection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork-example-webwork/
-		</developerConnection>
-		<url>
-			http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F
-		</url>
+		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-example-webwork-1.0.0</connection>
+		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-example-webwork-1.0.0</developerConnection>
+		<url>http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F/tags/s2-xwork-example-webwork-1.0.0?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F</url>
 	</scm>
 	<organization>
 		<name>The Seasar Foundation</name>
@@ -49,24 +40,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>ognl</groupId>
-			<artifactId>ognl</artifactId>
-			<version>2.6.5</version>
-		</dependency>
-		<dependency>
-			<groupId>opensymphony</groupId>
-			<artifactId>oscore</artifactId>
-			<version>2.2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>opensymphony</groupId>
-			<artifactId>xwork</artifactId>
-			<version>1.1.3</version>
-		</dependency>
-		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>webwork</artifactId>
-			<version>2.2.2</version>
+			<version>2.2.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.container</groupId>
@@ -82,12 +58,12 @@
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork</artifactId>
-			<version>1.0RC1</version>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.xwork</groupId>
 			<artifactId>s2-xwork-tiger</artifactId>
-			<version>1.0RC1</version>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>velocity</groupId>
@@ -119,12 +95,4 @@
 			<url>http://maven.seasar.org/maven2</url>
 		</repository>
 	</repositories>
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>maven.seasar.org</id>
-			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2</url>
-		</repository>
-	</distributionManagement>
 </project>
