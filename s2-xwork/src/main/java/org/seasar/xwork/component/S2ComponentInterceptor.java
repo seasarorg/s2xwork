@@ -3,6 +3,7 @@ package org.seasar.xwork.component;
 import java.util.Map;
 
 import org.seasar.framework.container.S2Container;
+import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 
 import com.opensymphony.xwork.ActionContext;
 import com.opensymphony.xwork.ActionInvocation;
@@ -20,6 +21,9 @@ public class S2ComponentInterceptor implements Interceptor {
 	 * 
 	 */
 	public String intercept(ActionInvocation invocation) throws Exception {
+		if (container == null && SingletonS2ContainerFactory.hasContainer()) {
+			container = SingletonS2ContainerFactory.getContainer();
+		}
 		Map map = new S2ComponentMap(container.getRoot());
 		ActionContext.getContext().getValueStack().getRoot().add(map);
 		return invocation.invoke();

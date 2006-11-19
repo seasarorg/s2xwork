@@ -14,16 +14,15 @@ import com.opensymphony.xwork.ObjectFactory;
  */
 public class S2ObjectFactory extends ObjectFactory {
 	/** S2Container */
-	protected final S2Container container;
+	protected S2Container container;
 
 	/** オブジェクトがコンテナに登録されていない場合自動登録する */
 	private boolean autoRegist;
-	
+
 	/**
 	 * SingletonS2ContainerFactoryからS2Containerを取得するコンストラクタ。
 	 */
 	public S2ObjectFactory() {
-		this.container = SingletonS2ContainerFactory.getContainer();
 	}
 
 	/**
@@ -43,6 +42,9 @@ public class S2ObjectFactory extends ObjectFactory {
 	 *      java.util.Map)
 	 */
 	public Object buildBean(Class clazz, Map extraContext) throws Exception {
+		if (container == null && SingletonS2ContainerFactory.hasContainer()) {
+			this.container = SingletonS2ContainerFactory.getContainer();
+		}
 		if (container.hasComponentDef(clazz)) {
 			return container.getComponent(clazz);
 		} else if (autoRegist) {
