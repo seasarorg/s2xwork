@@ -3,7 +3,7 @@
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork-example-webwork</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>S2XWork Exaple for WebWork2</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<developers>
@@ -24,9 +24,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-example-webwork-1.0.0</connection>
-		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2-xwork-example-webwork-1.0.0</developerConnection>
-		<url>http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F/tags/s2-xwork-example-webwork-1.0.0?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F</url>
+		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork-example-webwork/</connection>
+		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork-example-webwork/</developerConnection>
+		<url>http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork-example-webwork%2F</url>
 	</scm>
 	<organization>
 		<name>The Seasar Foundation</name>
