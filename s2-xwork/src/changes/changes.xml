@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+	<properties>
+		<title>変更履歴</title>
+	</properties>
+	<body>
+		<release version="1.0.0" date="2006-11-19">
+			<action type="update" by="matobat">
+				S2ObjectFactoryにデフォルトコンストラクタを追加
+			</action>
+		</release>
+		<release version="1.0RC1" date="2006-07-16"
+			description="変更なし">
+		</release>
+		<release version="0.5" date="2006-06-14">
+			<action type="add" by="matobat">s2xwork.diconを追加</action>
+			<action type="remove" by="matobat">
+				S2ContinerInitListenerを削除
+			</action>
+		</release>
+		<release version="0.4" date="2006-05-06">
+			<action type="remove" by="matobat">
+				DelegateObjectFactoryの削除
+			</action>
+		</release>
+		<release version="0.3" date="2006-05-05">
+			<action type="add" by="matobat">
+				S2ComponentInterceptorの追加
+			</action>
+		</release>
+		<release version="0.2" date="2006-05-05">
+			<action type="update" by="matobat">WebWork2.2対応</action>
+		</release>
+	</body>
+</document>

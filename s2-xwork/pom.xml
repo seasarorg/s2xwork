@@ -1,8 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>S2XWork</name>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
@@ -10,16 +12,6 @@
 		<system>JIRA</system>
 		<url>https://www.seasar.org/issues/browse/XWORK</url>
 	</issueManagement>
-	<developers>
-		<developer>
-			<id>matobat</id>
-			<name>Matoba Tatsunori</name>
-			<email />
-			<url>http://d.hatena.ne.jp/matobat/</url>
-			<organization />
-			<timezone>+9</timezone>
-		</developer>
-	</developers>
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -28,9 +20,15 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/</connection>
-		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/</developerConnection>
-		<url>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/</url>
+		<connection>
+			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/
+		</connection>
+		<developerConnection>
+			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
+		</developerConnection>
+		<url>
+			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/
+		</url>
 	</scm>
 	<organization>
 		<name>The Seasar Foundation</name>
@@ -95,14 +93,15 @@
 				<artifactId>surefire-report-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
 				<configuration>
 					<locales>ja</locales>
 					<outputEncoding>UTF-8</outputEncoding>
 					<inputEncoding>UTF-8</inputEncoding>
-					<stagingDirectory>
-						../s2-xwork-www/
-					</stagingDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -121,6 +120,8 @@
 				<reportSets>
 					<reportSet>
 						<reports>
+							<report>changes-report</report>
+							<report>jira-report</report>
 							<report>scm</report>
 							<report>dependencies</report>
 							<report>project-team</report>
@@ -142,12 +143,12 @@
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>xwork</artifactId>
-			<version>1.2</version>
+			<version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seasar.container</groupId>
 			<artifactId>s2-framework</artifactId>
-			<version>2.3.8</version>
+			<version>2.3.15</version>
 		</dependency>
 		<dependency>
 			<groupId>servletapi</groupId>
@@ -172,5 +173,12 @@
 				scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2
 			</url>
 		</repository>
+		<site>
+			<id>matobat.sakura.ne.jp</id>
+			<url>
+				scp://matobat.sakura.ne.jp/home/matobat/www/test/s2-xwork/
+			</url>
+		</site>
+
 	</distributionManagement>
 </project>

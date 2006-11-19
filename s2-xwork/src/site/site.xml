@@ -9,7 +9,9 @@
 	<body>
 		<links>
 			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="TOP" href="/" />
+			<item name="S2XWork" href="../s2-xwork/index.html" />
+			<item name="S2XWorkTiger" href="../s2-xwork-tiger/index.html" />
+			<item name="clwork" href="../clwork/index.html" />
 		</links>
 
 		<menu name="S2XWork">
