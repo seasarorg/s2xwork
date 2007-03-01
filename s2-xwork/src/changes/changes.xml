@@ -4,6 +4,11 @@
 		<title>変更履歴</title>
 	</properties>
 	<body>
+		<release version="1.0.1" date="2006-11-21">
+			<action type="update" by="matobat">
+				S2ObjectFactoryとS2ComponentInterceptorをdiconに定義しなくても使用可能に変更
+			</action>
+		</release>
 		<release version="1.0.0" date="2006-11-19">
 			<action type="update" by="matobat">
 				S2ObjectFactoryにデフォルトコンストラクタを追加
