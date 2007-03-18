@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="Content-Language" content="ja" /> 
+<meta http-equiv="Content-Style-Type" content="text/css" /> 
+<title>S2XWork - </title>
+<link rel="stylesheet" type="text/css" href="http://www.seasar.org/theme/main.css" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="http://www.seasar.org/theme/print.css" media="print" />
+<link href="./css/maven-base.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="./css/maven-theme.css" type="text/css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="header">
+
+<div class="line"><span class="hide">spacer</span></div>
+
+<div id="logo"><h1 id="h01" class="hide">The Seasar Foundation Project Site</h1><img src="http://www.seasar.org/images/seasar_logo_blue.gif" alt="The Seasar Foundation" width="390" height="180" /></div>
+
+<div id="tool">
+
+<h2><a href="http://search.seasar.org/">Site Search</a></h2>
+
+<form id="search" action="http://search.seasar.org/">
+<div>
+	<input id="search_phrase" type="text" name="phrase" size="20" />
+	<input type="hidden" name="perpage" value="30" />
+	<input type="hidden" name="enc" value="UTF-8" />
+	<input id="search_go" type="submit" value="Search" />
+</div>
+</form>
+
+<h2>Seasar Banner</h2>
+
+<p><a href="http://www.seasar.org/images/seasar_banner.gif"><img src="http://www.seasar.org/images/seasar_banner.gif" alt="Seasar Banner" title="Seasar Banner" width="146" height="33" /></a></p>
+
+</div>
+
+<div id="navi">
+<p><a href="../en/">English</a> | <a href="../ja/">Japanese</a></p>
+</div>
+
+</div><!-- header -->
+
+<div id="contents_left">
+           
+  
+
+  
+    
+  
+  
+                   <h2>S2XWork</h2>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">概要</a>
+        </li>
+              
+    <li class="none">
+              <a href="download.html">ダウンロード</a>
+        </li>
+              
+    <li class="none">
+              <strong>使い方</strong>
+        </li>
+          </ul>
+          <h2>プロジェクト文書</h2>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">プロジェクト情報</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">プロジェクトレポート</a>
+              </li>
+          </ul>
+                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy" name="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png" />
+          </a>
+                       
+  
+
+  
+    
+  
+  
+  </div><!-- contents_left -->
+
+<div id="contents_center">
+
+<div id="article">
+<div class="section"><h2>使い方</h2><div class="section"><h3>設定</h3><div class="section"><h4>diconファイル</h4><p>diconファイルにS2ObjectFactoryを設定します。 autoRegistプロパティをtrueにすると、コンテナに登録されていないコンポーネントが要求された際に、自動でコンテナに登録します(デフォルトはfalse)</p><div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE components PUBLIC &quot;-//SEASAR2.1//DTD S2Container//EN&quot;
+        &quot;http://www.seasar.org/dtd/components23.dtd&quot;&gt;
+&lt;components&gt;
+  &lt;component class=&quot;org.seasar.xwork.S2ObjectFactory&quot;&gt;
+    &lt;initMethod&gt;@com.opensymphony.xwork.ObjectFactory@setObjectFactory(#self)&lt;/initMethod&gt;
+    &lt;property name=&quot;autoRegist&quot;&gt;false&lt;/property&gt;
+  &lt;/component&gt;
+&lt;/components&gt;</pre></div><p>バージョン0.5からは上記の内容がs2xwork.diconに書かれているため、以下のような記述でも大丈夫です。</p><div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE components PUBLIC &quot;-//SEASAR2.1//DTD S2Container//EN&quot;
+        &quot;http://www.seasar.org/dtd/components23.dtd&quot;&gt;
+&lt;components&gt;
+  &lt;include path=&quot;s2xwork.dicon&quot; /&gt;
+&lt;/components&gt;</pre></div></div><div class="section"><h4>web.xml</h4><p>web.xmlに以下のコンポーネントを設定します。</p><ul><li>org.seasar.framework.container.filter.S2ContainerFilter </li><li>com.opensymphony.webwork.dispatcher.FilterDispatcher </li><li>org.seasar.framework.container.servlet.S2ContainerServlet<div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE web-app
+      PUBLIC &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+      &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;&gt;
+&lt;web-app&gt;
+        &lt;context-param&gt;
+                &lt;param-name&gt;configPath&lt;/param-name&gt;
+                &lt;param-value&gt;app.dicon&lt;/param-value&gt;
+        &lt;/context-param&gt;
+        &lt;filter&gt;
+                &lt;filter-name&gt;s2filter&lt;/filter-name&gt;
+                &lt;filter-class&gt;
+                        org.seasar.framework.container.filter.S2ContainerFilter
+                &lt;/filter-class&gt;
+        &lt;/filter&gt;
+        &lt;filter&gt;
+                &lt;filter-name&gt;webwork&lt;/filter-name&gt;
+                &lt;filter-class&gt;
+                        com.opensymphony.webwork.dispatcher.FilterDispatcher
+                &lt;/filter-class&gt;
+        &lt;/filter&gt;
+        &lt;filter-mapping&gt;
+                &lt;filter-name&gt;s2filter&lt;/filter-name&gt;
+                &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/filter-mapping&gt;
+        &lt;filter-mapping&gt;
+                &lt;filter-name&gt;webwork&lt;/filter-name&gt;
+                &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/filter-mapping&gt;
+        &lt;servlet&gt;
+                &lt;servlet-name&gt;s2servlet&lt;/servlet-name&gt;
+                &lt;servlet-class&gt;org.seasar.framework.container.servlet.S2ContainerServlet&lt;/servlet-class&gt;
+                &lt;init-param&gt;
+                        &lt;param-name&gt;configPath&lt;/param-name&gt;
+                        &lt;param-value&gt;app.dicon&lt;/param-value&gt;
+                &lt;/init-param&gt;
+                &lt;init-param&gt;
+                        &lt;param-name&gt;debug&lt;/param-name&gt;
+                        &lt;param-value&gt;false&lt;/param-value&gt;
+                &lt;/init-param&gt;
+                &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+        &lt;/servlet&gt;
+        &lt;servlet-mapping&gt;
+                &lt;servlet-name&gt;s2servlet&lt;/servlet-name&gt;
+                &lt;url-pattern&gt;/s2servlet&lt;/url-pattern&gt;
+        &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;</pre></div></li></ul></div></div></div><div class="section"><h2>その他の機能</h2><div class="section"><h3>ValueStack経由でSeasar2のコンポーネントにアクセスする</h3><p>S2CompontntInterceptorを使えば、ValueStack経由でSeasar2のコンポーネントにアクセス出来るようになります。これによりリクエストパラメータを直接Seasar2内のDtoにセットしたり、画面などのResultからSeasar2の2コンポーネントにアクセス出来るようになります。</p><div class="section"><h4>diconファイル</h4><p>S2CompontntInterceptorをdiconファイルに追加します。</p><div class="source"><pre>&lt;component class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;</pre></div><p>バージョン0.5からは上記の内容がs2xwork.diconに書かれているため、以下のような記述でも大丈夫です。</p><div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE components PUBLIC &quot;-//SEASAR2.1//DTD S2Container//EN&quot;
+        &quot;http://www.seasar.org/dtd/components23.dtd&quot;&gt;
+&lt;components&gt;
+  &lt;include path=&quot;s2xwork.dicon&quot; /&gt;
+&lt;/components&gt;</pre></div></div><div class="section"><h4>xwork.xml</h4><p>interceptor要素でorg.seasar.xwork.component.S2ComponentInterceptorを定義して、interceptor-ref要素でアクションに設定します。 以下の例はwebwork-default.xmlのdefaultStackに追加した場合の例です。</p><div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE xwork PUBLIC &quot;-//OpenSymphony Group//XWork 1.1//EN&quot; 
+    &quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;&gt;
+&lt;xwork&gt;
+        &lt;include file=&quot;webwork-default.xml&quot; /&gt;
+        &lt;package name=&quot;default&quot; extends=&quot;webwork-default&quot;&gt;
+                &lt;interceptors&gt;
+                        &lt;interceptor name=&quot;s2component&quot;
+                                class=&quot;org.seasar.xwork.component.S2ComponentInterceptor&quot; /&gt;
+                        &lt;interceptor-stack name=&quot;s2componentStack&quot;&gt;
+                                &lt;interceptor-ref name=&quot;exception&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;alias&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;servlet-config&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;prepare&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;i18n&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;chain&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;s2component&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;model-driven&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;fileUpload&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;static-params&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;params&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;conversionError&quot; /&gt;
+                                &lt;interceptor-ref name=&quot;validation&quot;&gt;
+                                        &lt;param name=&quot;excludeMethods&quot;&gt;
+                                                input,back,cancel,browse
+                                        &lt;/param&gt;
+                                &lt;/interceptor-ref&gt;
+                                &lt;interceptor-ref name=&quot;workflow&quot;&gt;
+                                        &lt;param name=&quot;excludeMethods&quot;&gt;
+                                                input,back,cancel,browse
+                                        &lt;/param&gt;
+                                &lt;/interceptor-ref&gt;
+                        &lt;/interceptor-stack&gt;
+                &lt;/interceptors&gt;
+                &lt;action name=&quot;add&quot;
+                        class=&quot;org.seasar.xwork.example.webwork.AddAction&quot;&gt;
+                        &lt;interceptor-ref name=&quot;s2componentStack&quot; /&gt;
+                        &lt;result name=&quot;success&quot; type=&quot;velocity&quot;&gt;add_success.vm&lt;/result&gt;
+                &lt;/action&gt;
+        &lt;/package&gt;
+&lt;/xwork&gt;</pre></div></div></div></div>
+</div><!-- article -->
+
+</div><!-- contents_center -->
+
+<div id="footer">
+<address>  &copy; Copyright
+  
+          2007,
+    
+      </address>
+<div class="line"><span class="hide">spacer</span></div>
+</div><!-- footer -->
+
+</div><!-- wrapper -->
+
+</body>
+</html>

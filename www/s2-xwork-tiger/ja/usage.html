@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="Content-Language" content="en" /> 
+<meta http-equiv="Content-Style-Type" content="text/css" /> 
+<title>S2XWorkTiger - </title>
+<link rel="stylesheet" type="text/css" href="http://www.seasar.org/theme/main.css" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="http://www.seasar.org/theme/print.css" media="print" />
+<link href="../css/maven-base.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="../css/maven-theme.css" type="text/css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="header">
+
+<div class="line"><span class="hide">spacer</span></div>
+
+<div id="logo"><h1 id="h01" class="hide">The Seasar Foundation Project Site</h1><img src="http://www.seasar.org/images/seasar_logo_blue.gif" alt="The Seasar Foundation" width="390" height="180" /></div>
+
+<div id="tool">
+
+<h2><a href="http://search.seasar.org/">Site Search</a></h2>
+
+<form id="search" action="http://search.seasar.org/">
+<div>
+	<input id="search_phrase" type="text" name="phrase" size="20" />
+	<input type="hidden" name="perpage" value="30" />
+	<input type="hidden" name="enc" value="UTF-8" />
+	<input id="search_go" type="submit" value="Search" />
+</div>
+</form>
+
+<h2>Seasar Banner</h2>
+
+<p><a href="http://www.seasar.org/images/seasar_banner.gif"><img src="http://www.seasar.org/images/seasar_banner.gif" alt="Seasar Banner" title="Seasar Banner" width="146" height="33" /></a></p>
+
+</div>
+
+<div id="navi">
+<p><a href="../en/">English</a> | <a href="../ja/">Japanese</a></p>
+</div>
+
+</div><!-- header -->
+
+<div id="contents_left">
+           
+  
+
+  
+    
+  
+  
+                   <h2>S2XWorkTiger</h2>
+        <ul>
+              
+    <li class="none">
+              <a href="../index.html">概要</a>
+        </li>
+              
+    <li class="none">
+              <a href="../download.html">ダウンロード</a>
+        </li>
+              
+    <li class="none">
+              <a href="../usage.html">使い方</a>
+        </li>
+          </ul>
+          <h2>Project Documentation</h2>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="../project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="../project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy" name="poweredBy">
+            <img alt="Built by Maven" src="../images/logos/maven-feather.png" />
+          </a>
+                       
+  
+
+  
+    
+  
+  
+  </div><!-- contents_left -->
+
+<div id="contents_center">
+
+<div id="article">
+<div class="section"><h2>使い方</h2><div class="section"><h3>設定 以下の内容をdiconファイルに追加します。</h3><div class="source"><pre>&lt;component \
+    class=&quot;com.opensymphony.xwork.config.providers.XmlConfigurationProvider&quot;&gt;
+&lt;initMethod&gt;@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)&lt;/initMethod&gt;
+&lt;/component&gt;
+&lt;component \
+    class=&quot;org.seasar.xwork.annotation.AnnotationConfigurationProvider&quot;&gt;
+&lt;initMethod&gt;@com.opensymphony.xwork.config.ConfigurationManager@addConfigurationProvider(#self)&lt;/initMethod&gt;
+&lt;/component&gt;</pre></div></div></div><div class="section"><h2>バージョン0.5からは上記の内容がs2xwork-tiger.diconに書かれているため、以下のような記述でも大丈夫です。</h2><div class="source"><pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE components PUBLIC &quot;-//SEASAR2.1//DTD S2Container//EN&quot; &quot;http://www.seasar.org/dtd/components23.dtd&quot;&gt;
+&lt;components&gt;
+  &lt;include path=&quot;s2xwork-tiger.dicon&quot; /&gt;
+&lt;/components&gt;</pre></div></div><div class="section"><h2>AnnotationConfigurationProviderには以下のプロパティがあります。</h2></div><div class="section"><h2>現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。</h2><table class="bodyTable"><tbody><tr class="a"><td align="center">プロパティ名</td><td align="left">内容</td><td align="right">デフォルト値</td></tr><tr class="b"><td align="center">packageName<br />classPackage<br />classPattern<br />resource</td><td align="left">アクションを追加するxwork.xml内のパッケージ名(package要素のname属性で設定)<br />アノテーションを探す対象のパッケージ。このパッケージ以下のパッケージを探索します。<br />アノテーションを探す対象のクラス名パターン(正規表現)<br />クラスを探索するディレクトリのルートにあるファイル名</td><td align="right">default<br />空文字<br />.*Action<br />xwork.xml</td></tr></tbody></table><div class="section"><h3>アノテーションの使い方</h3></div></div><div class="section"><h2>アノテーションをアクションクラス名のクラス定義の上に書きます。</h2><div class="source"><pre>@XWorkAction(name=&quot;test&quot;)
+public class TestAction extends ActionSupport{
+}</pre></div><ul><li>例:通常のAction定義(nameは必須) * @XWorkAction(name=&quot;test&quot;) * 例:複数のAction定義 * @XWorkActions(actions = <a name="@XWorkAction(name="test1"),@XWorkAction(name="test2")">@XWorkAction(name=&quot;test1&quot;),@XWorkAction(name=&quot;test2&quot;)</a>) * 例:メソッド指定 * @XWorkAction(name=&quot;test&quot;, method=&quot;add&quot;) * 例:Resultありの場合(@Resultのnameを省略した場合はsuccess) * @XWorkAction(name=&quot;test&quot;,result=@Result(type=&quot;velocity&quot;,param=@Param(name=&quot;location&quot;,value=&quot;index.vm&quot;)))</li></ul></div>
+</div><!-- article -->
+
+</div><!-- contents_center -->
+
+<div id="footer">
+<address>  &copy; Copyright
+  
+          2007,
+    
+      </address>
+<div class="line"><span class="hide">spacer</span></div>
+</div><!-- footer -->
+
+</div><!-- wrapper -->
+
+</body>
+</html>
