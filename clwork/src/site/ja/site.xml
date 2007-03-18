@@ -12,13 +12,14 @@
 			<item name="clwork" href="../clwork/" />
 		</links>
 
-		<menu name="clwork">
+		<menu ref="parent"/>
+
+		<menu name="Index">
 			<item name="概要" href="index.html" />
 			<item name="ダウンロード" href="download.html" />
 			<item name="使い方" href="usage.html" />
 		</menu>
 
-		<menu ref="parent"/>
 		<menu ref="reports"/>
 	</body>
 	<skin>
