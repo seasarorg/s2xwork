@@ -241,9 +241,9 @@
 			</name>
 			<url>dav:https://www.seasar.org/maven/maven2-snapshot</url>
 		</snapshotRepository>
-		<site>
-			<id>matobat.sakura.ne.jp</id>
-			<url>scp://s2-xwork-www/</url>
-		</site>
+                <site>
+                  <id>maven.seasar.org</id>
+                  <url>file://${basedir}/</url>
+                </site>
 	</distributionManagement>
 </project>
