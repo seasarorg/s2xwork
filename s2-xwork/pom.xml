@@ -7,6 +7,7 @@
 	<packaging>jar</packaging>
 	<version>1.0.2-SNAPSHOT</version>
 	<name>s2-xwork</name>
+        <url>http://s2xwork.sandbox.seasar.org/s2-xwork/</url>
 	<parent>
 		<artifactId>s2-xwork-www</artifactId>
 		<groupId>org.seasar.xwork</groupId>
