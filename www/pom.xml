@@ -11,8 +11,6 @@
 		<module>../s2-xwork</module>
 		<module>../s2-xwork-tiger</module>
 		<module>../clwork</module>
-		<module>../s2-xwork-example-webwork</module>
-		<module>../s2-xwork-example-clwork</module>
 	</modules>
 	<url>http://s2xwork.sandbox.seasar2.org/</url>
 	<licenses>
@@ -106,8 +104,6 @@
 				<configuration>
 					<charset>UTF-8</charset>
 					<encoding>UTF-8</encoding>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
 					<links>
 						<link>
 							http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/
@@ -131,16 +127,6 @@
 					<tagBase>
 						https://www.seasar.org/svn/sandbox/s2xwork/tags/
 					</tagBase>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-site-plugin</artifactId>
-				<configuration>
-					<locales>en,ja</locales>
-					<outputEncoding>UTF-8</outputEncoding>
-					<inputEncoding>UTF-8</inputEncoding>
-					<stagingDirectory>..</stagingDirectory>
-					<i18n>false</i18n>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -191,6 +177,15 @@
 	</developers>
 	<reporting>
 		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+<version>2.0-beta-4</version>
+				<configuration>
+					<locales>en,ja</locales>
+					<outputEncoding>UTF-8</outputEncoding>
+					<inputEncoding>UTF-8</inputEncoding>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>surefire-report-maven-plugin</artifactId>
