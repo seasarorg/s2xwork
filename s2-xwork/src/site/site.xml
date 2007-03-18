@@ -16,7 +16,7 @@
 
 		<menu name="S2XWork">
 			<item name="概要" href="index.html" />
-			<item name="ダウンロード" href="../download.html" />
+			<item name="ダウンロード" href="download.html" />
 			<item name="使い方" href="usage.html" />
 		</menu>
 
