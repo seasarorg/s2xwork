@@ -6,29 +6,12 @@
 	<artifactId>s2-xwork-tiger</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.1-SNAPSHOT</version>
-	<name>S2XWorkTiger</name>
-	<url>http://s2xwork.sandbox.seasar2.org/</url>
-	<issueManagement>
-		<system>JIRA</system>
-		<url>https://www.seasar.org/issues/browse/XWORK</url>
-	</issueManagement>
-	<developers>
-		<developer>
-			<id>matobat</id>
-			<name>Matoba Tatsunori</name>
-			<email />
-			<url>http://d.hatena.ne.jp/matobat/</url>
-			<organization />
-			<timezone>+9</timezone>
-		</developer>
-	</developers>
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+	<name>s2-xwork-tiger</name>
+	<parent>
+		<artifactId>s2-xwork-www</artifactId>
+		<groupId>org.seasar.xwork</groupId>
+		<version>1.0.0</version>
+	</parent>
 	<scm>
 		<connection>
 			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
@@ -37,116 +20,21 @@
 			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
 		</developerConnection>
 		<url>
-			http://www.seasar.org/websvn/listing.php?repname=sandbox.s2xwork&amp;path=%2Ftrunk%2Fs2-xwork%2F
+			https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
 		</url>
 	</scm>
-	<organization>
-		<name>The Seasar Foundation</name>
-		<url>http://www.seasar.org/</url>
-	</organization>
 	<build>
-		<defaultGoal>validate</defaultGoal>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<encoding>UTF-8</encoding>
-						<source>1.5</source>
-						<target>1.5</target>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>source-jar</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>javadoc-jar</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-					<tagBase>
-						https://www.seasar.org/svn/sandbox/s2xwork/tags/
-					</tagBase>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>surefire-report-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changes-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-site-plugin</artifactId>
-				<configuration>
-					<locales>ja</locales>
-					<outputEncoding>UTF-8</outputEncoding>
-					<inputEncoding>UTF-8</inputEncoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>
-					maven-project-info-reports-plugin
-				</artifactId>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>changes-report</report>
-							<report>jira-report</report>
-							<report>scm</report>
-							<report>dependencies</report>
-							<report>project-team</report>
-							<report>issue-tracking</report>
-							<report>license</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
-		</plugins>
-	</reporting>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -171,27 +59,10 @@
 			<version>1.2.1</version>
 		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>maven.seasar.org</id>
-			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>http://maven.seasar.org/maven2</url>
-		</repository>
-	</repositories>
 	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>maven.seasar.org</id>
-			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>
-				scp://www.seasar.org/home/groups/sandbox/s2xwork/maven/maven2/
-			</url>
-		</repository>
-		<site>
-			<id>matobat.sakura.ne.jp</id>
-			<url>
-				scp://matobat.sakura.ne.jp/home/matobat/www/test/s2-xwork-tiger/
-			</url>
-		</site>
+                <site>
+                  <id>maven.seasar.org</id>
+                  <url>file://${basedir}/../s2-xwork-www/s2-xwork-tiger</url>
+                </site>
 	</distributionManagement>
 </project>

@@ -1,4 +1,4 @@
 S2XWorkとは
 
-  S2XWorkは{{{http://www.opensymphony.com/}OpenSymphony}}の開発しているコマンドパターンフレームワーク{{{http://www.opensymphony.com/xwork/}XWork}}からSeasar2を利用するコンポーネントを提供します。
-  {{{http://www.opensymphony.com/webwork/wikidocs/Spring.html}Webwork Spring Integration}}と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
+  S2XWorkTigerを使用すれば、xwork.xmlに記述していたActionの定義をActionクラスの中に書くことが出来るようになります。
+
