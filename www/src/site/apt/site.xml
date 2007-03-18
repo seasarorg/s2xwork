@@ -6,18 +6,10 @@
 		<version>0.1.0</version>
 	</skin>
 	<body>
-		<links>
-			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="S2XWork" href="s2-xwork/" />
-			<item name="S2XWorkTiger" href="s2-xwork-tiger/" />
-			<item name="clwork" href="clwork/" />
-		</links>
-
 		<menu name="Index">
 			<item name="Index" href="index.html" />
 			<item name="Download" href="download.html" />
 		</menu>
-                <menu ref="modules"/>
-                <menu ref="reports"/>
+        <menu ref="reports"/>
 	</body>
 </project>
