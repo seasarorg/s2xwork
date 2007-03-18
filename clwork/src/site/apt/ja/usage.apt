@@ -1,0 +1,47 @@
+使い方
+
+* CommandLineDispatcher
+
+	CommandLineDispatcherはmainメソッドから使用されることを想定しています。 
+	dispatchメソッドの第1引数は実行するActionの名前で、第2引数はコマンドラインパラメータになります。 
+	パラメータは「-name value」の形式で指定するとActionまたはModelDrivenのプロパティにセットされます。 
+
+----------------------------------------
+public static void main(String[] args) throws Exception {
+    CommandLineDispatcher dispatcher = new CommandLineDispatcher();
+    dispatcher.dispatch(args[0], args);
+}
+----------------------------------------
+
+	Actionなどでコマンドラインパラメータをそのまま使いたい場合は以下のようにして取り出せます。 
+	String[] args = (String[])ActionContext.getContext().get(CommandLineDispatcher.CMD);
+
+* CommandLineResult
+
+	System.exitして終了するCommandLineResultの定義を追加します。 
+	
+	CommandLineResultのresultCodeパラメータで終了コードを指定します。 
+
+----------------------------------------
+<package name="command">
+    <result-types>
+        <result-type class="jp.sourceforge.clwork.result.CommandLineResult" name="command"/>
+    </result-types>
+    <interceptors>
+        <interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
+        <interceptor-stack name="defaultStack">
+            <interceptor-ref name="params"/>
+        </interceptor-stack>
+    </interceptors>
+    <default-interceptor-ref name="defaultStack"/>
+        
+    <action name="add" class="jp.sourceforge.clwork.sample.AddAction">
+        <result name="success" type="command">
+            <param name="resultCode">0</param>
+        </result>
+        <result name="error" type="command">
+            <param name="resultCode">1</param>
+        </result>
+    </action>
+</package>
+----------------------------------------
