@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="Shift_JIS"?>
 <project name="S2XWork">
-        <bannerRight>
-            <src>http://maven.apache.org/images/maven-small.gif</src>
-        </bannerRight>
-
 	<body>
 		<links>
 			<item name="Seasar.org" href="http://www.seasar.org/" />
@@ -12,10 +8,12 @@
 			<item name="clwork" href="../clwork/index.html" />
 		</links>
 
-		<menu name="S2XWork">
-			<item name="概要" href="index.html" />
-			<item name="ダウンロード" href="download.html" />
-			<item name="使い方" href="usage.html" />
+		<menu ref="parent"/>
+
+		<menu name="Index">
+			<item name="About" href="index.html" />
+			<item name="Download" href="download.html" />
+			<item name="Usage" href="usage.html" />
 		</menu>
 
 		<menu ref="reports"/>
