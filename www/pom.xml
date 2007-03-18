@@ -1,22 +1,249 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2-xwork-www</artifactId>
-	<name></name>
+	<name>s2-xwork-www</name>
 	<packaging>pom</packaging>
-	<version>1.0</version>
-	<reporting>
+	<version>1.0.0</version>
+	<modules>
+		<module>../s2-xwork</module>
+		<module>../s2-xwork-tiger</module>
+		<module>../clwork</module>
+		<module>../s2-xwork-example-webwork</module>
+		<module>../s2-xwork-example-clwork</module>
+	</modules>
+	<url>http://s2xwork.sandbox.seasar2.org/</url>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>https://www.seasar.org/issues/browse/XWORK</url>
+	</issueManagement>
+	<mailingLists>
+		<mailingList>
+			<name>Seasar-user</name>
+			<subscribe>
+				http://lists.sourceforge.jp/mailman/listinfo/seasar-user
+			</subscribe>
+			<unsubscribe>
+				http://lists.sourceforge.jp/mailman/listinfo/seasar-user
+			</unsubscribe>
+			<post>seasar-user@lists.sourceforge.jp</post>
+			<archive>
+				http://lists.sourceforge.jp/mailman/archives/seasar-user/
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>Seasar-dev</name>
+			<subscribe>
+				http://lists.sourceforge.jp/mailman/listinfo/seasar-dev
+			</subscribe>
+			<unsubscribe>
+				http://lists.sourceforge.jp/mailman/listinfo/seasar-dev
+			</unsubscribe>
+			<post>seasar-dev@lists.sourceforge.jp</post>
+			<archive>
+				http://lists.sourceforge.jp/mailman/archives/seasar-dev/
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>Seasar-user-en</name>
+			<subscribe>
+				https://www.seasar.org/mailman/listinfo/seasar-user-en
+			</subscribe>
+			<unsubscribe>
+				https://www.seasar.org/mailman/listinfo/seasar-user-en
+			</unsubscribe>
+			<post>seasar-user-en@ml.seasar.org</post>
+			<archive>
+				http://ml.seasar.org/archives/seasar-user-en/
+			</archive>
+		</mailingList>
+	</mailingLists>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>source-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>javadoc-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<links>
+						<link>
+							http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/webwork/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/xwork/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/oscore/api/
+						</link>
+					</links>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagBase>
+						https://www.seasar.org/svn/sandbox/s2xwork/tags/
+					</tagBase>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
 				<configuration>
-					<locales>ja</locales>
+					<locales>en,ja</locales>
 					<outputEncoding>UTF-8</outputEncoding>
 					<inputEncoding>UTF-8</inputEncoding>
-					<stagingDirectory>.</stagingDirectory>
-					<generateReports>false</generateReports>
+					<stagingDirectory>..</stagingDirectory>
+					<i18n>false</i18n>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>site</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<mkdir dir="target/site/en" />
+								<move todir="target/site/en">
+									<fileset dir="target/site">
+										<exclude name="ja/" />
+										<exclude name="index.html.*" />
+									</fileset>
+								</move>
+								<delete>
+									<fileset dir="target/site"
+										includes="**/index.html.*">
+										<exclude name="index.html.*" />
+									</fileset>
+								</delete>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+			</extension>
+		</extensions>
+	</build>
+	<developers>
+		<developer>
+			<id>matobat</id>
+			<name>Matoba Tatsunori</name>
+			<email />
+			<url>http://d.hatena.ne.jp/matobat/</url>
+			<organization />
+			<timezone>+9</timezone>
+		</developer>
+	</developers>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>surefire-report-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>changes-report</report>
+							<report>scm</report>
+							<report>dependencies</report>
+							<report>project-team</report>
+							<report>issue-tracking</report>
+							<report>license</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
+	<repositories>
+		<repository>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>http://maven.seasar.org/maven2</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>maven.seasar.org</id>
+			<name>The Seasar Foundation Maven2 Repository</name>
+			<url>dav:https://www.seasar.org/maven/maven2</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>maven.seasar.org</id>
+			<name>
+				The Seasar Foundation Maven2 Snapshot Repository
+			</name>
+			<url>dav:https://www.seasar.org/maven/maven2-snapshot</url>
+		</snapshotRepository>
+		<site>
+			<id>matobat.sakura.ne.jp</id>
+			<url>scp://s2-xwork-www/</url>
+		</site>
+	</distributionManagement>
 </project>

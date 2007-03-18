@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="Shift_JIS"?>
-<project name="s2xwork-www">
-	<bannerLeft>
-		<name>Seasar</name>
-		<src>http://www.seasar.org/images/seasar_logo_blue.gif</src>
-		<href>http://www.seasar.org/</href>
-	</bannerLeft>
-
+<project name="S2XWork">
+        <bannerRight>
+            <src>http://maven.apache.org/images/maven-small.gif</src>
+        </bannerRight>
 	<body>
 		<links>
 			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="S2XWork" href="S2XWork/index.html" />
-			<item name="S2XWorkTiger" href="S2XWorkTiger/index.html" />
+			<item name="S2XWork" href="s2-xwork/index.html" />
+			<item name="S2XWorkTiger" href="s2-xwork-tiger/index.html" />
 			<item name="clwork" href="clwork/index.html" />
 		</links>
 
@@ -19,9 +16,16 @@
 			<item name="ダウンロード" href="download.html" />
 		</menu>
 		<menu name="プロダクト">
-			<item name="S2XWork" href="S2XWork/index.html" />
-			<item name="S2XWorkTiger" href="S2XWorkTiger/index.html" />
+			<item name="S2XWork" href="s2-xwork/index.html" />
+			<item name="S2XWorkTiger" href="s2-xwork-tiger/index.html" />
 			<item name="clwork" href="clwork/index.html" />
 		</menu>
+		
+		${reports}
 	</body>
+	<skin>
+		<groupId>org.seasar.project</groupId>
+		<artifactId>seasar-skin</artifactId>
+		<version>0.1.0</version>
+	</skin>
 </project>

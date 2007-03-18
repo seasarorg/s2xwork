@@ -1,14 +1,14 @@
 プロダクト
   
-  * {{{http://s2xwork.sandbox.seasar.org/}S2XWork}}
+  * {{{s2-xwork/index.html}S2XWork}}
 
     S2XWorkは{{{http://www.opensymphony.com/}OpenSymphony}}の開発しているコマンドパターンフレームワーク{{{http://www.opensymphony.com/xwork/}XWork}}からSeasar2を利用するコンポーネントを提供します。
     {{{http://www.opensymphony.com/webwork/wikidocs/Spring.html}Webwork Spring Integration}}と同じように WebWork2の標準のIoCコンテナをSeasar2に置き換えることが出来ます。
 
-  * {{{http://s2xwork.sandbox.seasar.org/S2XWorkTiger/}S2XWorkTiger}}
+  * {{{s2-xwork-tiger/index.html}S2XWorkTiger}}
 
     S2XWorkTigerはxwork.xmlに記述するactionの設定をアノテーションに置き換える機能を提供します。
 
-  * {{{http://s2xwork.sandbox.seasar.org/clwork/}clwork}}
+  * {{{clwork/index.html}clwork}}
 
     clworkはコマンドラインアプリケーションからxworkを利用する機能を提供します。
