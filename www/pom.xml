@@ -101,24 +101,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<charset>UTF-8</charset>
-					<encoding>UTF-8</encoding>
-					<links>
-						<link>
-							http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/
-						</link>
-						<link>
-							http://www.opensymphony.com/webwork/api/
-						</link>
-						<link>
-							http://www.opensymphony.com/xwork/api/
-						</link>
-						<link>
-							http://www.opensymphony.com/oscore/api/
-						</link>
-					</links>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -162,6 +144,7 @@
 								<move todir="target/site/en">
 									<fileset dir="target/site">
 										<exclude name="ja/" />
+										<exclude name="en/" />
 										<exclude name="index.html.*" />
 									</fileset>
 								</move>
@@ -171,6 +154,11 @@
 										<exclude name="index.html.*" />
 									</fileset>
 								</delete>
+								<mkdir dir="target/site/ja/cobertura" />
+								<mkdir dir="target/site/en/cobertura" />
+								<copy todir="target/site/ja/cobertura" overwrite="true">
+									<fileset dir="target/site/en/cobertura" />
+								</copy>
 							</tasks>
 						</configuration>
 					</execution>
@@ -227,6 +215,20 @@
 				<configuration>
 					<charset>UTF-8</charset>
 					<encoding>UTF-8</encoding>
+					<links>
+						<link>
+							http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/webwork/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/xwork/api/
+						</link>
+						<link>
+							http://www.opensymphony.com/oscore/api/
+						</link>
+					</links>
 				</configuration>
 			</plugin>
 			<plugin>

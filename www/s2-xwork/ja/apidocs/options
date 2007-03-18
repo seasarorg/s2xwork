@@ -12,6 +12,14 @@
 'C:/work/java/project/oss/s2xwork/s2-xwork-www/../s2-xwork/target/site/ja/apidocs'
 -doctitle
 's2-xwork 1.0.2-SNAPSHOT API'
+-link
+'http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/'
+-link
+'http://www.opensymphony.com/webwork/api/'
+-link
+'http://www.opensymphony.com/xwork/api/'
+-link
+'http://www.opensymphony.com/oscore/api/'
 -use
 -version
 -windowtitle
