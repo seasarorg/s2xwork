@@ -1,0 +1,18 @@
+<!DOCTYPE xwork PUBLIC 
+	"-//OpenSymphony Group//XWork 2.0//EN"
+	"http://www.opensymphony.com/xwork/xwork-2.0.dtd">
+<xwork>
+	<bean type="com.opensymphony.xwork2.ObjectFactory" name="seasar2"
+		class="org.seasar.xwork2.S2ObjectFactory" />
+
+	<package name="default">
+		<interceptors>
+			<interceptor name="s2component"
+				class="org.seasar.xwork2.component.S2ComponentInterceptor" />
+		</interceptors>
+		<action name="test"
+			class="org.seasar.xwork2.component.S2ComponentInterceptorTest$TestAction">
+			<interceptor-ref name="s2component" />
+		</action>
+	</package>
+</xwork>
