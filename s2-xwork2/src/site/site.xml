@@ -8,7 +8,7 @@
 		</menu>
 
 		<menu name="Link">
-			<item name="Top" href="http://s2xwork.sandbox.seasar.org/" />
+			<item name="" href="../../" />
 			<item name="Seasar.org" href="http://www.seasar.org/" />
 			<item name="Opensymphony - XWork"
 				href="http://www.opensymphony.com/xwork/" />

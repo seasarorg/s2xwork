@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+	<properties>
+		<title>変更履歴</title>
+	</properties>
+	<body>
+		<release version="1.0.0" date="2007-04-26"
+			description="初回リリース">
+		</release>
+	</body>
+</document>
