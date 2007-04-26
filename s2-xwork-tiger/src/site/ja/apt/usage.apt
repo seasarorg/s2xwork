@@ -1,7 +1,7 @@
 使い方
 
 *設定
-以下の内容をdiconファイルに追加します。
+  以下の内容をdiconファイルに追加します。
 
 ----------------------------------------
 <component \
@@ -14,7 +14,7 @@
 </component>
 ----------------------------------------
 
-バージョン0.5からは上記の内容がs2xwork-tiger.diconに書かれているため、以下のような記述でも大丈夫です。
+  バージョン0.5からは上記の内容がs2xwork-tiger.diconに書かれているため、以下のような記述でも大丈夫です。
 
 ----------------------------------------
 <?xml version="1.0"?>
@@ -24,9 +24,9 @@
 </components>
 ----------------------------------------
 
-AnnotationConfigurationProviderには以下のプロパティがあります。
+  AnnotationConfigurationProviderには以下のプロパティがあります。
 
-現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。
+  現状はクラスパス以下のクラスファイルが検索対象です。Jarファイル内のクラスには対応していません。
 
 *--------------*-----------------------------------------------------------------------------------+----------------:
 | プロパティ名 | 内容                                                                              | デフォルト値   |
@@ -39,7 +39,7 @@ AnnotationConfigurationProviderには以下のプロパティがあります。
 
 *アノテーションの使い方
 
-アノテーションをアクションクラス名のクラス定義の上に書きます。
+  アノテーションをアクションクラス名のクラス定義の上に書きます。
 
 ----------------------------------------
 @XWorkAction(name="test")
@@ -48,10 +48,17 @@ public class TestAction extends ActionSupport{
 ----------------------------------------
 
  * 例:通常のAction定義(nameは必須)
-  * @XWorkAction(name="test") 
+ 
+   * @XWorkAction(name="test") 
+
  * 例:複数のAction定義
-  * @XWorkActions(actions = {@XWorkAction(name="test1"),@XWorkAction(name="test2")}) 
+
+   * @XWorkActions(actions = {@XWorkAction(name="test1"),@XWorkAction(name="test2")}) 
+
  * 例:メソッド指定
-  * @XWorkAction(name="test", method="add") 
+
+   * @XWorkAction(name="test", method="add") 
+
  * 例:Resultありの場合(@Resultのnameを省略した場合はsuccess)
-  * @XWorkAction(name="test",result=@Result(type="velocity",param=@Param(name="location",value="index.vm")))
+
+   * @XWorkAction(name="test",result=@Result(type="velocity",param=@Param(name="location",value="index.vm")))

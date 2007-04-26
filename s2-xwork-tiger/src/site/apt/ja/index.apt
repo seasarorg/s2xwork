@@ -1,4 +1,0 @@
-S2XWorkとは
-
-  S2XWorkTigerを使用すれば、xwork.xmlに記述していたActionの定義をActionクラスの中に書くことが出来るようになります。
-

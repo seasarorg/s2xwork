@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="Shift_JIS"?>
 <project name="S2XWorkTiger">
 	<body>
-		<links>
-			<item name="Seasar.org" href="http://www.seasar.org/" />
-			<item name="S2XWork" href="../s2-xwork/" />
-			<item name="S2XWorkTiger" href="../s2-xwork-tiger/" />
-			<item name="clwork" href="../clwork/" />
-		</links>
-
-		<menu ref="parent"/>
-
 		<menu name="Index">
 			<item name="概要" href="index.html" />
 			<item name="ダウンロード" href="download.html" />
 			<item name="使い方" href="usage.html" />
 		</menu>
 
+		<menu name="Link">
+			<item name="トップ" href="../../" />
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="Opensymphony - XWork"
+				href="http://www.opensymphony.com/xwork/" />
+		</menu>
+		
 		<menu ref="reports"/>
 	</body>
 	<skin>
