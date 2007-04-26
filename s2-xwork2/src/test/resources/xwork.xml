@@ -2,10 +2,14 @@
 	"-//OpenSymphony Group//XWork 2.0//EN"
 	"http://www.opensymphony.com/xwork/xwork-2.0.dtd">
 <xwork>
-	<bean type="com.opensymphony.xwork2.ObjectFactory" name="seasar2"
-		class="org.seasar.xwork2.S2ObjectFactory" />
 
-	<package name="default">
+	<bean class="java.lang.String" name="devMode">"false"</bean>
+	<include file="xwork-default.xml"></include>
+	<package name="default" extends="xwork-default">
+		<result-types>
+			<result-type name="mock"
+				class="com.opensymphony.xwork2.mock.MockResult" />
+		</result-types>
 		<interceptors>
 			<interceptor name="s2component"
 				class="org.seasar.xwork2.component.S2ComponentInterceptor" />
@@ -13,6 +17,7 @@
 		<action name="test"
 			class="org.seasar.xwork2.component.S2ComponentInterceptorTest$TestAction">
 			<interceptor-ref name="s2component" />
+			<result name="success" type="mock" />
 		</action>
 	</package>
 </xwork>

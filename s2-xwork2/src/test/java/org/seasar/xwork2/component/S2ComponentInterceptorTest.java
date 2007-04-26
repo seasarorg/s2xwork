@@ -28,12 +28,12 @@ public class S2ComponentInterceptorTest extends XWorkTestCase {
 
 	protected void setUp() throws Exception {
 		ObjectFactory.setObjectFactory(new S2ObjectFactory());
+		SingletonS2ContainerFactory.init();
 		s2container = SingletonS2ContainerFactory.getContainer();
 
 		super.setUp();
 		XmlConfigurationProvider c = new XmlConfigurationProvider();
-		configurationManager.addConfigurationProvider(c);
-		configurationManager.reload();
+		loadConfigurationProviders(c);
 	}
 
 	/**

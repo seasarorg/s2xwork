@@ -23,9 +23,6 @@ public class S2ObjectFactory extends ObjectFactory {
 	 * SingletonS2ContainerFactoryからS2Containerを取得するコンストラクタ。
 	 */
 	public S2ObjectFactory() {
-		if (!SingletonS2ContainerFactory.hasContainer()) {
-			SingletonS2ContainerFactory.init();
-		}
 	}
 
 	/**
