@@ -1,0 +1,26 @@
+-classpath 'C:/work/java/project/oss/s2xwork/s2-xwork-www/../s2-xwork2/target/classes;C:/p2net/java/mvn-repos/org/seasar/container/s2-framework/2.4.12/s2-framework-2.4.12.jar;C:/p2net/java/mvn-repos/opensymphony/ognl/2.6.11/ognl-2.6.11.jar;C:/p2net/java/mvn-repos/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar;C:/p2net/java/mvn-repos/ognl/ognl/2.6.7/ognl-2.6.7.jar;C:/p2net/java/mvn-repos/opensymphony/xwork/2.0.2/xwork-2.0.2.jar;C:/p2net/java/mvn-repos/jboss/javassist/3.4.ga/javassist-3.4.ga.jar;C:/p2net/java/mvn-repos/aopalliance/aopalliance/1.0/aopalliance-1.0.jar' -encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/work/java/project/oss/s2xwork/s2-xwork-www/../s2-xwork2/src/main/java'
+-author
+-bottom
+'Copyright &copy; 2007. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'C:/work/java/project/oss/s2xwork/s2-xwork-www/../s2-xwork2/target/site/ja/apidocs'
+-doctitle
+'s2-xwork2 1.0.0-SNAPSHOT API'
+-link
+'http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/'
+-link
+'http://www.opensymphony.com/webwork/api/'
+-link
+'http://www.opensymphony.com/xwork/api/'
+-link
+'http://www.opensymphony.com/oscore/api/'
+-use
+-version
+-windowtitle
+'s2-xwork2 1.0.0-SNAPSHOT API'
