@@ -11,7 +11,7 @@
 	<description>
 		clworkはXWorkをベースにしたコマンドラインアプリ向けのフレームワークです。
 	</description>
-        <url>http://s2xwork.sandbox.seasar.org/clwork/</url>
+	<url>http://s2xwork.sandbox.seasar.org/clwork/</url>
 	<parent>
 		<artifactId>s2-xwork-www</artifactId>
 		<groupId>org.seasar.xwork</groupId>
@@ -48,9 +48,9 @@
 		</dependency>
 	</dependencies>
 	<distributionManagement>
-                <site>
-                  <id>maven.seasar.org</id>
-                  <url>file://${basedir}/../s2-xwork-www/clwork</url>
-                </site>
+		<site>
+			<id>maven.seasar.org</id>
+			<url>file://${basedir}/../s2-xwork-www/clwork</url>
+		</site>
 	</distributionManagement>
 </project>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="Shift_JIS"?>
-<project name="S2XWorkTiger">
+<project name="clwork">
 	<body>
 		<menu name="Index">
+			<item name="Top" href="http://s2xwork.sandbox.seasar.org/" />
 			<item name="About" href="index.html" />
 			<item name="Download" href="download.html" />
 			<item name="Usage" href="usage.html" />
 		</menu>
 
 		<menu name="Link">
-			<item name="Top" href="/" />
-			<item name="S2XWork" href="/s2-xwork/" />
-			<item name="S2XWorkTiger" href="/s2-xwork-tiger/" />
-			<item name="clwork" href="/clwork/" />
+			<item name="Top" href="../../" />
 			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="Opensymphony - XWork"
+				href="http://www.opensymphony.com/xwork/" />
 		</menu>
 
-		<menu ref="reports"/>
+		<menu ref="reports" />
 	</body>
 	<skin>
 		<groupId>org.seasar.project</groupId>
