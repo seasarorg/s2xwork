@@ -1,14 +1,16 @@
-ダウンロード
+Download
 
-  * プロダクト
+  * Product
 
     * {{{http://maven.seasar.org/maven2/org/seasar/xwork/s2-xwork/}S2XWork}}
 
     * {{{http://maven.seasar.org/maven2/org/seasar/xwork/s2-xwork-tiger/}S2XWorkTiger}}
 
+    * {{{http://maven.seasar.org/maven2/org/seasar/xwork/s2-xwork2/}S2XWork2}}
+    
     * {{{http://maven.seasar.org/maven2/org/seasar/xwork/clwork/}clwork}}
 
-  * サンプル
+  * Example
 
     * {{{http://maven.seasar.org/maven2/org/seasar/xwork/s2-xwork-example-webwork/}S2XWork+WebWork2}}
 
