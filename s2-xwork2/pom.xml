@@ -1,11 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.seasar.xwork</groupId>
 	<artifactId>s2xwork2</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>s2-xwork2</name>
 	<url>http://s2xwork.sandbox.seasar.org/s2-xwork2/</url>
 	<parent>
@@ -14,15 +12,9 @@
 		<version>1.0.0</version>
 	</parent>
 	<scm>
-		<connection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
-		</connection>
-		<developerConnection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
-		</developerConnection>
-		<url>
-			https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
-		</url>
+		<connection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2xwork2-1.0.0</connection>
+		<developerConnection>scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/tags/s2xwork2-1.0.0</developerConnection>
+		<url>https://www.seasar.org/svn/sandbox/s2xwork/tags/s2xwork2-1.0.0</url>
 	</scm>
 	<dependencies>
 		<dependency>
