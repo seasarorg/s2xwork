@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="S2XWork2">
+	<body>
+		<menu name="Index">
+			<item name="About" href="index.html" />
+			<item name="Download" href="download.html" />
+			<item name="usage" href="usage.html" />
+		</menu>
+
+		<menu name="Link">
+			<item name="Top" href="http://s2xwork.sandbox.seasar.org/" />
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="Opensymphony - XWork"
+				href="http://www.opensymphony.com/xwork/" />
+		</menu>
+
+		<menu ref="reports" />
+	</body>
+	<skin>
+		<groupId>org.seasar.project</groupId>
+		<artifactId>seasar-skin</artifactId>
+		<version>0.1.0</version>
+	</skin>
+</project>

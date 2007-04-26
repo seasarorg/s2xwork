@@ -1,0 +1,4 @@
+使い方
+
+*設定
+ Struts2で使用する場合はstruts2-seasar-pluginを使用してください。

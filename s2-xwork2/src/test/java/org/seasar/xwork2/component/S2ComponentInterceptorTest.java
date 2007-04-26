@@ -11,14 +11,11 @@ import org.seasar.framework.container.impl.ComponentDefImpl;
 import org.seasar.xwork2.S2ObjectFactory;
 
 import com.opensymphony.xwork2.ActionProxy;
-import com.opensymphony.xwork2.ActionProxyFactory;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ObjectFactory;
 import com.opensymphony.xwork2.XWorkTestCase;
-import com.opensymphony.xwork2.config.Configuration;
-import com.opensymphony.xwork2.config.ConfigurationManager;
+import com.opensymphony.xwork2.config.ConfigurationProvider;
 import com.opensymphony.xwork2.config.providers.XmlConfigurationProvider;
-import com.opensymphony.xwork2.inject.Container;
 
 /**
  * S2ComponentInterceptorのテストクラス
@@ -33,7 +30,7 @@ public class S2ComponentInterceptorTest extends XWorkTestCase {
 
 		super.setUp();
 		XmlConfigurationProvider c = new XmlConfigurationProvider();
-		loadConfigurationProviders(c);
+		loadConfigurationProviders(new ConfigurationProvider[] { c });
 	}
 
 	/**

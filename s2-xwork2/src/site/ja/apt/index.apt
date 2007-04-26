@@ -1,0 +1,4 @@
+S2XWork2とは
+
+    S2XWork2は{{{http://www.opensymphony.com/}OpenSymphony}}の開発しているコマンドパターンフレームワーク{{{http://www.opensymphony.com/xwork/}XWork}}のバージョン2．0以降からSeasar2を利用するコンポーネントを提供します。
+    {{{http://struts.apache.org/2.x/}Struts2}}などの標準のIoCコンテナをSeasar2に置き換えることが出来ます。

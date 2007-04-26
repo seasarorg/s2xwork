@@ -6,8 +6,8 @@
 	<artifactId>s2xwork2</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>s2-xwork</name>
-	<url>http://s2xwork.sandbox.seasar.org/s2-xwork/</url>
+	<name>s2-xwork2</name>
+	<url>http://s2xwork.sandbox.seasar.org/s2-xwork2/</url>
 	<parent>
 		<artifactId>s2-xwork-www</artifactId>
 		<groupId>org.seasar.xwork</groupId>
@@ -15,13 +15,13 @@
 	</parent>
 	<scm>
 		<connection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/
+			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
 		</connection>
 		<developerConnection>
-			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork/
+			scm:svn:https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
 		</developerConnection>
 		<url>
-			https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2xwork/
+			https://www.seasar.org/svn/sandbox/s2xwork/trunk/s2-xwork2/
 		</url>
 	</scm>
 	<dependencies>
@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>org.seasar.container</groupId>
 			<artifactId>s2-framework</artifactId>
-			<version>2.4.11</version>
+			<version>2.4.12</version>
 		</dependency>
 		<dependency>
 			<groupId>servletapi</groupId>
@@ -51,7 +51,7 @@
 	<distributionManagement>
 		<site>
 			<id>maven.seasar.org</id>
-			<url>file://${basedir}/../s2-xwork-www/s2-xwork</url>
+			<url>file://${basedir}/../s2-xwork-www/s2-xwork2/</url>
 		</site>
 	</distributionManagement>
 </project>

@@ -2,8 +2,7 @@
 	"-//OpenSymphony Group//XWork 2.0//EN"
 	"http://www.opensymphony.com/xwork/xwork-2.0.dtd">
 <xwork>
-
-	<bean class="java.lang.String" name="devMode">"false"</bean>
+	<constant name="devMode" value="false" />
 	<include file="xwork-default.xml"></include>
 	<package name="default" extends="xwork-default">
 		<result-types>
