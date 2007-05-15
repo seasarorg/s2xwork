@@ -68,6 +68,7 @@
 	</mailingLists>
 
 	<build>
+		<defaultGoal>site-deploy</defaultGoal>
 		<pluginManagement>
 			<plugins>
 				<plugin>

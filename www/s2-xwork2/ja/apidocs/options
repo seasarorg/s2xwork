@@ -11,7 +11,7 @@
 -d
 'C:/work/java/project/oss/s2xwork/s2-xwork-www/../s2-xwork2/target/site/ja/apidocs'
 -doctitle
-'s2-xwork2 1.0.0-SNAPSHOT API'
+'s2-xwork2 1.0.1-SNAPSHOT API'
 -link
 'http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/'
 -link
@@ -23,4 +23,4 @@
 -use
 -version
 -windowtitle
-'s2-xwork2 1.0.0-SNAPSHOT API'
+'s2-xwork2 1.0.1-SNAPSHOT API'
