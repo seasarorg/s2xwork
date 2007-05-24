@@ -25,7 +25,7 @@ public static void main(String[] args) throws Exception {
 ----------------------------------------
 <package name="command">
     <result-types>
-        <result-type class="jp.sourceforge.clwork.result.CommandLineResult" name="command"/>
+        <result-type class="org.seasar.xwork.clwork.result.CommandLineResult" name="command"/>
     </result-types>
     <interceptors>
         <interceptor name="params" class="com.opensymphony.xwork.interceptor.ParametersInterceptor" /> 
@@ -35,7 +35,7 @@ public static void main(String[] args) throws Exception {
     </interceptors>
     <default-interceptor-ref name="defaultStack"/>
         
-    <action name="add" class="jp.sourceforge.clwork.sample.AddAction">
+    <action name="add" class="org.seasar.xwork.clwork.sample.AddAction">
         <result name="success" type="command">
             <param name="resultCode">0</param>
         </result>
