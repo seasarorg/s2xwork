@@ -150,7 +150,7 @@
     dispatcher.dispatch(args[0], args);
 }</pre></div><p>Actionなどでコマンドラインパラメータをそのまま使いたい場合は以下のようにして取り出せます。 String[] args = (String[])ActionContext.getContext().get(CommandLineDispatcher.CMD);</p></div><div class="section"><h3>CommandLineResult</h3><p>System.exitして終了するCommandLineResultの定義を追加します。 </p><p>CommandLineResultのresultCodeパラメータで終了コードを指定します。 </p><div class="source"><pre>&lt;package name=&quot;command&quot;&gt;
     &lt;result-types&gt;
-        &lt;result-type class=&quot;jp.sourceforge.clwork.result.CommandLineResult&quot; name=&quot;command&quot;/&gt;
+        &lt;result-type class=&quot;org.seasar.xwork.clwork.result.CommandLineResult&quot; name=&quot;command&quot;/&gt;
     &lt;/result-types&gt;
     &lt;interceptors&gt;
         &lt;interceptor name=&quot;params&quot; class=&quot;com.opensymphony.xwork.interceptor.ParametersInterceptor&quot; /&gt; 
@@ -160,7 +160,7 @@
     &lt;/interceptors&gt;
     &lt;default-interceptor-ref name=&quot;defaultStack&quot;/&gt;
         
-    &lt;action name=&quot;add&quot; class=&quot;jp.sourceforge.clwork.sample.AddAction&quot;&gt;
+    &lt;action name=&quot;add&quot; class=&quot;org.seasar.xwork.clwork.sample.AddAction&quot;&gt;
         &lt;result name=&quot;success&quot; type=&quot;command&quot;&gt;
             &lt;param name=&quot;resultCode&quot;&gt;0&lt;/param&gt;
         &lt;/result&gt;
@@ -178,6 +178,7 @@
   
           2007,
     
+          The Seasar Foundation and the others. All rights reserved.
       </address>
 <div class="line"><span class="hide">spacer</span></div>
 </div><!-- footer -->

@@ -7,6 +7,10 @@
 	<name>s2-xwork-www</name>
 	<packaging>pom</packaging>
 	<version>1.0.0</version>
+	<organization>
+		<name>The Seasar Foundation</name>
+		<url>http://www.seasarfoundation.org/</url>
+	</organization>
 	<modules>
 		<module>../s2-xwork</module>
 		<module>../s2-xwork-tiger</module>
