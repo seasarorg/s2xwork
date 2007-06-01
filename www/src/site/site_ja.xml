@@ -15,5 +15,11 @@
 			<item name="概要" href="index.html" />
 			<item name="ダウンロード" href="download.html" />
 		</menu>
+		<menu name="Link">
+			<item name="トップ" href="../" />
+			<item name="Seasar.org" href="http://www.seasar.org/" />
+			<item name="Opensymphony - XWork"
+				href="http://www.opensymphony.com/xwork/" />
+		</menu>
 	</body>
 </project>
