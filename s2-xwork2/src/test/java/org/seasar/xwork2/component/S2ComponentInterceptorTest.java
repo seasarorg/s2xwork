@@ -12,7 +12,6 @@ import org.seasar.xwork2.S2ObjectFactory;
 
 import com.opensymphony.xwork2.ActionProxy;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ObjectFactory;
 import com.opensymphony.xwork2.XWorkTestCase;
 import com.opensymphony.xwork2.config.ConfigurationProvider;
 import com.opensymphony.xwork2.config.providers.XmlConfigurationProvider;
@@ -24,12 +23,12 @@ public class S2ComponentInterceptorTest extends XWorkTestCase {
 	private S2Container s2container;
 
 	protected void setUp() throws Exception {
-		ObjectFactory.setObjectFactory(new S2ObjectFactory());
 		SingletonS2ContainerFactory.init();
 		s2container = SingletonS2ContainerFactory.getContainer();
 
 		super.setUp();
 		XmlConfigurationProvider c = new XmlConfigurationProvider();
+		c.setObjectFactory(new S2ObjectFactory());
 		loadConfigurationProviders(new ConfigurationProvider[] { c });
 	}
 

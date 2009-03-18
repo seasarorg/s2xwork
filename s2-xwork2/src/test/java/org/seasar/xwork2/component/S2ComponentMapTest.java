@@ -1,26 +1,37 @@
 package org.seasar.xwork2.component;
 
-import junit.framework.TestCase;
+import java.util.List;
 
 import org.seasar.framework.container.ComponentDef;
 import org.seasar.framework.container.PropertyDef;
 import org.seasar.framework.container.S2Container;
 import org.seasar.framework.container.deployer.InstanceDefFactory;
+import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 import org.seasar.framework.container.impl.ComponentDefImpl;
 import org.seasar.framework.container.impl.PropertyDefImpl;
-import org.seasar.framework.container.impl.S2ContainerImpl;
-import org.seasar.xwork2.component.S2ComponentMap;
+import org.seasar.xwork2.S2ObjectFactory;
+import org.seasar.xwork2.S2ObjectFactoryTest.TestService;
 
-import com.opensymphony.xwork2.util.OgnlValueStack;
+import com.opensymphony.xwork2.ActionProxy;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.XWorkTestCase;
+import com.opensymphony.xwork2.config.ConfigurationProvider;
+import com.opensymphony.xwork2.config.providers.XmlConfigurationProvider;
 
 /**
  * S2ComponentMapのテストクラス
  */
-public class S2ComponentMapTest extends TestCase {
+public class S2ComponentMapTest extends XWorkTestCase {
 	private S2Container container;
 
 	protected void setUp() throws Exception {
-		container = new S2ContainerImpl();
+		SingletonS2ContainerFactory.init();
+		container = SingletonS2ContainerFactory.getContainer();
+
+		super.setUp();
+		XmlConfigurationProvider c = new XmlConfigurationProvider();
+		c.setObjectFactory(new S2ObjectFactory());
+		loadConfigurationProviders(new ConfigurationProvider[] { c });
 	}
 
 	/**
@@ -37,10 +48,19 @@ public class S2ComponentMapTest extends TestCase {
 		container.register(componentDef);
 		componentDef = new ComponentDefImpl(S2ComponentMap.class);
 		container.register(componentDef);
+		componentDef = new ComponentDefImpl(TestAction.class);
+		componentDef.setInstanceDef(InstanceDefFactory.PROTOTYPE);
+		container.register(componentDef);
+		componentDef = new ComponentDefImpl(S2ComponentInterceptor.class);
+		componentDef.setInstanceDef(InstanceDefFactory.PROTOTYPE);
+		container.register(componentDef);
 
-		OgnlValueStack valueStack = new OgnlValueStack();
-		valueStack.getRoot().add(container.getComponent(S2ComponentMap.class));
-		assertEquals(valueStack.findString("testDto.value"), "test value");
+		ActionProxy proxy = actionProxyFactory.createActionProxy("", "test",
+				null);
+		proxy.execute();
+
+		assertEquals(proxy.getInvocation().getStack().findString(
+				"testDto.value"), "test value");
 	}
 
 	/**
@@ -70,4 +90,12 @@ public class S2ComponentMapTest extends TestCase {
 
 	}
 
+	/**
+	 * テスト用アクション
+	 */
+	public static class TestAction extends ActionSupport {
+		public String execute() {
+			return SUCCESS;
+		}
+	}
 }
